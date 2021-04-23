@@ -2,7 +2,7 @@
 <div class="main-content">
     <section class="section">
     <div class="section-header">
-        <h1>Trip Bulan Ini</h1>
+        <h1>Trip Hari Ini</h1>
     </div>
 
     <div class="row">
