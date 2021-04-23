@@ -4,7 +4,7 @@ class c_dashboard2 extends CI_Controller {
 
     public function index()
      {
-          $data['kurang20'] = $this->m_simoga->countkurang_duapuluh();
+          $data['duapuluh'] = $this->m_simoga->countkurang_duapuluh();
           $data['hariini'] = $this->m_simoga->count_today();
           $data['bulanini'] = $this->m_simoga->count_mounth();
           $this->load->view('templates/header');

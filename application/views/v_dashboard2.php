@@ -81,15 +81,15 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($hariini as $ini) { 
+                                        foreach($duapuluh as $dua) { 
                                    ?>
                                    
-                                   <?= number_format($ini['JumlahPerHari'], 0,',','.');?>
+                                   <?= number_format($dua['KurangDuaPuluh'], 0,',','.');?>
                                    
                                    <?php } ?>
 						</div>
                               <div>
-                                   <a href="<?= base_url('c_dashboard') ?>" >Lihat Data</a>
+                                   <a href="<?= base_url('c_duapuluh') ?>">Lihat Data</a>
                               </div>
                               
 					</div>
@@ -103,7 +103,7 @@
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
-							<h4 style="">Muatan Lebih dari 5 TON</h4>
+							<h4>Muatan Lebih dari 5 TON</h4>
 						</div>
 						<div class="card-body">
                                    <?php 
@@ -134,15 +134,15 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($kurang20 as $duapuluh) { 
+                                        foreach($hariini as $ini) { 
                                    ?>
                                    
-                                   <?= number_format($duapuluh['KurangDuaPuluh'], 0,',','.');?>
+                                   <?= number_format($ini['JumlahPerHari'], 0,',','.');?>
                                    
                                    <?php } ?>
 						</div>
                               <div>
-                                   <a href="<?= base_url('c_dashboard') ?>" >Lihat Data</a>
+                                   <a href="<?= base_url('c_duapuluh') ?>" >Lihat Data</a>
                               </div>
                               
 					</div>
