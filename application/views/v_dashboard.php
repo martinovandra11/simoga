@@ -2,7 +2,7 @@
 <div class="main-content">
     <section class="section">
     <div class="section-header">
-        <h1>Trip Hari ini</h1>
+        <h1>Trip Bulan Ini</h1>
     </div>
 
     <div class="row">
@@ -10,14 +10,12 @@
         <div class="card">
           <div class="card-body">
             <div class="row">
-            </div>
-            <input class="mb-3 mr-3 col-2 form-control" type="date">
-
-            <select class=" mb-3 mr-3 col-2 form-control">
-              <option>Isi dengan Nama PKS</option>
             </select>
-            
+            </div>
+          
             <div class="table-responsive">
+            
+              
             <table class="table table-hover table-bordered nowrap" id="table-1">
               <thead class="table-success">
                 <tr>
@@ -45,7 +43,6 @@
                   <th class="text-center">Status</th>
                   <th class="text-center">Catatan</th>
                   <th class="text-center">Dibuat</th>
-
                 </tr>
               </thead>
                 
