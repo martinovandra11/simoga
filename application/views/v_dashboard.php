@@ -31,6 +31,20 @@
                   <th class="text-center">Pemasok</th>
                   <th class="text-center">No Polisi</th>
                   <th class="text-center">Supir</th>
+                  <th class="text-center">Bruto</th>
+                  <th class="text-center">Netto</th>
+                  <th class="text-center">Jumlah TBS diterima</th>
+                  <th class="text-center">TBS Mentah</th>
+                  <th class="text-center">TBS Tankos</th>
+                  <th class="text-center">TBS Kecil</th>
+                  <th class="text-center">Jumlah TBS Sample</th>
+                  <th class="text-center">Tenera</th>
+                  <th class="text-center">Dura</th>
+                  <th class="text-center">Potongan</th>
+                  <th class="text-center">Status</th>
+                  <th class="text-center">Catatan</th>
+                  <th class="text-center">Dibuat</th>
+
                 </tr>
               </thead>
                 
@@ -57,7 +71,20 @@
                         <td><?php echo $plasma['durasi'];?></td>
                         <td><?php echo $plasma['pemasok'];?></td>
                         <td><?php echo $plasma['nopol'];?></td>
-                        <td><?php echo $plasma['supir'];?></td>
+                        <td><?php echo $plasma['bruto'];?></td>
+                        <td><?php echo $plasma['netto'];?></td>
+                        <td><?php echo $plasma['jumlah_tbs_diterima'];?></td>
+                        <td><?php echo $plasma['tbs_mentah'];?></td>
+                        <td><?php echo $plasma['tbs_tankos'];?></td>
+                        <td><?php echo $plasma['tbs_kecil'];?></td>
+                        <td><?php echo $plasma['jumlah_tbs_sample'];?></td>
+                        <td><?php echo $plasma['tenera'];?></td>
+                        <td><?php echo $plasma['dura'];?></td>
+                        <td><?php echo $plasma['grade'];?></td>
+                        <td><?php echo $plasma['potongan'];?></td>
+                        <td><?php echo $plasma['status'];?></td>
+                        <td><?php echo $plasma['catatan'];?></td>
+                        <td><?php echo $plasma['on_create'];?></td>
                     </tr>
 
                   <?php endforeach; ?>
