@@ -10,15 +10,16 @@
         <div class="card">
           <div class="card-body">
             <div class="row">
-            </select>
             </div>
-            <input type="date" name="tgl" /><br>
-            <select>
+            <input class="mb-3 mr-3 col-2 form-control" type="date">
+
+            <select class=" mb-3 mr-3 col-2 form-control">
               <option>Isi dengan Nama PKS</option>
             </select>
+            
             <div class="table-responsive">
             <table class="table table-hover table-bordered nowrap" id="table-1">
-              <thead class="table">
+              <thead class="table-success">
                 <tr>
                   <th class="text-center">Kode Kebun</th>
                   <th class="text-center">Kode Plasma</th>
