@@ -40,6 +40,7 @@
                   <th class="text-center">Jumlah TBS Sample</th>
                   <th class="text-center">Tenera</th>
                   <th class="text-center">Dura</th>
+                  <th class="text-center">Grade</th>
                   <th class="text-center">Potongan</th>
                   <th class="text-center">Status</th>
                   <th class="text-center">Catatan</th>
@@ -61,7 +62,30 @@
                 else 
                 {
                   foreach ($dataplasma as $plasma) : ?>
-                    <tr>
+
+                      <?php
+
+                      $warna = "";
+                      if($plasma['durasi'] < 20 && $plasma['bruto'] >= 5000)
+                      {
+                        $warna = 'background-color: #FF7F50; color: #FFFFFFFF;';
+                      }
+                      else if($plasma['bruto'] > 5000)
+                      {
+                        $warna = 'background-color: #FCCF3E;';
+                      }
+                      else if($plasma['durasi'] < 20)
+                      {
+                        $warna = 'background-color: #E94B3CFF; color: #FFFFFFFF;';
+                      }
+                      else
+                      {
+                        $warna = 'background-color: white;';
+                      }
+
+                      ?>
+
+                      <tr style="<?= $warna ?>">
                         <td><?php echo $plasma['kode_kebun'];?></td>
                         <td><?php echo $plasma['kode_plasma'];?></td>
                         <td><?php echo $plasma['jenis'];?></td>
@@ -71,6 +95,7 @@
                         <td><?php echo $plasma['durasi'];?></td>
                         <td><?php echo $plasma['pemasok'];?></td>
                         <td><?php echo $plasma['nopol'];?></td>
+                        <td><?php echo $plasma['supir'];?></td>
                         <td><?php echo $plasma['bruto'];?></td>
                         <td><?php echo $plasma['netto'];?></td>
                         <td><?php echo $plasma['jumlah_tbs_diterima'];?></td>
@@ -87,8 +112,7 @@
                         <td><?php echo $plasma['on_create'];?></td>
                     </tr>
 
-                  <?php endforeach; ?>
-                  <?php } ?>
+                  <?php endforeach; } ?>
 
                 </tbody>
                 

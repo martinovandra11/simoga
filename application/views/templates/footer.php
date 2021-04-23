@@ -21,25 +21,17 @@
   <script src="<?= base_url() ?>assets/assets/js/scripts.js"></script>
   <script src="<?= base_url() ?>assets/assets/js/custom.js"></script>
 
-  <!-- Page Specific JS File -->
-  <script src="<?= base_url() ?>assets/assets/js/page/index-0.js"></script>
-
   <!-- DataTables -->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.24/fc-3.3.2/fh-3.1.8/r-2.2.7/sc-2.0.3/sb-1.0.1/sp-1.2.2/datatables.min.css"/>
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.24/fc-3.3.2/fh-3.1.8/r-2.2.7/sc-2.0.3/sb-1.0.1/sp-1.2.2/datatables.min.js"></script>
-
-  <!-- <script>
-  $(document).ready(function() {
-    $('#table-1').DataTable();
-  } );
-  </script> -->
 
   <script>
   $(document).ready(function() {
     var table = $('#table-1').DataTable({
       paging: true,
       ordering: false,
-      fixedHeader: true
+      fixedHeader: true,
+      scrollX: true
       });
     });
   </script>
