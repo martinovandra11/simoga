@@ -39,7 +39,7 @@
     </div>
     <ul class="sidebar-menu">
         <li class="menu-header">Dashboard</li>
-        <li><a class="nav-link" href="<?= base_url('c_dashboard2') ?>"><i class="far fa-clock"></i> <span>Dashboard</span></a></li>
+        <li><a class="nav-link" href="<?= base_url() ?>"><i class="far fa-clock"></i> <span>Dashboard</span></a></li>
         <li><a class="nav-link" href="blank.html"><i class="far fa-file"></i> <span>Dashboard 2</span></a></li>
     </ul>
     </aside>

@@ -38,6 +38,7 @@
                   <th class="text-center">Jumlah TBS Sample</th>
                   <th class="text-center">Tenera</th>
                   <th class="text-center">Dura</th>
+                  <th class="text-center">Grade</th>
                   <th class="text-center">Potongan</th>
                   <th class="text-center">Status</th>
                   <th class="text-center">Catatan</th>
@@ -68,6 +69,7 @@
                         <td><?php echo $dua['durasi'];?></td>
                         <td><?php echo $dua['pemasok'];?></td>
                         <td><?php echo $dua['nopol'];?></td>
+                        <td><?php echo $dua['supir'];?></td>
                         <td><?php echo $dua['bruto'];?></td>
                         <td><?php echo $dua['netto'];?></td>
                         <td><?php echo $dua['jumlah_tbs_diterima'];?></td>
