@@ -23,6 +23,14 @@ class m_simoga extends CI_Model{
      public function today($tgl){
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE tanggal = '$tgl'")->result_array();
      }
+
+     public function kurang_duapuluh(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE durasi < 20")->result_array();
+     }
+
+     public function countkurang_duapuluh(){
+          return $this->db->query("SELECT COUNT(id_rekap) AS KurangDuaPuluh FROM sortasi_plasma WHERE durasi < 20")->result_array();
+     } 
 }
 
 ?>

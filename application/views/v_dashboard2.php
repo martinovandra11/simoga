@@ -134,10 +134,10 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($hariini as $ini) { 
+                                        foreach($kurang20 as $duapuluh) { 
                                    ?>
                                    
-                                   <?= number_format($ini['JumlahPerHari'], 0,',','.');?>
+                                   <?= number_format($duapuluh['KurangDuaPuluh'], 0,',','.');?>
                                    
                                    <?php } ?>
 						</div>
