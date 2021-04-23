@@ -15,7 +15,6 @@
           
             <div class="table-responsive">
             
-              
             <table class="table table-hover table-bordered nowrap" id="table-1">
               <thead class="table-success">
                 <tr>

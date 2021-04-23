@@ -2,7 +2,7 @@
 <div class="main-content">
     <section class="section">
     <div class="section-header">
-        <h1>Durasi Kurang 20 Menit</h1>
+        <h1>Bongkar < 20 Menit Dan Kapasitas > 5 Ton</h1>
     </div>
 
     <div class="row">
