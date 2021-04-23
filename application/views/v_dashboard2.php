@@ -107,15 +107,15 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($bulanini as $ini) { 
+                                        foreach($limaton as $ini) { 
                                    ?>
                                    
-                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                        <?= number_format($ini['LebihLimaTon'], 0,',','.');?>
                                    
                                    <?php } ?>
 						</div>
                               <div>
-                                   <a href="<?= base_url('c_bulanini') ?>">Lihat Data</a>
+                                   <a href="<?= base_url('c_limaton') ?>">Lihat Data</a>
                               </div>
 					</div>
 				</div>
@@ -134,15 +134,15 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($hariini as $ini) { 
+                                        foreach($dualima as $ini) { 
                                    ?>
                                    
-                                   <?= number_format($ini['JumlahPerHari'], 0,',','.');?>
+                                   <?= number_format($ini['DuaLima'], 0,',','.');?>
                                    
                                    <?php } ?>
 						</div>
                               <div>
-                                   <a href="<?= base_url('c_duapuluh') ?>" >Lihat Data</a>
+                                   <a href="<?= base_url('c_dualima') ?>" >Lihat Data</a>
                               </div>
                               
 					</div>

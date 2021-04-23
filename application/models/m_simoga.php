@@ -30,7 +30,23 @@ class m_simoga extends CI_Model{
 
      public function countkurang_duapuluh(){
           return $this->db->query("SELECT COUNT(id_rekap) AS KurangDuaPuluh FROM sortasi_plasma WHERE durasi < 20")->result_array();
-     } 
+     }
+
+     public function lebih_limaton(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE bruto > 5000")->result_array();
+     }
+
+     public function countlebih_limaton(){
+          return $this->db->query("SELECT COUNT(id_rekap) AS LebihLimaTon FROM sortasi_plasma WHERE bruto > 5000")->result_array();
+     }
+
+     public function dualima(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20")->result_array();
+     }
+
+     public  function count_dualima(){
+          return $this->db->query("SELECT COUNT(id_rekap) AS DuaLima FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20")->result_array();
+     }
 }
 
 ?>
