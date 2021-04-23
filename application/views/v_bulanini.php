@@ -2,7 +2,7 @@
 <div class="main-content">
     <section class="section">
     <div class="section-header">
-        <h1>Trip Hari ini</h1>
+        <h1>Trip Bulan Ini</h1>
     </div>
 
     <div class="row">
@@ -52,8 +52,8 @@
                         <td><?php echo $plasma['kode_plasma'];?></td>
                         <td><?php echo $plasma['jenis'];?></td>
                         <td><?php echo $plasma['tanggal'];?></td>
-                        <td><?php echo $plasma['masuk'];?></td>
-                        <td><?php echo $plasma['keluar'];?></td>
+                        <td><?php echo $plasma['masuk'];?>
+                        <td><?php echo $plasma['keluar'];?>
                         <td><?php echo $plasma['durasi'];?></td>
                         <td><?php echo $plasma['pemasok'];?></td>
                         <td><?php echo $plasma['nopol'];?></td>
