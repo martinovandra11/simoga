@@ -1,14 +1,13 @@
 <?php
 
-class c_duapuluh extends CI_Controller {
+class c_dualima extends CI_Controller {
 
     public function index()
     {
-        $data['duapuluh'] = $this->m_simoga->kurang_duapuluh();
+        $data['dualima'] = $this->m_simoga->dualima();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('v_duapuluh', $data);
+        $this->load->view('v_dualima', $data);
         $this->load->view('templates/footer');
     }
-
 }

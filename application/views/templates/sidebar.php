@@ -32,15 +32,15 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-        <a href="<?= base_url() ?>">SIMOGA</a>
+        <a href="<?= base_url('c_dashboard2') ?>">SIMOGA</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
         <a href="<?= base_url() ?>">SMG</a>
     </div>
     <ul class="sidebar-menu">
         <li class="menu-header">Dashboard</li>
-        <li><a class="nav-link" href="<?= base_url() ?>"><i class="far fa-clock"></i> <span>Dashboard</span></a></li>
-        <li><a class="nav-link" href="<?= base_url() ?>"><i class="far fa-file"></i> <span>Dashboard 2</span></a></li>
+        <li><a class="nav-link" href="<?= base_url('c_dashboard2') ?>"><i class="far fa-clock"></i> <span>Dashboard</span></a></li>
+        <li><a class="nav-link" href="blank.html"><i class="far fa-file"></i> <span>Dashboard 2</span></a></li>
     </ul>
     </aside>
 </div>
