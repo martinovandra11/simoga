@@ -12,10 +12,11 @@
             <div class="row">
             </select>
             </div>
-          
+            <input type="date" name="tgl" /><br>
+            <select>
+              <option>Isi dengan Nama PKS</option>
+            </select>
             <div class="table-responsive">
-            
-              
             <table class="table table-hover table-bordered nowrap" id="table-1">
               <thead class="table">
                 <tr>
@@ -29,8 +30,6 @@
                   <th class="text-center">Pemasok</th>
                   <th class="text-center">No Polisi</th>
                   <th class="text-center">Supir</th>
-                  
-
                 </tr>
               </thead>
                 
