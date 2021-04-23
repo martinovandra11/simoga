@@ -59,7 +59,26 @@
                 else 
                 {
                   foreach ($dualima as $dua) : ?>
-                    <tr>
+
+                      <?php
+
+                      $warna = "";
+                      if($dua['durasi'] < 20 && $dua['bruto'] >= 5000)
+                      {
+                        $warna = 'background-color: #FF7F50; color: #FFFFFFFF;'; // orange
+                      }
+                      else if($dua['durasi'] < 20)
+                      {
+                        $warna = 'background-color: #E94B3CFF; color: #FFFFFFFF;'; // merah
+                      }
+                      else
+                      {
+                        $warna = 'background-color: white;';
+                      }
+
+                      ?>
+
+                      <tr style="<?= $warna ?>">
                         <td><?php echo $dua['kode_kebun'];?></td>
                         <td><?php echo $dua['kode_plasma'];?></td>
                         <td><?php echo $dua['jenis'];?></td>
