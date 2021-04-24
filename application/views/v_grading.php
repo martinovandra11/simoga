@@ -2,31 +2,30 @@
 <div class="main-content">
     <section class="section">
     <div class="section-header">
-        <h1>Trip Hari Ini</h1>
+        <h1>Trip Bulan Ini</h1>
     </div>
 
     <div class="row">
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <div class="row">
+            
+          
+               <select class="form-control mb-3 mr-3 col-2" name="grade" id="grade">
+                    <option value=" ">Semua Grade</option>
+                    <?php foreach($datagrade as $grd) : ?>
+                         <option value="<?= $grd['grade'] ?>"><?= $grd['grade'] ?></option>
+                    <?php endforeach; ?>
+               </select>
+          
 
-            <!-- Filtering berdasarkan kode kebun -->
-              <select class="form-control mb-3 mr-3 col-2"  id="kebun" name="kebun">
-                <option value=" ">Hari Ini</option>
-                <?php foreach($kodekebun as $kbn) : ?>
-                  <option value="<?= $kbn['kode_kebun']?>"><?= $kbn['kode_kebun'] ?></option>
-                <?php endforeach; ?> 
-              </select>
-
-            </div>
+            
           
             <div class="table-responsive">
-            
             <table class="table table-hover table-bordered nowrap" id="table-1">
               <thead class="table-success">
                 <tr>
-                  <th class="text-center">Kode Kebun</th>
+                <th class="text-center">Kode Kebun</th>
                   <th class="text-center">Kode Plasma</th>
                   <th class="text-center">Jenis</th>
                   <th class="text-center">Tanggal</th>
@@ -66,26 +65,26 @@
                 else 
                 {
                   foreach ($dataplasma as $plasma) : ?>
+                  
+                  <?php
 
-                      <?php
+                    $warna = "";
+                    if($plasma['durasi'] < 20 && $plasma['bruto'] >= 5000)
+                    {
+                      $warna = 'background-color: #E94B3CFF ; color: #FFFFFFFF;';
+                    }
+                    else if($plasma['durasi'] < 20)
+                    {
+                      $warna = 'background-color: #FF7F50 ; color: #FFFFFFFF;';
+                    }
+                    else
+                    {
+                      $warna = 'background-color: white;';
+                    }
 
-                      $warna = "";
-                      if($plasma['durasi'] < 20 && $plasma['bruto'] >= 5000)
-                      {
-                        $warna = 'background-color: #E94B3CFF ; color: #FFFFFFFF;'; // orange
-                      }
-                      else if($plasma['durasi'] < 20)
-                      {
-                        $warna = 'background-color: #FF7F50; ; color: #FFFFFFFF;'; // merah
-                      }
-                      else
-                      {
-                        $warna = 'background-color: white;';
-                      }
+                    ?>
 
-                      ?>
-
-                      <tr style="<?= $warna ?>">
+                    <tr style="<?= $warna ?>">
                         <td><?php echo $plasma['kode_kebun'];?></td>
                         <td><?php echo $plasma['kode_plasma'];?></td>
                         <td><?php echo $plasma['jenis'];?></td>
@@ -125,17 +124,18 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-$(document).ready(function() {
-  $("#kebun").change(function(){
-    laporan();
+
+$(document).ready(function(){
+  $("#grade").change(function(){
+    grade();
   });
 });
 
-function laporan() {
-  var kbn = $("#kebun").val();
+function grade(){
+  var grd = $("#grade").val();
   $.ajax({
-    url : "<?= base_url('c_dashboard/filterkebun')?>",
-    data : "kebun=" +kbn,
+    url : "<?= base_url('c_grading/filtering')?>",
+    data : "grade=" + grd,
     success:function(data){
       $("#table-1 tbody").html(data);
     }

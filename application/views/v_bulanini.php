@@ -9,15 +9,18 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <div class="row">
             
-            <!-- Tanggal Pertama -->
-            <input class="mb-3 mr-3 ml-3 col-2 form-control" type="date" name="filtertgl" id="filtertgl" text="input tanggal">
+            <form action="<?= base_url('c_bulanini/fitertgl')?>" method="GET">
+              <!-- Tanggal Pertama -->
+              <label class="mb-3 mr-3 ml-3 col-2">Tanggal Awal</label>
+              <input class="mb-3 mr-3 ml-3 col-2 form-control" type="date" name="filtertgl1" id="filtertgl1" text="input tanggal">
+              <!-- Tanggal Kedua -->
+              <label class="mb-3 mr-3 ml-3 col-2">Tanggal Akhir</label>
+              <input class="mb-3 mr-3 ml-3 col-2 form-control" type="date" name="filtertgl2" id="filtertgl2" text="input tanggal">
+              <!-- <button type="button" class="btn btn-success mb-3 mr-3 ml-3 col-2 form-control">Tampilkan</button> -->
+            </form>
 
-            <!-- Tanggal Kedua -->
-            <input class="mb-3 mr-3 ml-3 col-2 form-control" type="date" name="filtertgl" id="filtertgl" text="input tanggal">
-
-            </div>
+            
           
             <div class="table-responsive">
             <table class="table table-hover table-bordered nowrap" id="table-1">
@@ -120,3 +123,28 @@
       </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+  $("#filtertgl1").change(function(){
+    rekap();
+  });
+  $("#filtertgl2").change(function(){
+    rekap();
+  });
+});
+
+function rekap(){
+  var tgl1 = $("#filtertgl1").val();
+  var tgl2 = $("#filtertgl2").val();
+  $.ajax({
+    url : "<?= base_url('c_bulanini/rentang')?>",
+    data : "filtertgl1=" + tgl1 + "&filtertgl2= "+tgl2,
+    success:function(data){
+      $("#table-1 tbody").html(data);
+    }
+  });
+}
+
+</script>

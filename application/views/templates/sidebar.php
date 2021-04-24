@@ -43,7 +43,9 @@
         <li class="menu-header">Total Inputan Trip</li>
         <li><a class="nav-link" href="<?= base_url('c_dashboard') ?>"><i class="far fa-file"></i> <span>Trip Hari Ini</span></a></li>
         <li><a class="nav-link" href="<?= base_url('c_bulanini') ?>"><i class="far fa-file"></i> <span>Trip Bulan Ini</span></a></li>
-        <!-- <li><a class="nav-link" href="<?= base_url('c_dashboard') ?>"><i class="far fa-file"></i> <span>Trip Hari Ini</span></a></li> -->
+        <li><a class="nav-link" href="#"><i class="far fa-file"></i> <span>Rekap Trip</span></a></li>
+        <li><a class="nav-link" href="<?= base_url('c_grading')?>"><i class="far fa-file"></i> <span>Halaman Grading</span></a></li>
+        
         <li class="menu-header">Laporan Bongkar Bulan Ini</li>
         <li><a class="nav-link" href="<?= base_url('c_duapuluh') ?>"><i class="far fa-file"></i> <span>Durasi < 20 Menit</span></a></li>
         <li><a class="nav-link" href="<?= base_url('c_limaton') ?>"><i class="far fa-file"></i> <span>Bruto > 5 Ton</span></a></li>
