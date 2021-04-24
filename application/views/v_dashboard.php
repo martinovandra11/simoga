@@ -2,7 +2,7 @@
 <div class="main-content">
     <section class="section">
     <div class="section-header">
-        <h1>Trip Bulan Ini</h1>
+        <h1>Trip Hari Ini</h1>
     </div>
 
     <div class="row">
@@ -10,7 +10,15 @@
         <div class="card">
           <div class="card-body">
             <div class="row">
+
+            <!-- Filtering berdasarkan kode kebun -->
+            <select class="form-control mb-3 mr-3 ml-3 col-2" id="idJenisLaporan" name="Jenis">
+              <option>Show All</option>
+              <?php foreach($jenislaporan as $jns) : ?>
+                <option value="<?= $jns->idJenis ?>"><?= $jns->jenisLaporan ?></option>
+              <?php endforeach; ?>
             </select>
+
             </div>
           
             <div class="table-responsive">
@@ -64,15 +72,11 @@
                       $warna = "";
                       if($plasma['durasi'] < 20 && $plasma['bruto'] >= 5000)
                       {
-                        $warna = 'background-color: #FF7F50; color: #FFFFFFFF;';
-                      }
-                      else if($plasma['bruto'] > 5000)
-                      {
-                        $warna = 'background-color: #FCCF3E;';
+                        $warna = 'background-color: #E94B3CFF ; color: #FFFFFFFF;'; // orange
                       }
                       else if($plasma['durasi'] < 20)
                       {
-                        $warna = 'background-color: #E94B3CFF; color: #FFFFFFFF;';
+                        $warna = 'background-color: #FF7F50; ; color: #FFFFFFFF;'; // merah
                       }
                       else
                       {

@@ -38,6 +38,7 @@
                   <th class="text-center">Jumlah TBS Sample</th>
                   <th class="text-center">Tenera</th>
                   <th class="text-center">Dura</th>
+                  <th class="text-center">Grade</th>
                   <th class="text-center">Potongan</th>
                   <th class="text-center">Status</th>
                   <th class="text-center">Catatan</th>
@@ -58,7 +59,26 @@
                 else 
                 {
                   foreach ($duapuluh as $dua) : ?>
-                    <tr>
+
+                      <?php
+
+                      $warna = "";
+                      if($dua['durasi'] < 20 && $dua['bruto'] >= 5000)
+                      {
+                        $warna = 'background-color: #E94B3CFF; color: #FFFFFFFF;'; // orange
+                      }
+                      else if($dua['durasi'] < 20)
+                      {
+                        $warna = 'background-color: #FF7F50; color: #FFFFFFFF;'; // merah
+                      }
+                      else
+                      {
+                        $warna = 'background-color: white;';
+                      }
+
+                      ?>
+
+                      <tr style="<?= $warna ?>">
                         <td><?php echo $dua['kode_kebun'];?></td>
                         <td><?php echo $dua['kode_plasma'];?></td>
                         <td><?php echo $dua['jenis'];?></td>
@@ -68,6 +88,7 @@
                         <td><?php echo $dua['durasi'];?></td>
                         <td><?php echo $dua['pemasok'];?></td>
                         <td><?php echo $dua['nopol'];?></td>
+                        <td><?php echo $dua['supir'];?></td>
                         <td><?php echo $dua['bruto'];?></td>
                         <td><?php echo $dua['netto'];?></td>
                         <td><?php echo $dua['jumlah_tbs_diterima'];?></td>
