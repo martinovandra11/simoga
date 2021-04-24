@@ -61,6 +61,33 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="col-6 col-md-12">
+				<div class="card card-statistic-1">
+					<div class="card-icon bg-warning">
+						<i class="fas fa-shipping-fast"></i>
+					</div>
+					<div class="card-wrap">
+						<div class="card-header">
+							<h4>Rekap Trip</h4>
+						</div>
+						<div class="card-body">
+                                   <?php 
+                                        foreach($bulanini as $ini) { 
+                                   ?>
+                                   
+                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                   
+                                   <?php } ?>
+						</div>
+                              <div>
+                                   <a href="<?= base_url('c_bulanini') ?>">Lihat Data</a>
+                              </div>
+					</div>
+				</div>
+			</div>
+				
+
 		</div>
 									
 		<div class="row justify-content-left">

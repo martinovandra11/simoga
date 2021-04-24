@@ -10,7 +10,15 @@
         <div class="card">
           <div class="card-body">
             <div class="row">
+
+            <!-- Filtering berdasarkan kode kebun -->
+            <select class="form-control mb-3 mr-3 ml-3 col-2" id="idJenisLaporan" name="Jenis">
+              <option>Show All</option>
+              <?php foreach($jenislaporan as $jns) : ?>
+                <option value="<?= $jns->idJenis ?>"><?= $jns->jenisLaporan ?></option>
+              <?php endforeach; ?>
             </select>
+
             </div>
           
             <div class="table-responsive">

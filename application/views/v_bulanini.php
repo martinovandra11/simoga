@@ -10,7 +10,13 @@
         <div class="card">
           <div class="card-body">
             <div class="row">
-            </select>
+            
+            <!-- Tanggal Pertama -->
+            <input class="mb-3 mr-3 ml-3 col-2 form-control" type="date" name="filtertgl" id="filtertgl" text="input tanggal">
+
+            <!-- Tanggal Kedua -->
+            <input class="mb-3 mr-3 ml-3 col-2 form-control" type="date" name="filtertgl" id="filtertgl" text="input tanggal">
+
             </div>
           
             <div class="table-responsive">
