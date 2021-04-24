@@ -64,11 +64,11 @@
                       $warna = "";
                       if($plasma['durasi'] < 20 && $plasma['bruto'] >= 5000)
                       {
-                        $warna = 'background-color: #FF7F50; color: #FFFFFFFF;'; // orange
+                        $warna = 'background-color: #E94B3CFF ; color: #FFFFFFFF;'; // orange
                       }
                       else if($plasma['durasi'] < 20)
                       {
-                        $warna = 'background-color: #E94B3CFF; color: #FFFFFFFF;'; // merah
+                        $warna = 'background-color: #FF7F50; ; color: #FFFFFFFF;'; // merah
                       }
                       else
                       {
