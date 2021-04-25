@@ -79,6 +79,10 @@ class m_simoga extends CI_Model{
      public function filter_grading($filter){ 
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade ='$filter'")->result_array();
      } 
+
+     public function grading_info(){
+          return $this->db->query("SELECT * FROM grade ")->result_array();
+     }
 }
 
 ?>

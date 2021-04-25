@@ -45,6 +45,7 @@
         <li><a class="nav-link" href="<?= base_url('c_bulanini') ?>"><i class="far fa-file"></i> <span>Trip Bulan Ini</span></a></li>
         <li><a class="nav-link" href="#"><i class="far fa-file"></i> <span>Rekap Trip</span></a></li>
         <li><a class="nav-link" href="<?= base_url('c_grading')?>"><i class="far fa-file"></i> <span>Halaman Grading</span></a></li>
+        <li><a class="nav-link" href="<?= base_url('c_gradinginfo')?>"><i class="far fa-file"></i> <span>Informasi Grading</span></a></li>
         
         <li class="menu-header">Laporan Bongkar Bulan Ini</li>
         <li><a class="nav-link" href="<?= base_url('c_duapuluh') ?>"><i class="far fa-file"></i> <span>Durasi < 20 Menit</span></a></li>
