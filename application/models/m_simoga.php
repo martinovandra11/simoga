@@ -56,8 +56,12 @@ class m_simoga extends CI_Model{
           return $this->db->query("SELECT DISTINCT kode_kebun FROM sortasi_plasma WHERE kode_kebun !=''")->result_array();
      }
 
+     public function get_kebun_today($kebun){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun ='$kebun' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
      public function filter_kebun($kebun){
-          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun ='$kebun'")->result_array();
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun ='$kebun' ")->result_array();
      }
      
      public function filter_rentang($tgl1,$tgl2){

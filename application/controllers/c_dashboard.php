@@ -18,7 +18,7 @@ class c_dashboard extends CI_Controller {
         $kebun = $_GET['kebun'];
 
         if($kebun != ''){
-            $data['dataplasma'] = $this->m_simoga->filter_kebun($kebun);
+            $data['dataplasma'] = $this->m_simoga->get_kebun_today($kebun);
         }else{
             $data['dataplasma'] = $this->m_simoga->get_data();
         }

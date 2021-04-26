@@ -103,6 +103,11 @@
 
                     ?>
 
+                    <?php
+                      $a = ($plasma['dura']/$plasma['jumlah_tbs_sample'])*100;
+                      $b = ($plasma['tenera']/$plasma['jumlah_tbs_sample'])*100;
+                    ?>
+
                     <tr style="<?= $warna ?>">
                         <td><?php echo $plasma['kode_kebun'];?></td>
                         <td><?php echo $plasma['kode_plasma'];?></td>
@@ -121,10 +126,7 @@
                         <td><?php echo $plasma['tbs_tankos'];?></td>
                         <td><?php echo $plasma['tbs_kecil'];?></td>
                         <td><?php echo $plasma['jumlah_tbs_sample'];?></td>
-                        <td><?php echo $plasma['tenera'];?></td>
-                        <?php
-                          $a =  ($plasma['dura']/$plasma['jumlah_tbs_sample'])*100;
-                        ?>
+                        <td><?php echo $b;?></td>
                         <td><?php echo $a;?></td>
                         <td><?php echo $plasma['grade'];?></td>
                         <td><?php echo $plasma['potongan'];?></td>
