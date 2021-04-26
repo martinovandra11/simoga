@@ -104,7 +104,10 @@
                         <td><?php echo $plasma['tbs_kecil'];?></td>
                         <td><?php echo $plasma['jumlah_tbs_sample'];?></td>
                         <td><?php echo $plasma['tenera'];?></td>
-                        <td><?php echo $plasma['dura'];?></td>
+                        <?php
+                          $a =  ($plasma['dura']/$plasma['jumlah_tbs_sample'])*100;
+                        ?>
+                        <td><?php echo $a;?></td>
                         <td><?php echo $plasma['grade'];?></td>
                         <td><?php echo $plasma['potongan'];?></td>
                         <td><?php echo $plasma['status'];?></td>
