@@ -9,17 +9,28 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            
-            <form action="<?= base_url('c_bulanini/fitertgl')?>" method="GET">
+            <div class="row">
+            <!-- <form action="<?= base_url('c_bulanini/fitertgl')?>" method="GET"> -->
+            <!-- <?= form_open('c_bulanini/filtertgl') ?> -->
               <!-- Tanggal Pertama -->
-              <label class="mb-3 mr-3 ml-3 col-2">Tanggal Awal</label>
-              <input class="mb-3 mr-3 ml-3 col-2 form-control" type="date" name="filtertgl1" id="filtertgl1" text="input tanggal">
+              <!-- <label class="mb-3 mt-2 col-2">Tanggal Awal</label> -->
+              <p class="ml-3 mr-3 mt-2">Tanggal Awal</p>
+              <input class="mb-3 mr-3 col-2 form-control" type="date" name="filtertgl1" id="filtertgl1" text="input tanggal">
               <!-- Tanggal Kedua -->
-              <label class="mb-3 mr-3 ml-3 col-2">Tanggal Akhir</label>
-              <input class="mb-3 mr-3 ml-3 col-2 form-control" type="date" name="filtertgl2" id="filtertgl2" text="input tanggal">
-              <!-- <button type="button" class="btn btn-success mb-3 mr-3 ml-3 col-2 form-control">Tampilkan</button> -->
-            </form>
-
+              <!-- <label class="mb-3 mt-2 col-2">Tanggal Akhir</label> -->
+              <p class="ml-3 mr-3 mt-2">Tanggal Akhir</p>
+              <input class="mb-3 mr-3 col-2 form-control" type="date" name="filtertgl2" id="filtertgl2" text="input tanggal">
+            <!-- </form> -->
+              <!-- Filter PKS -->
+              <!-- <label class="mb-3 mt-2 ml-3 col-2">Filter Kebun</label> -->
+              <p class="ml-3 mr-3 mt-2">Nama PKS</p>
+              <select class="form-control mb-3 mr-3 col-2" id="idJenisLaporan" name="Jenis">
+              <option>Show All</option>
+              <?php foreach($jenislaporan as $jns) : ?>
+                <option value="<?= $jns->idJenis ?>"><?= $jns->jenisLaporan ?></option>
+              <?php endforeach; ?>
+            </select>
+            </div>
             
           
             <div class="table-responsive">
@@ -48,7 +59,6 @@
                   <th class="text-center">Grade</th>
                   <th class="text-center">Potongan</th>
                   <th class="text-center">Status</th>
-                  <th class="text-center">Catatan</th>
                   <th class="text-center">Dibuat</th>
                 </tr>
               </thead>
@@ -111,7 +121,6 @@
                         <td><?php echo $plasma['grade'];?></td>
                         <td><?php echo $plasma['potongan'];?></td>
                         <td><?php echo $plasma['status'];?></td>
-                        <td><?php echo $plasma['catatan'];?></td>
                         <td><?php echo $plasma['on_create'];?></td>
                     </tr>
 
