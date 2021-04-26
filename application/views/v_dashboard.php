@@ -12,8 +12,8 @@
             <div class="row">
 
             <!-- Filtering berdasarkan kode kebun -->
-              <select class="form-control mb-3 mr-3 col-2"  id="kebun" name="kebun">
-                <option value=" ">Hari Ini</option>
+              <select class="form-control mb-3 ml-3 mr-3 col-2"  id="kebun" name="kebun">
+                <option value=" ">Pilih PKS</option>
                 <?php foreach($kodekebun as $kbn) : ?>
                   <option value="<?= $kbn['kode_kebun']?>"><?= $kbn['kode_kebun'] ?></option>
                 <?php endforeach; ?> 
@@ -48,7 +48,6 @@
                   <th class="text-center">Grade</th>
                   <th class="text-center">Potongan</th>
                   <th class="text-center">Status</th>
-                  <th class="text-center">Catatan</th>
                   <th class="text-center">Dibuat</th>
                 </tr>
               </thead>
@@ -108,7 +107,6 @@
                         <td><?php echo $plasma['grade'];?></td>
                         <td><?php echo $plasma['potongan'];?></td>
                         <td><?php echo $plasma['status'];?></td>
-                        <td><?php echo $plasma['catatan'];?></td>
                         <td><?php echo $plasma['on_create'];?></td>
                     </tr>
 

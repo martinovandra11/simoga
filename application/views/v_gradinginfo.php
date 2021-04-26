@@ -2,7 +2,7 @@
 <div class="main-content">
     <section class="section">
     <div class="section-header">
-        <h1>Trip Bulan Ini</h1>
+        <h1>Informasi Grading</h1>
     </div>
 
     <div class="row">
@@ -10,8 +10,26 @@
         <div class="card">
           <div class="card-body">
             
+          <div class="row">
+          <!-- Filter Grading -->
+               <select class="form-control ml-3 mb-3 mr-3 col-2" name="grade" id="grade">
+                    <option value=" ">Semua Grade</option>
+                    <?php foreach($datagrade as $grd) : ?>
+                         <option value="<?= $grd['grade'] ?>"><?= $grd['grade'] ?></option>
+                    <?php endforeach; ?>
+               </select>
+          
+          <!-- Filter PKS -->
+          <select class="form-control mb-3 mr-3 col-2" name="grade" id="grade">
+                    <option value=" ">Semua PKS</option>
+                    <?php foreach($datagrade as $grd) : ?>
+                         <option value="<?= $grd['grade'] ?>"><?= $grd['grade'] ?></option>
+                    <?php endforeach; ?>
+               </select>
+            </div>
+
             <div class="table-responsive">
-            <table class="table table-hover table-bordered nowrap" id="table-1">
+            <table class="table table-hover table-bordered nowrap" width="100%" id="table-1">
               <thead class="table-success">
                 <tr>
                   <th class="text-center">No</th>
