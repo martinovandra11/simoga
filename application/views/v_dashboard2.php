@@ -39,7 +39,7 @@
 
                <div class="col-6 col-md-6">
 				<div class="card card-statistic-1">
-					<div class="card-icon bg-warning">
+					<div class="card-icon bg-success">
 						<i class="fas fa-shipping-fast"></i>
 					</div>
 					<div class="card-wrap">
@@ -61,6 +61,57 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="col-6 col-md-6">
+				<div class="card card-statistic-1">
+					<div class="card-icon bg-primary">
+						<i class="fas fa-award"></i> 
+					</div>
+					<div class="card-wrap">
+						<div class="card-header">
+							<h4>Halaman Grading</h4>
+						</div>
+						<div class="card-body">
+                                   <?php 
+                                        foreach($bulanini as $ini) { 
+                                   ?>
+                                   
+                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                   
+                                   <?php } ?>
+						</div>
+                              <div>
+                                   <a href="<?= base_url('c_bulanini') ?>">Lihat Data</a>
+                              </div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-6 col-md-6">
+				<div class="card card-statistic-1">
+					<div class="card-icon bg-primary">
+						<i class="fas fa-award"></i>
+					</div>
+					<div class="card-wrap">
+						<div class="card-header">
+							<h4>Informasi Grading</h4>
+						</div>
+						<div class="card-body">
+                                   <?php 
+                                        foreach($bulanini as $ini) { 
+                                   ?>
+                                   
+                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                   
+                                   <?php } ?>
+						</div>
+                              <div>
+                                   <a href="<?= base_url('c_bulanini') ?>">Lihat Data</a>
+                              </div>
+					</div>
+				</div>
+			</div>
+
 
 			<div class="col-6 col-md-12">
 				<div class="card card-statistic-1">
@@ -100,7 +151,7 @@
                <div class="col-6 col-sm-6 col-md-6">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-success">
-						<i class="fas fa-stopwatch"></i>
+						<i class="fas fa-shipping-fast"></i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -123,36 +174,9 @@
 				</div>
 			</div>
 
-               <div class="col-6 col-md-6">
+            <div class="col-6 col-md-6">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-danger">
-						<i class="fas fa-shipping-fast"></i>
-					</div>
-					<div class="card-wrap">
-						<div class="card-header">
-							<h4>Durasi < 20 Menit Dan Kapasitas > 5 Ton</h4>
-						</div>
-						<div class="card-body">
-                                   <?php 
-                                        foreach($limaton as $ini) { 
-                                   ?>
-                                   
-                                        <?= number_format($ini['LebihLimaTon'], 0,',','.');?>
-                                   
-                                   <?php } ?>
-						</div>
-                              <div>
-                                   <a href="<?= base_url('c_limaton') ?>">Lihat Data</a>
-                              </div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row justify-content-center">
-               <div class="col-6 col-sm-6 col-md-6">
-				<div class="card card-statistic-1">
-					<div class="card-icon bg-primary">
 						<i class="fas fa-shipping-fast"></i>
 					</div>
 					<div class="card-wrap">
@@ -175,6 +199,10 @@
 					</div>
 				</div>
 			</div>
+			</div>
+			</div>
+
+		
 		</div>
 </div>
 <script>

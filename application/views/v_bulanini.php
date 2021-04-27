@@ -1,3 +1,4 @@
+
 <!-- Main Content -->
 <div class="main-content">
     <section class="section">
@@ -30,10 +31,14 @@
                 <option value="<?= $jns->idJenis ?>"><?= $jns->jenisLaporan ?></option>
               <?php endforeach; ?>
             </select>
+
+           
             </div>
-            
+            <a class="btn btn-success mb-3" href="<?= base_url('c_bulanini/export') ?>">Download Excel</a>
           
             <div class="table-responsive">
+
+
             <table class="table table-hover table-bordered nowrap" id="table-1">
   
 

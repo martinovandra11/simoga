@@ -2,6 +2,14 @@
 
 class c_bulanini extends CI_Controller {
 
+
+  public function __construct()
+  {
+      parent::__construct();
+
+      $this->load->model('m_simoga');
+  }
+
     public function index()
     {
         // $tgl = date("Y-m-d");
@@ -70,7 +78,6 @@ class c_bulanini extends CI_Controller {
                   <td><?php echo $plasma['grade'];?></td>
                   <td><?php echo $plasma['potongan'];?></td>
                   <td><?php echo $plasma['status'];?></td>
-                  <td><?php echo $plasma['catatan'];?></td>
                   <td><?php echo $plasma['on_create'];?></td>
                 </tr>
 
@@ -87,4 +94,37 @@ class c_bulanini extends CI_Controller {
                 <?php
         }
     }
+
+    // public function excel()
+    // {
+    //   $data['dataplasma'] = $this->m_simoga->bulan_ini();
+      
+    //   require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel.php');
+    //   require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+    //   $object = new PHPExcel();
+    //   $object->getProperties()->setCreator("SIMOGA");
+    //   $object->getProperties()->setLastModifiedBy("SIMOGA");
+    //   $object->getProperties()->setTitle("LAPORAN BULANAN");
+
+    //   $object->setActiveSheetIndex(0);
+
+    //   $object->getActiveSheet()->setCellValue('A1:A2','Kode Kebun');
+    //   $object->getActiveSheet()->setCellValue('B1:B2','Kode Plasma');
+    //   $object->getActiveSheet()->setCellValue('C1:C2','Jenis');
+    //   $object->getActiveSheet()->setCellValue('D1:D2','Tanggal');
+    //   $object->getActiveSheet()->setCellValue('E1:G1','Data Lama Bongkar');
+
+    // }
+
+    public function export()
+    {
+      header("Content-type: application/vnd-ms-excel");
+      header("Content-Disposition: attachment; filename=Contoh.xlsx");
+
+      $data['dataplasma'] = $this->m_simoga->bulan_ini();
+      $this->load->view('v_export', $data);
+
+    }
+
 }

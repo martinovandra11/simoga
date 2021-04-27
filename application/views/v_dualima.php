@@ -63,13 +63,9 @@
                       <?php
 
                       $warna = "";
-                      if($dua['durasi'] < 20 && $dua['bruto'] >= 5000)
+                      if($dua['durasi'] < 20 && $dua['bruto'] > 5000)
                       {
                         $warna = 'background-color: #E94B3CFF ; color: #FFFFFFFF;'; // orange
-                      }
-                      else if($dua['durasi'] < 20)
-                      {
-                        $warna = 'background-color: #FF7F50; color: #FFFFFFFF;'; // merah
                       }
                       else
                       {

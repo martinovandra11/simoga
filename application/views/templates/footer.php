@@ -31,6 +31,8 @@
   <!-- Icon.bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
   <script src="https://kit.fontawesome.com/4c5fe24c5c.js" crossorigin="anonymous"></script>
+  
+
   <script>
   $(document).ready(function() {
     var table = $('#table-1').DataTable({

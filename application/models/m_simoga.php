@@ -29,11 +29,11 @@ class m_simoga extends CI_Model{
      }
 
      public function kurang_duapuluh(){
-          return $this->db->query("SELECT * FROM sortasi_plasma WHERE durasi < 20")->result_array();
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20")->result_array();
      }
 
      public function countkurang_duapuluh(){
-          return $this->db->query("SELECT COUNT(id_rekap) AS KurangDuaPuluh FROM sortasi_plasma WHERE durasi < 20")->result_array();
+          return $this->db->query("SELECT COUNT(id_rekap) AS KurangDuaPuluh FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20")->result_array();
      }
 
      public function lebih_limaton(){
