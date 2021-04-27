@@ -14,6 +14,7 @@ class c_bulanini extends CI_Controller {
     {
         // $tgl = date("Y-m-d");
         $data['dataplasma'] = $this->m_simoga->bulan_ini();
+        $data['kodekebun'] = $this->m_simoga->get_kebun();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('v_bulanini', $data);
@@ -23,16 +24,37 @@ class c_bulanini extends CI_Controller {
     public function rentang(){
         $tgl1 = $_GET['filtertgl1'];
         $tgl2 = $_GET['filtertgl2'];
-        
-        if($tgl1 != '' && $tgl2 != ''){
+        $kbn = $_GET['filterkebun'];
+
+        if($tgl1 != '' && $tgl2 != '' && $kbn != '')
+        {
+            $data['dataplasma'] = $this->m_simoga->filter_all($tgl1, $tgl2, $kbn);
+        }
+        elseif($tgl1 != '' && $tgl2 != '') 
+        {
             $data['dataplasma'] = $this->m_simoga->filter_rentang($tgl1, $tgl2);
-        }elseif($tgl1 != ''){
+        }
+        elseif($kbn != '')
+        {
+            $data['dataplasma'] = $this->m_simoga->filter_kebun($kbn);
+        }
+        elseif($tgl1 != '')
+        {;
             $data['dataplasma'] = $this->m_simoga->filterentang_tgl1($tgl1);
-        }elseif($tgl2 != ''){
+        }
+        elseif($tgl2 != '')
+        { 
             $data['dataplasma'] = $this->m_simoga->filterentang_tgl2($tgl2);
-        }else{
+        }
+        else
+        {
             $data['dataplasma'] = $this->m_simoga->bulan_ini();
         }
+
+        
+        // die(var_dump($));
+
+        // die(var_dump($data['dataplasma']));
 
         if(!empty($data['dataplasma'])){
             foreach ($data['dataplasma'] as $plasma) : ?>

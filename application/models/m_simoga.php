@@ -8,6 +8,10 @@ class m_simoga extends CI_Model{
           return $this->db->query("SELECT * FROM sortasi_plasma")->result_array();
      }
 
+     public function count_alldata() {
+          return $this->db->query("SELECT COUNT(*) AS totalData FROM sortasi_plasma")->result_array();
+     }
+
      public function get_data(){ //nampilin semua data pada table sortasi_plasma pada hari ini
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
      }
@@ -61,7 +65,11 @@ class m_simoga extends CI_Model{
      }
 
      public function filter_kebun($kebun){
-          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun ='$kebun' ")->result_array();
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun ='$kebun'")->result_array();
+     }
+
+     public function filter_all($tgl1, $tgl2, $kbn){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE (tanggal BETWEEN '$tgl1' AND '$tgl2') AND kode_kebun='$kbn'")->result_array();
      }
      
      public function filter_rentang($tgl1,$tgl2){
@@ -69,11 +77,11 @@ class m_simoga extends CI_Model{
      }
 
      public function filterentang_tgl1($tgl1){
-          return $this->db->query("SELECT * FROM sortasi_plasma WHERE (tanggal BETWEEN '$tgl1' AND NOW(tanggal)")->result_array();
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE (tanggal BETWEEN '$tgl1' AND NOW())")->result_array();
      }
 
      public function filterentang_tgl2($tgl2){
-          return $this->db->query("SELECT * FROM `sortasi_plasma` WHERE tanggal <= '$tgl2'")->result_array();
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE tanggal <= '$tgl2'")->result_array();
      }
 
      public function list_grading(){
