@@ -41,7 +41,6 @@
                   <th class="text-center">Grade</th>
                   <th class="text-center">Potongan</th>
                   <th class="text-center">Status</th>
-                  <th class="text-center">Catatan</th>
                   <th class="text-center">Dibuat</th>
                 </tr>
               </thead>
@@ -65,7 +64,7 @@
                       $warna = "";
                       if($dua['durasi'] < 20 && $dua['bruto'] > 5000)
                       {
-                        $warna = 'background-color: #E94B3CFF ; color: #FFFFFFFF;'; // orange
+                        $warna = 'background-color: #FF6363 ; color: #FFFFFFFF;'; // merah
                       }
                       else
                       {
@@ -73,6 +72,17 @@
                       }
 
                       ?>
+                      
+                      <?php
+                      $a = ($dua['dura']/$dua['jumlah_tbs_sample'])*100;
+                      $b = ($dua['tenera']/$dua['jumlah_tbs_sample'])*100;
+                      $c;
+                      if($dua['status'] == 2){
+                        $c = "Data Lengkap";
+                      }else{
+                        $c = "Data Tidak Lengkap";
+                      }
+                    ?>
 
                       <tr style="<?= $warna ?>">
                         <td><?php echo $dua['kode_kebun'];?></td>
@@ -92,12 +102,11 @@
                         <td><?php echo $dua['tbs_tankos'];?></td>
                         <td><?php echo $dua['tbs_kecil'];?></td>
                         <td><?php echo $dua['jumlah_tbs_sample'];?></td>
-                        <td><?php echo $dua['tenera'];?></td>
-                        <td><?php echo $dua['dura'];?></td>
+                        <td><?php echo $b;?></td>
+                        <td><?php echo $a;?></td>
                         <td><?php echo $dua['grade'];?></td>
                         <td><?php echo $dua['potongan'];?></td>
-                        <td><?php echo $dua['status'];?></td>
-                        <td><?php echo $dua['catatan'];?></td>
+                        <td><?php echo $c;?></td>
                         <td><?php echo $dua['on_create'];?></td>
                     </tr>
 

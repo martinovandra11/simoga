@@ -64,7 +64,7 @@
                       $warna = "";
                       if($dua['durasi'] < 20 && $dua['bruto'] < 5000)
                       {
-                        $warna = 'background-color: #68991c; color: #FFFFFFFF;'; // hijau
+                        $warna = 'background-color: #FFEB9C; '; // hijau
                       }
                       else
                       {
@@ -72,30 +72,41 @@
                       }
 
                       ?>
+                      
+                      <?php
+                      $a = ($dua['dura']/$dua['jumlah_tbs_sample'])*100;
+                      $b = ($dua['tenera']/$dua['jumlah_tbs_sample'])*100;
+                      $c;
+                      if($dua['status'] == 2){
+                        $c = "Data Lengkap";
+                      }else{
+                        $c = "Data Tidak Lengkap";
+                      }
+                    ?>
 
-                      <tr style="<?= $warna ?>">
+                      <tr>
                         <td><?php echo $dua['kode_kebun'];?></td>
                         <td><?php echo $dua['kode_plasma'];?></td>
                         <td><?php echo $dua['jenis'];?></td>
                         <td><?php echo $dua['tanggal'];?></td>
-                        <td><?php echo $dua['masuk'];?></td>
-                        <td><?php echo $dua['keluar'];?></td>
-                        <td><?php echo $dua['durasi'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $dua['masuk'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $dua['keluar'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $dua['durasi'];?></td>
                         <td><?php echo $dua['pemasok'];?></td>
                         <td><?php echo $dua['nopol'];?></td>
                         <td><?php echo $dua['supir'];?></td>
-                        <td><?php echo $dua['bruto'];?></td>
+                        <td style="<?= $warna ?>"><?php echo number_format($dua['bruto'], 0, ',','.');?></td>
                         <td><?php echo $dua['netto'];?></td>
                         <td><?php echo $dua['jumlah_tbs_diterima'];?></td>
                         <td><?php echo $dua['tbs_mentah'];?></td>
                         <td><?php echo $dua['tbs_tankos'];?></td>
                         <td><?php echo $dua['tbs_kecil'];?></td>
                         <td><?php echo $dua['jumlah_tbs_sample'];?></td>
-                        <td><?php echo $dua['tenera'];?></td>
-                        <td><?php echo $dua['dura'];?></td>
+                        <td><?php echo $b;?></td>
+                        <td><?php echo $a;?></td>
                         <td><?php echo $dua['grade'];?></td>
                         <td><?php echo $dua['potongan'];?></td>
-                        <td><?php echo $dua['status'];?></td>
+                        <td><?php echo $c;?></td>
                         <td><?php echo $dua['on_create'];?></td>
                     </tr>
 
