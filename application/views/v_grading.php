@@ -12,23 +12,22 @@
           <div class="row">
           <!-- Filter Grading -->
                <select class="form-control ml-3 mb-3 mr-3 col-2" name="grade" id="grade">
-                    <option value=" ">Semua Grade</option>
+                    <option value="#">Semua Grade</option>
                     <?php foreach($datagrade as $grd) : ?>
                          <option value="<?= $grd['grade'] ?>"><?= $grd['grade'] ?></option>
                     <?php endforeach; ?>
                </select>
           
           <!-- Filter PKS -->
-          <select class="form-control mb-3 mr-3 col-2" name="grade" id="grade">
-                    <option value=" ">Semua PKS</option>
-                    <?php foreach($datagrade as $grd) : ?>
-                         <option value="<?= $grd['grade'] ?>"><?= $grd['grade'] ?></option>
-                    <?php endforeach; ?>
-               </select>
-            </div>
+          <select class="form-control mb-3 mr-3 col-2" id="kodekebun" name="kodekebun">
+                <option value="#">Pilih Kebun</option>
+              <?php foreach($kodekebun as $kbn) : ?>
+                <option value="<?= $kbn['kode_kebun'] ?>"><?= $kbn['kode_kebun'] ?></option>
+              <?php endforeach; ?>
+              </select>
           
             <div class="table-responsive">
-            <table class="table table-hover table-bordered nowrap" id="table-1">
+            <table class="table table-hover table-bordered nowrap" style="width: 100%" id="table-1">
               <thead class="table-success">
                 <tr>
                 <th class="text-center">Kode Kebun</th>
@@ -62,13 +61,13 @@
                   <?php
 
                     $warna = "";
-                    if($plasma['durasi'] < 20 && $plasma['bruto'] >= 5000)
+                    if($plasma['durasi'] < 20 && $plasma['bruto'] > 5000)
                     {
-                      $warna = 'background-color: #E94B3CFF ; color: #FFFFFFFF;';
+                      $warna = 'background-color: #FF6363; color: #FFFFFFFF;'; // merah
                     }
-                    else if($plasma['durasi'] < 20)
+                    else if($plasma['durasi'] < 20 && $plasma['bruto'] < 5000)
                     {
-                      $warna = 'background-color: #FF7F50 ; color: #FFFFFFFF;';
+                      $warna = 'background-color: #FFEB9C;'; // kuning
                     }
                     else
                     {
@@ -76,16 +75,21 @@
                     }
 
                     ?>
+                    
+                    <?php
+                      $a = ($plasma['dura']/$plasma['jumlah_tbs_sample'])*100;
+                      $b = ($plasma['tenera']/$plasma['jumlah_tbs_sample'])*100;
+                    ?>
 
-                    <tr style="<?= $warna ?>">
+                    <tr>
                         <td><?php echo $plasma['kode_kebun'];?></td>
                         <td><?php echo $plasma['kode_plasma'];?></td>
                         <td><?php echo $plasma['tanggal'];?></td>
                         <td><?php echo $plasma['pemasok'];?></td>
                         <td><?php echo $plasma['jumlah_tbs_diterima'];?></td>
                         <td><?php echo $plasma['jumlah_tbs_sample'];?></td>
-                        <td><?php echo $plasma['tenera'];?></td>
-                        <td><?php echo $plasma['dura'];?></td>
+                        <td><?php echo $b;?></td>
+                        <td><?php echo $a;?></td>
                         <td><?php echo $plasma['grade'];?></td>
                         <td><?php echo $plasma['potongan'];?></td>
                         <td><?php echo $plasma['on_create'];?></td>
@@ -109,13 +113,17 @@ $(document).ready(function(){
   $("#grade").change(function(){
     grade();
   });
+  $("#kodekebun").change(function(){
+    grade();
+  });
 });
 
 function grade(){
   var grd = $("#grade").val();
+  var kbn = $("#kodekebun").val();
   $.ajax({
     url : "<?= base_url('c_grading/filtering')?>",
-    data : "grade=" + grd,
+    data : "grade=" + grd + "&filterkebun=" + kbn,
     success:function(data){
       $("#table-1 tbody").html(data);
     }

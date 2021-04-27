@@ -88,9 +88,17 @@ class m_simoga extends CI_Model{
           return $this->db->query("SELECT DISTINCT grade FROM sortasi_plasma WHERE grade !=''")->result_array();
      }
      
+     public function filter_grading_kebun($filter,$kbn){ 
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = '$filter' AND kode_kebun = '$kbn'")->result_array();
+     }
+
      public function filter_grading($filter){ 
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade ='$filter'")->result_array();
-     } 
+     }
+
+     public function filter_kebun1($kbn){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun ='$kbn'")->result_array();
+     }
 
      public function grading_info(){
           return $this->db->query("SELECT * FROM grade ")->result_array();

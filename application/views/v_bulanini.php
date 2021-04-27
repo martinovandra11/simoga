@@ -33,7 +33,7 @@
               <?php foreach($kodekebun as $kbn) : ?>
                 <option value="<?= $kbn['kode_kebun'] ?>"><?= $kbn['kode_kebun'] ?></option>
               <?php endforeach; ?>
-            </select>
+              </select>
 
            
             </div>

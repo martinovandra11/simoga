@@ -14,7 +14,7 @@
           
             <!-- Filter Grading -->
             <select class="form-control ml-3 mb-3 mr-3 col-2" name="grade" id="grade">
-                    <option value =" ">Semua Grade</option>
+                    <option value ="">Semua Grade</option>
                     <?php foreach($dt_grade as $grd) : ?>
                          <option value="<?= $grd['grade'] ?>"><?= $grd['grade'] ?></option>
                     <?php endforeach; ?>
@@ -22,7 +22,7 @@
           
           <!-- Filter PKS -->
                 <select class="form-control mb-3 mr-3 col-2" name="pks" id="pks">
-                    <option value =" ">Semua PKS</option>
+                    <option value ="">Semua PKS</option>
                     <?php foreach($dt_grade2 as $grd) : ?>
                          <option value="<?= $grd['unit'] ?>"><?= $grd['unit'] ?></option>
                     <?php endforeach; ?>

@@ -13,7 +13,7 @@
 
             <!-- Filtering berdasarkan kode kebun -->
               <select class="form-control mb-3 ml-3 mr-3 col-2"  id="kebun" name="kebun">
-                <option value=" ">Pilih PKS</option>
+                <option value="#">Pilih PKS</option>
                 <?php foreach($kodekebun as $kbn) : ?>
                   <option value="<?= $kbn['kode_kebun']?>"><?= $kbn['kode_kebun'] ?></option>
                 <?php endforeach; ?> 
@@ -69,13 +69,13 @@
                       <?php
 
                       $warna = "";
-                      if($plasma['durasi'] < 20 && $plasma['bruto'] >= 5000)
+                      if($plasma['durasi'] < 20 && $plasma['bruto'] > 5000)
                       {
-                        $warna = 'background-color: #E94B3CFF ; color: #FFFFFFFF;'; // orange
+                        $warna = 'background-color: #FF6363; color: #FFFFFFFF;'; // merah
                       }
-                      else if($plasma['durasi'] < 20)
+                      else if($plasma['durasi'] < 20 && $plasma['bruto'] < 5000)
                       {
-                        $warna = 'background-color: #FF7F50; ; color: #FFFFFFFF;'; // merah
+                        $warna = 'background-color: #FFEB9C;'; // kuning
                       }
                       else
                       {
@@ -83,30 +83,41 @@
                       }
 
                       ?>
+                      
+                      <?php
+                      $a = ($plasma['dura']/$plasma['jumlah_tbs_sample'])*100;
+                      $b = ($plasma['tenera']/$plasma['jumlah_tbs_sample'])*100;
+                      $c;
+                      if($plasma['status'] == 2){
+                        $c = "Data Lengkap";
+                      }else{
+                        $c = "Data Tidak Lengkap";
+                      }
+                    ?>
 
-                      <tr style="<?= $warna ?>">
+                      <tr>
                         <td><?php echo $plasma['kode_kebun'];?></td>
                         <td><?php echo $plasma['kode_plasma'];?></td>
                         <td><?php echo $plasma['jenis'];?></td>
                         <td><?php echo $plasma['tanggal'];?></td>
-                        <td><?php echo $plasma['masuk'];?></td>
-                        <td><?php echo $plasma['keluar'];?></td>
-                        <td><?php echo $plasma['durasi'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $plasma['masuk'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $plasma['keluar'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $plasma['durasi'];?></td>
                         <td><?php echo $plasma['pemasok'];?></td>
                         <td><?php echo $plasma['nopol'];?></td>
                         <td><?php echo $plasma['supir'];?></td>
-                        <td><?php echo $plasma['bruto'];?></td>
+                        <td style="<?= $warna ?>"><?php echo number_format($plasma['bruto'], 0, ',','.');?></td>
                         <td><?php echo $plasma['netto'];?></td>
                         <td><?php echo $plasma['jumlah_tbs_diterima'];?></td>
                         <td><?php echo $plasma['tbs_mentah'];?></td>
                         <td><?php echo $plasma['tbs_tankos'];?></td>
                         <td><?php echo $plasma['tbs_kecil'];?></td>
                         <td><?php echo $plasma['jumlah_tbs_sample'];?></td>
-                        <td><?php echo $plasma['tenera'];?></td>
-                        <td><?php echo $plasma['dura'];?></td>
+                        <td><?php echo $b;?></td>
+                        <td><?php echo $a;?></td>
                         <td><?php echo $plasma['grade'];?></td>
                         <td><?php echo $plasma['potongan'];?></td>
-                        <td><?php echo $plasma['status'];?></td>
+                        <td><?php echo $c;?></td>
                         <td><?php echo $plasma['on_create'];?></td>
                     </tr>
 
