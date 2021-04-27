@@ -11,22 +11,26 @@
           <div class="card-body">
             
           <div class="row">
-          <!-- Filter Grading -->
-               <select class="form-control ml-3 mb-3 mr-3 col-2" name="grade" id="grade">
-                    <option value=" ">Semua Grade</option>
-                    <?php foreach($datagrade as $grd) : ?>
+          <form action="<?php base_url('c_grading/load_filter')?>">
+            <!-- Filter Grading -->
+            <select class="form-control ml-3 mb-3 mr-3 col-2" name="grade" id="grade">
+                    <option value =" ">Semua Grade</option>
+                    <?php foreach($dt_grade as $grd) : ?>
                          <option value="<?= $grd['grade'] ?>"><?= $grd['grade'] ?></option>
                     <?php endforeach; ?>
                </select>
           
           <!-- Filter PKS -->
-          <select class="form-control mb-3 mr-3 col-2" name="grade" id="grade">
-                    <option value=" ">Semua PKS</option>
-                    <?php foreach($datagrade as $grd) : ?>
-                         <option value="<?= $grd['grade'] ?>"><?= $grd['grade'] ?></option>
+                <select class="form-control mb-3 mr-3 col-2" name="pks" id="pks">
+                    <option value =" ">Semua PKS</option>
+                    <?php foreach($dt_grade2 as $grd) : ?>
+                         <option value="<?= $grd['unit'] ?>"><?= $grd['unit'] ?></option>
                     <?php endforeach; ?>
                </select>
-            </div>
+          
+            <input type="submit" name="proses">
+          </form>
+          </div>
 
             <div class="table-responsive">
             <table class="table table-hover table-bordered nowrap" width="100%" id="table-1">
@@ -55,24 +59,6 @@
                 else 
                 {
                   foreach ($datagrading as $plasma) : ?>
-                  
-                  <?php
-
-                    // $warna = "";
-                    // if($plasma['durasi'] < 20 && $plasma['bruto'] >= 5000)
-                    // {
-                    //   $warna = 'background-color: #E94B3CFF ; color: #FFFFFFFF;';
-                    // }
-                    // else if($plasma['durasi'] < 20)
-                    // {
-                    //   $warna = 'background-color: #FF7F50 ; color: #FFFFFFFF;';
-                    // }
-                    // else
-                    // {
-                    //   $warna = 'background-color: white;';
-                    // }
-
-                    ?>
 
                     <tr>
                         <td><?php echo $plasma['id_grade'];?></td>
@@ -96,3 +82,4 @@
       </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
