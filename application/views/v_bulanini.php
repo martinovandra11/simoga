@@ -13,22 +13,25 @@
             <div class="row">
             <!-- <form action="<?= base_url('c_bulanini/fitertgl')?>" method="GET"> -->
             <!-- <?= form_open('c_bulanini/filtertgl') ?> -->
+
               <!-- Tanggal Pertama -->
               <!-- <label class="mb-3 mt-2 col-2">Tanggal Awal</label> -->
               <p class="ml-3 mr-3 mt-2">Tanggal Awal</p>
               <input class="mb-3 mr-3 col-2 form-control" type="date" name="filtertgl1" id="filtertgl1" text="input tanggal">
+
               <!-- Tanggal Kedua -->
               <!-- <label class="mb-3 mt-2 col-2">Tanggal Akhir</label> -->
               <p class="ml-3 mr-3 mt-2">Tanggal Akhir</p>
               <input class="mb-3 mr-3 col-2 form-control" type="date" name="filtertgl2" id="filtertgl2" text="input tanggal">
             <!-- </form> -->
+
               <!-- Filter PKS -->
               <!-- <label class="mb-3 mt-2 ml-3 col-2">Filter Kebun</label> -->
               <p class="ml-3 mr-3 mt-2">Nama PKS</p>
-              <select class="form-control mb-3 mr-3 col-2" id="idJenisLaporan" name="Jenis">
-              <option>Show All</option>
-              <?php foreach($jenislaporan as $jns) : ?>
-                <option value="<?= $jns->idJenis ?>"><?= $jns->jenisLaporan ?></option>
+              <select class="form-control mb-3 mr-3 col-2" id="kodekebun" name="kodekebun">
+                <option value="#">Pilih Kebun</option>
+              <?php foreach($kodekebun as $kbn) : ?>
+                <option value="<?= $kbn['kode_kebun'] ?>"><?= $kbn['kode_kebun'] ?></option>
               <?php endforeach; ?>
             </select>
 
@@ -93,13 +96,13 @@
                   <?php
 
                     $warna = "";
-                    if($plasma['durasi'] < 20 && $plasma['bruto'] >= 5000)
+                    if($plasma['durasi'] < 20 && $plasma['bruto'] > 5000)
                     {
-                      $warna = 'background-color: #E94B3CFF ; color: #FFFFFFFF;';
+                      $warna = 'background-color: #FF6363 ; color: #FFFFFFFF;'; // merah
                     }
-                    else if($plasma['durasi'] < 20)
+                    else if($plasma['durasi'] < 20 && $plasma['bruto'] < 5000)
                     {
-                      $warna = 'background-color: #FF7F50 ; color: #FFFFFFFF;';
+                      $warna = 'background-color: #FFEB9C ;'; // kuning
                     }
                     else
                     {
@@ -113,18 +116,18 @@
                       $b = ($plasma['tenera']/$plasma['jumlah_tbs_sample'])*100;
                     ?>
 
-                    <tr style="<?= $warna ?>">
+                    <tr>
                         <td><?php echo $plasma['kode_kebun'];?></td>
                         <td><?php echo $plasma['kode_plasma'];?></td>
                         <td><?php echo $plasma['jenis'];?></td>
                         <td><?php echo $plasma['tanggal'];?></td>
-                        <td><?php echo $plasma['masuk'];?></td>
-                        <td><?php echo $plasma['keluar'];?></td>
-                        <td><?php echo $plasma['durasi'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $plasma['masuk'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $plasma['keluar'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $plasma['durasi'];?></td>
                         <td><?php echo $plasma['pemasok'];?></td>
                         <td><?php echo $plasma['nopol'];?></td>
                         <td><?php echo $plasma['supir'];?></td>
-                        <td><?php echo $plasma['bruto'];?></td>
+                        <td style="<?= $warna ?>"><?php echo number_format($plasma['bruto'], 0, ',','.');?></td>
                         <td><?php echo $plasma['netto'];?></td>
                         <td><?php echo $plasma['jumlah_tbs_diterima'];?></td>
                         <td><?php echo $plasma['tbs_mentah'];?></td>
@@ -160,14 +163,18 @@ $(document).ready(function(){
   $("#filtertgl2").change(function(){
     rekap();
   });
+  $("#kodekebun").change(function(){
+    rekap();
+  });
 });
 
 function rekap(){
   var tgl1 = $("#filtertgl1").val();
   var tgl2 = $("#filtertgl2").val();
+  var kbn = $("#kodekebun").val();
   $.ajax({
     url : "<?= base_url('c_bulanini/rentang')?>",
-    data : "filtertgl1=" + tgl1 + "&filtertgl2= "+tgl2,
+    data : "filtertgl1=" + tgl1 + "&filtertgl2=" + tgl2 + "&filterkebun=" + kbn,
     success:function(data){
       $("#table-1 tbody").html(data);
     }

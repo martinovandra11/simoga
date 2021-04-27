@@ -1,7 +1,6 @@
 <div class="table-responsive">
 
-
-            <table class="table table-hover table-bordered nowrap" id="table-1">
+            <table class="table table-hover table-bordered nowrap" border="1" id="table-1">
   
 
               <thead class="table-success">
@@ -55,13 +54,13 @@
                   <?php
 
                     $warna = "";
-                    if($plasma['durasi'] < 20 && $plasma['bruto'] >= 5000)
+                    if($plasma['durasi'] < 20 && $plasma['bruto'] > 5000)
                     {
-                      $warna = 'background-color: #E94B3CFF ; color: #FFFFFFFF;';
+                      $warna = 'background-color: #FF6363 ; color: #FFFFFFFF;';
                     }
-                    else if($plasma['durasi'] < 20)
+                    else if($plasma['durasi'] < 20 && $plasma['bruto'] < 5000)
                     {
-                      $warna = 'background-color: #FF7F50 ; color: #FFFFFFFF;';
+                      $warna = 'background-color: #FFEB9C ; color: #FFFFFFFF;';
                     }
                     else
                     {
@@ -75,19 +74,19 @@
                       $b = ($plasma['tenera']/$plasma['jumlah_tbs_sample'])*100;
                     ?>
 
-                    <tr style="<?= $warna ?>">
+                    <tr>
                         <td><?php echo $plasma['kode_kebun'];?></td>
                         <td><?php echo $plasma['kode_plasma'];?></td>
                         <td><?php echo $plasma['jenis'];?></td>
                         <td><?php echo $plasma['tanggal'];?></td>
-                        <td><?php echo $plasma['masuk'];?></td>
-                        <td><?php echo $plasma['keluar'];?></td>
-                        <td><?php echo $plasma['durasi'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $plasma['masuk'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $plasma['keluar'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $plasma['durasi'];?></td>
                         <td><?php echo $plasma['pemasok'];?></td>
                         <td><?php echo $plasma['nopol'];?></td>
                         <td><?php echo $plasma['supir'];?></td>
-                        <td><?php echo $plasma['bruto'];?></td>
-                        <td><?php echo $plasma['netto'];?></td>
+                        <td style="<?= $warna ?>"><?php echo number_format($plasma['bruto'], 0, ',','.');?></td>
+                        <td><?php echo number_format($plasma['netto'], 0, ',','.');?></td>
                         <td><?php echo $plasma['jumlah_tbs_diterima'];?></td>
                         <td><?php echo $plasma['tbs_mentah'];?></td>
                         <td><?php echo $plasma['tbs_tankos'];?></td>

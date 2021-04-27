@@ -124,15 +124,14 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($bulanini as $ini) { 
+                                        foreach($rekap as $rkp) { 
                                    ?>
-                                   
-                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                        <?= number_format($rkp['totalData'], 0,',','.');?>
                                    
                                    <?php } ?>
 						</div>
                               <div>
-                                   <a href="<?= base_url('c_bulanini') ?>">Lihat Data</a>
+                                   <a href="<?= base_url('c_rekap') ?>">Lihat Data</a>
                               </div>
 					</div>
 				</div>

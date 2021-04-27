@@ -1,26 +1,37 @@
 <?php
 
-class c_dashboard extends CI_Controller {
+class c_rekap extends CI_Controller {
+
+
+  public function __construct()
+  {
+      parent::__construct();
+
+      $this->load->model('m_simoga');
+  }
 
     public function index()
     {
         // $tgl = date("Y-m-d");
-        $data['dataplasma'] = $this->m_simoga->get_data();
-        $data['kodekebun'] = $this->m_simoga->get_kebun();
+        $data['dataplasma'] = $this->m_simoga->get_all_data();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('v_dashboard', $data);
+        $this->load->view('v_rekap', $data);
         $this->load->view('templates/footer');
     }
 
-    public function filterkebun()
-    {
-        $kebun = $_GET['kebun'];
-
-        if($kebun != ''){
-            $data['dataplasma'] = $this->m_simoga->get_kebun_today($kebun);
+    public function rentang(){
+        $tgl1 = $_GET['filtertgl1'];
+        $tgl2 = $_GET['filtertgl2'];
+        
+        if($tgl1 != '' && $tgl2 != ''){
+            $data['dataplasma'] = $this->m_simoga->filter_rentang($tgl1, $tgl2);
+        }elseif($tgl1 != ''){
+            $data['dataplasma'] = $this->m_simoga->filterentang_tgl1($tgl1);
+        }elseif($tgl2 != ''){
+            $data['dataplasma'] = $this->m_simoga->filterentang_tgl2($tgl2);
         }else{
-            $data['dataplasma'] = $this->m_simoga->get_data();
+            $data['dataplasma'] = $this->m_simoga->bulan_ini();
         }
 
         if(!empty($data['dataplasma'])){
@@ -83,4 +94,37 @@ class c_dashboard extends CI_Controller {
                 <?php
         }
     }
+
+    // public function excel()
+    // {
+    //   $data['dataplasma'] = $this->m_simoga->bulan_ini();
+      
+    //   require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel.php');
+    //   require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+    //   $object = new PHPExcel();
+    //   $object->getProperties()->setCreator("SIMOGA");
+    //   $object->getProperties()->setLastModifiedBy("SIMOGA");
+    //   $object->getProperties()->setTitle("LAPORAN BULANAN");
+
+    //   $object->setActiveSheetIndex(0);
+
+    //   $object->getActiveSheet()->setCellValue('A1:A2','Kode Kebun');
+    //   $object->getActiveSheet()->setCellValue('B1:B2','Kode Plasma');
+    //   $object->getActiveSheet()->setCellValue('C1:C2','Jenis');
+    //   $object->getActiveSheet()->setCellValue('D1:D2','Tanggal');
+    //   $object->getActiveSheet()->setCellValue('E1:G1','Data Lama Bongkar');
+
+    // }
+
+    public function export()
+    {
+      header("Content-type: application/vnd-ms-excel");
+      header("Content-Disposition: attachment; filename=Contoh.csv");
+
+      $data['dataplasma'] = $this->m_simoga->bulan_ini();
+      $this->load->view('v_export', $data);
+
+    }
+
 }
