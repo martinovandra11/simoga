@@ -87,6 +87,26 @@ class m_simoga extends CI_Model{
      public function grading_info(){
           return $this->db->query("SELECT * FROM grade ")->result_array();
      }
+
+     public function grading_info_dropdown(){
+          return $this->db->query("SELECT DISTINCT grade FROM grade WHERE grade !=''")->result_array();
+     }
+
+     public function grading_info_dropdown2(){
+          return $this->db->query("SELECT DISTINCT unit FROM grade WHERE unit !=''")->result_array();
+     }
+
+     public function kbn_grd($grd,$kebun){
+          return $this->db->query("SELECT * FROM grade WHERE grade = '$grd' && unit = '$kebun'")->result_array();
+     }
+
+     public function filter_grade($grd){
+          return $this->db->query("SELECT * FROM grade WHERE grade = '$grd'")->result_array();
+     }
+
+     public function filter_pks($kebun){
+          return $this->db->query("SELECT * FROM grade WHERE unit = '$kebun'")->result_array();
+     }
 }
 
 ?>
