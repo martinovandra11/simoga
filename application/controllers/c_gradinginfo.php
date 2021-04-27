@@ -17,23 +17,32 @@ class c_gradinginfo extends CI_Controller {
 
     public function load_filter(){
 
-        if(isset($_GET['proses'])){
+        
             $grd = $_GET['grade'];
             $kebun = $_GET['pks'];
 
             if($grd != '' && $kebun != ''){
                 $data['datagrading'] = $this->m_simoga->kbn_grd($grd, $kebun);
-            }elseif($kebun = ''){
-                $data['datagrading'] = $this->m_simoga->filter_pks($kebun);
-            }elseif($grd != ''){
-                $data['datagrading'] = $this->m_simoga->filter_grade($grd);
-            }elseif($kebun != ''){
-                $data['datagrading'] = $this->m_simoga->filter_pks($kebun);
-            }elseif($grd = ''){
-                $data['datagrading'] = $this->m_simoga->filter_grade($grd);
-            }elseif($grd = '' && $kebun = ''){
-                $data['datagrading'] = $this->m_simoga->grading_info();
             }
+            // elseif($kebun = '')
+            // {
+            //     $data['datagrading'] = $this->m_simoga->filter_pks($kebun);
+            // }
+            elseif($grd != '')
+            {
+                $data['datagrading'] = $this->m_simoga->filter_grade($grd);
+            }
+            elseif($kebun != '')
+            {
+                $data['datagrading'] = $this->m_simoga->filter_pks($kebun);
+            }
+            // elseif($grd = '')
+            // {
+            //     $data['datagrading'] = $this->m_simoga->filter_grade($grd);
+            // }
+            // elseif($grd = '' && $kebun = ''){
+            //     $data['datagrading'] = $this->m_simoga->grading_info();
+            // }
             
             else{
                 $data['datagrading'] = $this->m_simoga->grading_info();
@@ -59,7 +68,6 @@ class c_gradinginfo extends CI_Controller {
                     <td style="text-align:center" colspan='19'>Tidak ada data</td>
                 </tr>   
                 <?php
-                }
-        } 
+            }
+        }  
     }
-}

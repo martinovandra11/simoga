@@ -11,7 +11,7 @@
           <div class="card-body">
             
           <div class="row">
-          <form action="<?php base_url('c_grading/load_filter')?>">
+          
             <!-- Filter Grading -->
             <select class="form-control ml-3 mb-3 mr-3 col-2" name="grade" id="grade">
                     <option value =" ">Semua Grade</option>
@@ -28,8 +28,7 @@
                     <?php endforeach; ?>
                </select>
           
-            <input type="submit" name="proses">
-          </form>
+            
           </div>
 
             <div class="table-responsive">
@@ -83,3 +82,28 @@
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function() {
+  $("#grade").change(function(){
+    laporan();
+  });
+  $("#pks").change(function(){
+    laporan();
+  });
+});
+
+function laporan() {
+  var grd = $("#grade").val();
+  var kebun = $("#pks").val();
+  $.ajax({
+    url : "<?= base_url('c_gradinginfo/load_filter')?>",
+    data : "grade=" + grd + "&pks=" +kebun,
+    success:function(data){
+      $("#table-1 tbody").html(data);
+    }
+  });
+}
+
+
+</script>

@@ -111,6 +111,12 @@
                     <?php
                       $a = ($plasma['dura']/$plasma['jumlah_tbs_sample'])*100;
                       $b = ($plasma['tenera']/$plasma['jumlah_tbs_sample'])*100;
+                      $c;
+                      if($plasma['status'] == 2){
+                        $c = "Data Lengkap";
+                      }else{
+                        $c = "Data Tidak Lengkap";
+                      }
                     ?>
 
                     <tr style="<?= $warna ?>">
@@ -135,7 +141,7 @@
                         <td><?php echo $a;?></td>
                         <td><?php echo $plasma['grade'];?></td>
                         <td><?php echo $plasma['potongan'];?></td>
-                        <td><?php echo $plasma['status'];?></td>
+                        <td><?php echo $c;?></td>
                         <td><?php echo $plasma['on_create'];?></td>
                     </tr>
 

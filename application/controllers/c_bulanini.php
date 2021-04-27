@@ -120,7 +120,7 @@ class c_bulanini extends CI_Controller {
     public function export()
     {
       header("Content-type: application/vnd-ms-excel");
-      header("Content-Disposition: attachment; filename=Contoh.xlsx");
+      header("Content-Disposition: attachment; filename=Contoh.xls");
 
       $data['dataplasma'] = $this->m_simoga->bulan_ini();
       $this->load->view('v_export', $data);
