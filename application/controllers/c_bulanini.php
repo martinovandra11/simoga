@@ -86,11 +86,11 @@ class c_bulanini extends CI_Controller {
                 <?php
                   $a = ($plasma['dura']/$plasma['jumlah_tbs_sample'])*100;
                   $b = ($plasma['tenera']/$plasma['jumlah_tbs_sample'])*100;
-                  $c;
+                  $c ="";
                   if($plasma['status'] == 2){
                     $c = "Data Lengkap";
                   }else{
-                    $c = "Data Tidak Lengkap";
+                    $c = "Data Timbangan Belum Diisi";
                   }
                 ?>
 
