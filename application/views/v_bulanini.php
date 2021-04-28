@@ -118,7 +118,7 @@
                       if($plasma['status'] == 2){
                         $c = "Data Lengkap";
                       }else{
-                        $c = "Data Tidak Lengkap";
+                        $c = "Data Timbangan Belum Diisi";
                       }
                     ?>
 
@@ -183,8 +183,10 @@ function rekap(){
     data : "filtertgl1=" + tgl1 + "&filtertgl2=" + tgl2 + "&filterkebun=" + kbn,
     success:function(data){
       $("#table-1 tbody").html(data);
+      
+      $('#table-1').css( 'display', 'block' );
+      table.columns.adjust().draw();
     }
   });
 }
-
 </script>

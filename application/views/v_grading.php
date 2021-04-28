@@ -126,6 +126,10 @@ function grade(){
     data : "grade=" + grd + "&kodekebun=" + kbn,
     success:function(data){
       $("#table-1 tbody").html(data);
+      
+ 
+      $('#table-1').css( 'display', 'block' );
+      table.columns.adjust().draw();
     }
   });
 }
