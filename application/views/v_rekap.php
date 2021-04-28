@@ -10,27 +10,30 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <div class="row">
+          <div class="row">
             <!-- <form action="<?= base_url('c_bulanini/fitertgl')?>" method="GET"> -->
             <!-- <?= form_open('c_bulanini/filtertgl') ?> -->
+
               <!-- Tanggal Pertama -->
               <!-- <label class="mb-3 mt-2 col-2">Tanggal Awal</label> -->
               <p class="ml-3 mr-3 mt-2">Tanggal Awal</p>
               <input class="mb-3 mr-3 col-2 form-control" type="date" name="filtertgl1" id="filtertgl1" text="input tanggal">
+
               <!-- Tanggal Kedua -->
               <!-- <label class="mb-3 mt-2 col-2">Tanggal Akhir</label> -->
               <p class="ml-3 mr-3 mt-2">Tanggal Akhir</p>
               <input class="mb-3 mr-3 col-2 form-control" type="date" name="filtertgl2" id="filtertgl2" text="input tanggal">
             <!-- </form> -->
+
               <!-- Filter PKS -->
               <!-- <label class="mb-3 mt-2 ml-3 col-2">Filter Kebun</label> -->
               <p class="ml-3 mr-3 mt-2">Nama PKS</p>
-              <select class="form-control mb-3 mr-3 col-2" id="idJenisLaporan" name="Jenis">
-              <option>Show All</option>
-              <?php foreach($jenislaporan as $jns) : ?>
-                <option value="<?= $jns->idJenis ?>"><?= $jns->jenisLaporan ?></option>
+              <select class="form-control mb-3 mr-3 col-2" id="kodekebun" name="kodekebun">
+                <option value="#">Pilih Kebun</option>
+              <?php foreach($kodekebun as $kbn) : ?>
+                <option value="<?= $kbn['kode_kebun'] ?>"><?= $kbn['kode_kebun'] ?></option>
               <?php endforeach; ?>
-            </select>
+              </select>
 
            
             </div>
@@ -160,14 +163,18 @@ $(document).ready(function(){
   $("#filtertgl2").change(function(){
     rekap();
   });
+  $("#kodekebun").change(function(){
+    rekap();
+  });
 });
 
 function rekap(){
   var tgl1 = $("#filtertgl1").val();
   var tgl2 = $("#filtertgl2").val();
+  var kbn = $("#kodekebun").val();
   $.ajax({
     url : "<?= base_url('c_bulanini/rentang')?>",
-    data : "filtertgl1=" + tgl1 + "&filtertgl2= "+tgl2,
+    data : "filtertgl1=" + tgl1 + "&filtertgl2=" + tgl2 + "&filterkebun=" + kbn,
     success:function(data){
       $("#table-1 tbody").html(data);
     }

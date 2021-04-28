@@ -21,6 +21,7 @@ class c_rekap extends CI_Controller {
     {
         // $tgl = date("Y-m-d");
         $data['dataplasma'] = $this->m_simoga->get_all_data();
+        $data['kodekebun'] = $this->m_simoga->get_kebun();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('v_rekap', $data);
@@ -28,79 +29,105 @@ class c_rekap extends CI_Controller {
     }
 
     public function rentang(){
-        $tgl1 = $_GET['filtertgl1'];
-        $tgl2 = $_GET['filtertgl2'];
-        
-        if($tgl1 != '' && $tgl2 != ''){
-            $data['dataplasma'] = $this->m_simoga->filter_rentang($tgl1, $tgl2);
-        }elseif($tgl1 != ''){
-            $data['dataplasma'] = $this->m_simoga->filterentang_tgl1($tgl1);
-        }elseif($tgl2 != ''){
-            $data['dataplasma'] = $this->m_simoga->filterentang_tgl2($tgl2);
-        }else{
-            $data['dataplasma'] = $this->m_simoga->bulan_ini();
-        }
+      $tgl1 = $_GET['filtertgl1'];
+      $tgl2 = $_GET['filtertgl2'];
+      $kbn = $_GET['filterkebun'];
 
-        if(!empty($data['dataplasma'])){
-            foreach ($data['dataplasma'] as $plasma) : ?>
+      if($tgl1 != '' && $tgl2 != '' && $kbn != '')
+      {
+          $data['dataplasma'] = $this->m_simoga->filter_all($tgl1, $tgl2, $kbn);
+      }
+      elseif($tgl1 != '' && $tgl2 != '') 
+      {
+          $data['dataplasma'] = $this->m_simoga->filter_rentang($tgl1, $tgl2);
+      }
+      elseif($kbn != '')
+      {
+          $data['dataplasma'] = $this->m_simoga->filter_kebun($kbn);
+      }
+      elseif($tgl1 != '')
+      {;
+          $data['dataplasma'] = $this->m_simoga->filterentang_tgl1($tgl1);
+      }
+      elseif($tgl2 != '')
+      { 
+          $data['dataplasma'] = $this->m_simoga->filterentang_tgl2($tgl2);
+      }
+      else
+      {
+          $data['dataplasma'] = $this->m_simoga->bulan_ini();
+      }
 
-                <?php
-
-                $warna = "";
-                if($plasma['durasi'] < 20 && $plasma['bruto'] >= 5000)
-                {
-                  $warna = 'background-color: #E94B3CFF ; color: #FFFFFFFF;'; // orange
-                }
-                else if($plasma['durasi'] < 20)
-                {
-                  $warna = 'background-color: #FF7F50; ; color: #FFFFFFFF;'; // merah
-                }
-                else
-                {
-                  $warna = 'background-color: white;';
-                }
-
-                ?>
-
-                <tr style="<?= $warna ?>">
-                  <td><?php echo $plasma['kode_kebun'];?></td>
-                  <td><?php echo $plasma['kode_plasma'];?></td>
-                  <td><?php echo $plasma['jenis'];?></td>
-                  <td><?php echo $plasma['tanggal'];?></td>
-                  <td><?php echo $plasma['masuk'];?></td>
-                  <td><?php echo $plasma['keluar'];?></td>
-                  <td><?php echo $plasma['durasi'];?></td>
-                  <td><?php echo $plasma['pemasok'];?></td>
-                  <td><?php echo $plasma['nopol'];?></td>
-                  <td><?php echo $plasma['supir'];?></td>
-                  <td><?php echo $plasma['bruto'];?></td>
-                  <td><?php echo $plasma['netto'];?></td>
-                  <td><?php echo $plasma['jumlah_tbs_diterima'];?></td>
-                  <td><?php echo $plasma['tbs_mentah'];?></td>
-                  <td><?php echo $plasma['tbs_tankos'];?></td>
-                  <td><?php echo $plasma['tbs_kecil'];?></td>
-                  <td><?php echo $plasma['jumlah_tbs_sample'];?></td>
-                  <td><?php echo $plasma['tenera'];?></td>
-                  <td><?php echo $plasma['dura'];?></td>
-                  <td><?php echo $plasma['grade'];?></td>
-                  <td><?php echo $plasma['potongan'];?></td>
-                  <td><?php echo $plasma['status'];?></td>
-                  <td><?php echo $plasma['on_create'];?></td>
-                </tr>
+      if(!empty($data['dataplasma'])){
+          foreach ($data['dataplasma'] as $plasma) : ?>
 
               <?php
-              endforeach;
+
+              $warna = "";
+              if($plasma['durasi'] < 20 && $plasma['bruto'] > 5000)
+              {
+                $warna = 'background-color: #FF6363; color: #FFFFFFFF;'; // merah
+              }
+              else if($plasma['durasi'] < 20 && $plasma['bruto'] < 5000)
+              {
+                $warna = 'background-color: #FFEB9C;'; // kuning
+              }
+              else
+              {
+                $warna = 'background-color: white;';
+              }
+
+              ?>
+              <?php
+                $a = ($plasma['dura']/$plasma['jumlah_tbs_sample'])*100;
+                $b = ($plasma['tenera']/$plasma['jumlah_tbs_sample'])*100;
+                $c;
+                if($plasma['status'] == 2){
+                  $c = "Data Lengkap";
+                }else{
+                  $c = "Data Tidak Lengkap";
                 }
-                else
-                {
               ?>
 
-                <tr>
-                    <td style="text-align:center" colspan='19'>Tidak ada data</td>
-                </tr>
-                <?php
-        }
-    }
+              <tr>
+                <td><?php echo $plasma['kode_kebun'];?></td>
+                <td><?php echo $plasma['kode_plasma'];?></td>
+                <td><?php echo $plasma['jenis'];?></td>
+                <td><?php echo $plasma['tanggal'];?></td>
+                <td style="<?= $warna ?>"><?php echo $plasma['masuk'];?></td>
+                <td style="<?= $warna ?>"><?php echo $plasma['keluar'];?></td>
+                <td style="<?= $warna ?>"><?php echo $plasma['durasi'];?></td>
+                <td><?php echo $plasma['pemasok'];?></td>
+                <td><?php echo $plasma['nopol'];?></td>
+                <td><?php echo $plasma['supir'];?></td>
+                <td style="<?= $warna ?>"><?php echo number_format($plasma['bruto'], 0, ',','.');?></td>
+                <td><?php echo number_format($plasma['netto'], 0, ',','.');?></td>
+                <td><?php echo number_format($plasma['jumlah_tbs_diterima'], 0, ',','.');?></td>
+                <td><?php echo $plasma['tbs_mentah'];?></td>
+                <td><?php echo $plasma['tbs_tankos'];?></td>
+                <td><?php echo $plasma['tbs_kecil'];?></td>
+                <td><?php echo $plasma['jumlah_tbs_sample'];?></td>
+                <td><?php echo $b;?></td>
+                <td><?php echo $a;?></td>
+                <td><?php echo $plasma['grade'];?></td>
+                <td><?php echo $plasma['potongan'];?></td>
+                <td><?php echo $c;?></td>
+                <td><?php echo $plasma['on_create'];?></td>
+              </tr>
+
+            <?php
+            endforeach;
+              }
+              else
+              {
+            ?>
+
+              <tr>
+                  <td style="text-align:center" colspan='19'>Tidak ada data</td>
+              </tr>
+              <?php
+      }
+  }
 
     // public function excel()
     // {

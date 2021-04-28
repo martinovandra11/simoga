@@ -30,7 +30,8 @@ class c_grading extends CI_Controller {
 
     public function filtering(){
          $filter = $_GET['grade'];
-         $kbn = $_GET['filterkebun'];
+         $kbn = $_GET['kodekebun'];
+        //  die(var_dump($kbn));
 
          if($filter != '' && $kbn != '')
          {
@@ -43,6 +44,7 @@ class c_grading extends CI_Controller {
          elseif($kbn != '')
          {
             $data['dataplasma'] = $this->m_simoga->filter_kebun1($kbn);
+            // die(var_dump($kbn));
          }
          else
          {

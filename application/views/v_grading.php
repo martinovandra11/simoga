@@ -12,15 +12,15 @@
           <div class="row">
           <!-- Filter Grading -->
                <select class="form-control ml-3 mb-3 mr-3 col-2" name="grade" id="grade">
-                    <option value="#">Semua Grade</option>
+                    <option value="">Semua Grade</option>
                     <?php foreach($datagrade as $grd) : ?>
                          <option value="<?= $grd['grade'] ?>"><?= $grd['grade'] ?></option>
                     <?php endforeach; ?>
                </select>
           
           <!-- Filter PKS -->
-          <select class="form-control mb-3 mr-3 col-2" id="kodekebun" name="kodekebun">
-                <option value="#">Pilih Kebun</option>
+          <select class="form-control mb-3 mr-3 col-2" name="kodekebun" id="kodekebun">
+                <option value="">Pilih Kebun</option>
               <?php foreach($kodekebun as $kbn) : ?>
                 <option value="<?= $kbn['kode_kebun'] ?>"><?= $kbn['kode_kebun'] ?></option>
               <?php endforeach; ?>
@@ -123,7 +123,7 @@ function grade(){
   var kbn = $("#kodekebun").val();
   $.ajax({
     url : "<?= base_url('c_grading/filtering')?>",
-    data : "grade=" + grd + "&filterkebun=" + kbn,
+    data : "grade=" + grd + "&kodekebun=" + kbn,
     success:function(data){
       $("#table-1 tbody").html(data);
     }

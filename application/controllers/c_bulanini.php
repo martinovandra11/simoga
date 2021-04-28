@@ -58,11 +58,6 @@ class c_bulanini extends CI_Controller {
             $data['dataplasma'] = $this->m_simoga->bulan_ini();
         }
 
-        
-        // die(var_dump($));
-
-        // die(var_dump($data['dataplasma']));
-
         if(!empty($data['dataplasma'])){
             foreach ($data['dataplasma'] as $plasma) : ?>
 
