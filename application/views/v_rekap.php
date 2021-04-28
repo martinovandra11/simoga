@@ -114,6 +114,12 @@
                     <?php
                       $a = ($plasma['dura']/$plasma['jumlah_tbs_sample'])*100;
                       $b = ($plasma['tenera']/$plasma['jumlah_tbs_sample'])*100;
+                      $c;
+                      if($plasma['status'] == 2){
+                        $c = "Data Lengkap";
+                      }else{
+                        $c = "Data Timbangan Belum Diisi";
+                      }
                     ?>
 
                     <tr>
@@ -138,7 +144,7 @@
                         <td><?php echo $a;?></td>
                         <td><?php echo $plasma['grade'];?></td>
                         <td><?php echo $plasma['potongan'];?></td>
-                        <td><?php echo $plasma['status'];?></td>
+                        <td><?php echo $c;?></td>
                         <td><?php echo $plasma['on_create'];?></td>
                     </tr>
 
@@ -177,6 +183,9 @@ function rekap(){
     data : "filtertgl1=" + tgl1 + "&filtertgl2=" + tgl2 + "&filterkebun=" + kbn,
     success:function(data){
       $("#table-1 tbody").html(data);
+
+      $('#table-1').css( 'display', 'block' );
+      table.columns.adjust().draw();
     }
   });
 }
