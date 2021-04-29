@@ -84,18 +84,18 @@
                       }
                     ?>
 
-                      <tr style="<?= $warna ?>">
+<tr>
                         <td><?php echo $dua['kode_kebun'];?></td>
                         <td><?php echo $dua['kode_plasma'];?></td>
                         <td><?php echo $dua['jenis'];?></td>
                         <td><?php echo $dua['tanggal'];?></td>
-                        <td><?php echo $dua['masuk'];?></td>
-                        <td><?php echo $dua['keluar'];?></td>
-                        <td><?php echo $dua['durasi'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $dua['masuk'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $dua['keluar'];?></td>
+                        <td style="<?= $warna ?>"><?php echo $dua['durasi'];?></td>
                         <td><?php echo $dua['pemasok'];?></td>
                         <td><?php echo $dua['nopol'];?></td>
                         <td><?php echo $dua['supir'];?></td>
-                        <td><?php echo $dua['bruto'];?></td>
+                        <td style="<?= $warna ?>"><?php echo number_format($dua['bruto'], 0, ',','.');?></td>
                         <td><?php echo $dua['netto'];?></td>
                         <td><?php echo $dua['jumlah_tbs_diterima'];?></td>
                         <td><?php echo $dua['tbs_mentah'];?></td>
