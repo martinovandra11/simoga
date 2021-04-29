@@ -151,6 +151,22 @@
                   <?php endforeach; } ?>
 
                 </tbody>
+
+                <table class="table-sm">
+                    <tr>
+                      <td><p>Keterangan </p></td>
+                    </tr>
+                    <tr>
+                      <td style="background-color: #FF6363; color: #FF6363" > 60</td>
+                      <td><b>&nbsp => &nbsp</b></td>
+                      <td><b>Durasi kurang dari 20 menit dan Bruto lebih dari 5 Ton</b></td>
+                    </tr>
+                    <tr>
+                      <td style="background-color: #FFEB9C; color: #FFEB9C" > 60</td>
+                      <td><b>&nbsp => &nbsp</b></td>
+                      <td><b>Durasi kurang dari 20 menit dan Bruto kurang dari 5 Ton</b></td>
+                    </tr>
+                </table>
                 
               </table>
             </div>
