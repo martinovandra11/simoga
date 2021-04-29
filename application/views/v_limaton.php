@@ -41,7 +41,6 @@
                   <th class="text-center">Grade</th>
                   <th class="text-center">Potongan</th>
                   <th class="text-center">Status</th>
-                  <th class="text-center">Catatan</th>
                   <th class="text-center">Dibuat</th>
                 </tr>
               </thead>
@@ -101,7 +100,6 @@
                         <td><?php echo $dua['grade'];?></td>
                         <td><?php echo $dua['potongan'];?></td>
                         <td><?php echo $dua['status'];?></td>
-                        <td><?php echo $dua['catatan'];?></td>
                         <td><?php echo $dua['on_create'];?></td>
                     </tr>
 

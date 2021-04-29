@@ -72,6 +72,12 @@
                     <?php
                       $a = ($plasma['dura']/$plasma['jumlah_tbs_sample'])*100;
                       $b = ($plasma['tenera']/$plasma['jumlah_tbs_sample'])*100;
+                      $c;
+                      if($plasma['status'] == 2){
+                        $c = "Data Lengkap";
+                      }else{
+                        $c = "Data Timbangan Belum Diisi";
+                      }
                     ?>
 
                     <tr>
@@ -87,7 +93,7 @@
                         <td><?php echo $plasma['supir'];?></td>
                         <td style="<?= $warna ?>"><?php echo number_format($plasma['bruto'], 0, ',','.');?></td>
                         <td><?php echo number_format($plasma['netto'], 0, ',','.');?></td>
-                        <td><?php echo $plasma['jumlah_tbs_diterima'];?></td>
+                        <td><?php echo number_format($plasma['jumlah_tbs_diterima'], 0, ',','.');?></td>
                         <td><?php echo $plasma['tbs_mentah'];?></td>
                         <td><?php echo $plasma['tbs_tankos'];?></td>
                         <td><?php echo $plasma['tbs_kecil'];?></td>
@@ -96,7 +102,7 @@
                         <td><?php echo $a;?></td>
                         <td><?php echo $plasma['grade'];?></td>
                         <td><?php echo $plasma['potongan'];?></td>
-                        <td><?php echo $plasma['status'];?></td>
+                        <td><?php echo $c;?></td>
                         <td><?php echo $plasma['on_create'];?></td>
                     </tr>
 

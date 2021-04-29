@@ -65,7 +65,7 @@ class c_dashboard extends CI_Controller {
                   if($plasma['status'] == 2){
                     $c = "Data Lengkap";
                   }else{
-                    $c = "Data Tidak Lengkap";
+                    $c = "Data Timbangan Belum Diisi";
                   }
                 ?>
 

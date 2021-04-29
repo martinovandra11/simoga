@@ -80,7 +80,7 @@
                       if($dua['status'] == 2){
                         $c = "Data Lengkap";
                       }else{
-                        $c = "Data Tidak Lengkap";
+                        $c = "Data Timbangan Belum Diisi";
                       }
                     ?>
 
@@ -96,8 +96,8 @@
                         <td><?php echo $dua['nopol'];?></td>
                         <td><?php echo $dua['supir'];?></td>
                         <td style="<?= $warna ?>"><?php echo number_format($dua['bruto'], 0, ',','.');?></td>
-                        <td><?php echo $dua['netto'];?></td>
-                        <td><?php echo $dua['jumlah_tbs_diterima'];?></td>
+                        <td><?php echo number_format($dua['netto'], 0, ',','.');?></td>
+                        <td><?php echo number_format($dua['jumlah_tbs_diterima'], 0, ',','.');?></td>
                         <td><?php echo $dua['tbs_mentah'];?></td>
                         <td><?php echo $dua['tbs_tankos'];?></td>
                         <td><?php echo $dua['tbs_kecil'];?></td>

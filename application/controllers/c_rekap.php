@@ -85,7 +85,7 @@ class c_rekap extends CI_Controller {
                 if($plasma['status'] == 2){
                   $c = "Data Lengkap";
                 }else{
-                  $c = "Data Tidak Lengkap";
+                  $c = "Data Timbangan Belum Diisi";
                 }
               ?>
 
@@ -101,8 +101,8 @@ class c_rekap extends CI_Controller {
                         <td><?php echo $plasma['nopol'];?></td>
                         <td><?php echo $plasma['supir'];?></td>
                         <td style="<?= $warna ?>"><?php echo number_format($plasma['bruto'], 0, ',','.');?></td>
-                        <td><?php echo $plasma['netto'];?></td>
-                        <td><?php echo $plasma['jumlah_tbs_diterima'];?></td>
+                        <td><?php echo number_format($plasma['netto'], 0, ',','.');?></td>
+                        <td><?php echo number_format($plasma['jumlah_tbs_diterima'], 0, ',','.');?></td>
                         <td><?php echo $plasma['tbs_mentah'];?></td>
                         <td><?php echo $plasma['tbs_tankos'];?></td>
                         <td><?php echo $plasma['tbs_kecil'];?></td>
