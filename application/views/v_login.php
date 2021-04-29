@@ -1,14 +1,17 @@
-<body style="background-image: url('<?php echo base_url('assets/assets/img/background-2.jpg') ?>'); background-size: cover;  ">
+<body style="background-image: url('<?php echo base_url('assets/assets/img/back.png') ?>'); background-size: cover;  ">
     <div class="container">
-    <div class="text-center">
-            <img src="<?php echo base_url("assets/assets/img/logo-ptpn-fix.png") ?>" class="mt-5" width="10%" alt="logo.png">
+    <div class="text-left">
+            <!-- <img src="<?php echo base_url("assets/assets/img/logo-ptpn-fix.png") ?>" class="mt-5" width="10%" alt="logo.png"> -->
         </div>
         <!-- Outer Row -->
+        
         <div class="row justify-content-center">
+        
         
             <div class="col-xl-5 col-lg-12 col-md-9 mt-3">
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
+                    <center><img src="<?php echo base_url("assets/assets/img/simogawebicon.png") ?>" class="mt-5" width="20%" alt="logo.png"></center>
                         
                         <!-- Nested Row within Card Body -->
                         <div class="row">
