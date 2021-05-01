@@ -6,7 +6,7 @@
 
 		<div class="row justify-content-left">
 			<div class="col-6 col-sm-6 col-md-12">
-					<h3>Data Tonase Hari Ini ( <?php echo date('d / M / Y'); ?> )</h3>
+					<h3 class="text-dark">Data Tonase Hari Ini, <?php echo date('d - M - Y'); ?></h3>
 			</div>
 		</div>
 
@@ -80,7 +80,7 @@
 		
 		<div class="row justify-content-left">
 			<div class="col-6 col-sm-6 col-md-12">
-					<h3>Data Grading Hari Ini</h3>
+					<h3 class="text-dark">Data Grading Hari Ini</h3>
 			</div>
 		</div>						
 
@@ -88,11 +88,11 @@
                <div class="col-6 col-sm-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
-						<i class="fas fa-award"> A1+</i>
+					<i class="fas"> A1+</i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
-							
+							<h4 class="font-weight-bold text-dark">A1+</h4>
 						</div>
 						<div class="card-body">
                                    <?php 
@@ -122,7 +122,7 @@
                <div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
-						<i class="fas fa-award"> A </i>
+						<i class="fas"> A </i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -154,7 +154,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
-						<i class="fas fa-award"> A1</i>
+						<i class="fas"> A1</i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -186,7 +186,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
-						<i class="fas fa-award"> A2</i>
+						<i class="fas"> A2</i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -293,7 +293,7 @@
                                         foreach($bulanini as $ini) { 
                                    ?>
                                    
-                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?> ??
+                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?> 
                                    
                                    <?php } ?>
 						</div>
@@ -444,7 +444,7 @@
 
 		<div class="row justify-content-left">
 			<div class="col-6 col-sm-6 col-md-12">
-				<h3>Laporan Bongkar Hari Ini</h3>
+				<h3 class="text-dark">Laporan Bongkar Hari Ini</h3>
 			</div>
 		</div>
 
@@ -505,7 +505,7 @@
 
 		<div class="row justify-content-left">
 			<div class="col-6 col-sm-6 col-md-12">
-					<h3>Laporan Bongkar Bulan Ini</h3>
+					<h3 class="text-dark">Laporan Bongkar Bulan Ini</h3>
 			</div>
 		</div>
 		
@@ -523,7 +523,7 @@
 						<table>
 							<tr>
 							<?php foreach($duapuluh as $dua) { ?>
-                                   	<td>(<?= number_format($dua['KurangDuaPuluh'], 0,',','.');?>)</td>
+                                   	<td><?= number_format($dua['KurangDuaPuluh'], 0,',','.');?></td>
                                    <?php } ?>
 
 							<?php foreach($sumbruto as $dua) { ?>
@@ -561,13 +561,13 @@
 						<table>
 							<tr>
 							<?php foreach($dualima as $ini) { ?>
-                                   	<td><?= number_format($ini['DuaLima'], 0,',','.');?></td>
+                                    <td class=""><?= number_format($ini['DuaLima'], 0,',','.');?></td>
                                    <?php } ?>
 
 							<?php foreach($sumbruto2 as $dua) { ?>
                                    	<td class="text-success">(<?= number_format($dua['Sum_bruto'], 0,',','.');?>)</td>
                                    <?php } ?>
-
+								   
 							<?php foreach($sumnetto2 as $dua) { ?>
                                    	<td class="text-warning">(<?= number_format($dua['Sum_netto'], 0,',','.');?>)</td>
                                    <?php } ?>
