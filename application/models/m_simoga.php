@@ -21,10 +21,11 @@ class m_simoga extends CI_Model{
           return $this->db->query("SELECT SUM(netto) AS JumlahNetto FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
      }
 
-     public function all_grade(){
-          return $this->db->query("SELECT COUNT(id_rekap) AS AllGrade FROM sortasi_plasma")->result_array();
+     public function all_netto(){
+          return $this->db->query("SELECT SUM(netto) AS AllGrade FROM sortasi_plasma")->result_array();
      } 
 
+     //all_grade
      public function atu_plus(){
           return $this->db->query("SELECT COUNT(id_rekap) AS atu_plus FROM sortasi_plasma WHERE grade = 'A1+'")->result_array();
      }
@@ -67,6 +68,51 @@ class m_simoga extends CI_Model{
 
      public function grade_apls(){
           return $this->db->query("SELECT COUNT(id_rekap) as GradeApls FROM sortasi_plasma WHERE grade = 'A1/PLASMA'")->result_array();
+     }
+
+     //grade_today
+     public function atu_plus_today(){
+          return $this->db->query("SELECT COUNT(id_rekap) AS atu_plus FROM sortasi_plasma WHERE grade = 'A1+' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_a_today(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeA FROM sortasi_plasma WHERE grade = 'A' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_a1_today(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeA1 FROM sortasi_plasma WHERE grade = 'A1' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_a2_today(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeA2 FROM sortasi_plasma WHERE grade = 'A2' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_aplus_today(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeAplus FROM sortasi_plasma WHERE grade = 'A+' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_a3_today(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeA3 FROM sortasi_plasma WHERE grade = 'A3' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_pls_today(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradePLS FROM sortasi_plasma WHERE grade = 'PLS' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_B_today(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeB FROM sortasi_plasma WHERE grade = 'B' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_Apha_today(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeApha FROM sortasi_plasma WHERE grade = 'A ALPHA' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_plsa_today(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradePlsa FROM sortasi_plasma WHERE grade = 'PLS A' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_apls_today(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeApls FROM sortasi_plasma WHERE grade = 'A1/PLASMA' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
      }
 
      public function sum_bruto(){
@@ -129,6 +175,22 @@ class m_simoga extends CI_Model{
 
      public function countkurang_duapuluh(){
           return $this->db->query("SELECT COUNT(id_rekap) AS KurangDuaPuluh FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
+     }
+     //Laporan Bongkar Bulan Ini
+     public function sumbruto_bulanini(){
+          return $this->db->query("SELECT SUM(bruto) AS Sum_bruto FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
+     }
+
+     public function sumnetto_bulanini(){
+          return $this->db->query("SELECT SUM(netto) AS Sum_netto FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
+     }
+
+     public function sumbruto2_bulanini(){
+          return $this->db->query("SELECT SUM(bruto) AS Sum_bruto FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
+     }
+
+     public function sumnetto2_bulanini(){
+          return $this->db->query("SELECT SUM(netto) AS Sum_netto FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
      }
 
      public function lebih_limaton(){

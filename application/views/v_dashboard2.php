@@ -33,132 +33,134 @@
 
 					<tbody>
 						<tr>
+						<?php foreach ($jumlahbruto_today as $bruto) :?>
+								<td><div class="text-success"><?php echo $bruto['JumlahBruto'];?></div>
+							<?php endforeach ; ?>
+
 							<?php foreach ($jumlahbruto as $bruto) :?>
-								<td><?php echo $bruto['JumlahBruto'];?>
-							<?php endforeach ; ?>
-
-							<?php foreach ($jumlahbruto_today as $bruto) :?>
-								<p class="text-success">(<?php echo $bruto['JumlahBruto'];?>)</p></td>
+								<?php echo $bruto['JumlahBruto'];?></td>
 							<?php endforeach ; ?>
 							
-							<?php foreach ($jumlahnetto as $netto) :?>
-								<td><?php echo $netto['JumlahNetto'];?>
-							<?php endforeach ; ?>
-
 							<?php foreach ($jumlahnetto_today as $netto) :?>
-								<p class="text-success">(<?php echo $netto['JumlahNetto'];?>)</p></td>
+								<td><div class="text-success"><?php echo $netto['JumlahNetto'];?></div>
 							<?php endforeach ; ?>
+
+							<?php foreach ($jumlahnetto as $netto) :?>
+								<?php echo $netto['JumlahNetto'];?></td>
+							<?php endforeach ; ?>
+
 							
-							<?php //persentase grade A+
+							
+							<?php 
 								foreach ($allgrade as $grade) :
 									foreach($aplus as $grade2) :
-								 		$a = $grade['AllGrade'];
+								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['atu_plus'];
 										$c = ($b/$a)*100;
 							?>
-									<td><?php echo $c;?> %</td>
+									<td><?php echo round($c,4);?> %</td>
 							<?php endforeach; endforeach ; ?>
 							
 							<?php //persentase grade A
 								foreach ($allgrade as $grade) :
 									foreach($gradea as $grade2) :
-								 		$a = $grade['AllGrade'];
+								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeA'];
 										$c = ($b/$a)*100;
 							?>
-									<td><?php echo $c;?> %</td>
+									<td><?php echo round($c,4);?> %</td>
 							<?php endforeach; endforeach ; ?>
 
 							<?php //persentase grade A1
 								foreach ($allgrade as $grade) :
 									foreach($gradea1 as $grade2) :
-								 		$a = $grade['AllGrade'];
+								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeA1'];
 										$c = ($b/$a)*100;
 							?>
-									<td><?php echo $c;?> %</td>
+									<td><?php echo round($c,4);?> %</td>
 							<?php endforeach; endforeach ; ?>
 
-							<?php //persentase grade A2
+							<?php //persentase grade A+
 								foreach ($allgrade as $grade) :
 									foreach($gradea2 as $grade2) :
-								 		$a = $grade['AllGrade'];
+								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeA2'];
 										$c = ($b/$a)*100;
 							?>
-									<td><?php echo $c;?> %</td>
+									<td><?php echo round($c,4);?> %</td>
 							<?php endforeach; endforeach ; ?>
 
 
 							<?php //persentase grade A+
 								foreach ($allgrade as $grade) :
 									foreach($gradeaplus as $grade2) :
-								 		$a = $grade['AllGrade'];
+								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeAplus'];
 										$c = ($b/$a)*100;
 							?>
-									<td><?php echo $c;?> %</td>
+									<td><?php echo round($c,4);?> %</td>
 							<?php endforeach; endforeach ; ?>
 							
 
 							<?php //persentase grade A3
 								foreach ($allgrade as $grade) :
 									foreach($gradea3 as $grade2) :
-								 		$a = $grade['AllGrade'];
+								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeA3'];
 										$c = ($b/$a)*100;
 							?>
-									<td><?php echo $c;?> %</td>
+									<td><?php echo round($c,4);?> %</td>
 							<?php endforeach; endforeach ; ?>
 
 							<?php //persentase grade PLS
 								foreach ($allgrade as $grade) :
 									foreach($gradepls as $grade2) :
-								 		$a = $grade['AllGrade'];
+								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradePLS'];
 										$c = ($b/$a)*100;
 							?>
-									<td><?php echo $c;?> %</td>
+									<td><?php echo round($c,4);?> %</td>
 							<?php endforeach; endforeach ; ?>
 
 							<?php //persentase grade B
 								foreach ($allgrade as $grade) :
 									foreach($gradeB as $grade2) :
-								 		$a = $grade['AllGrade'];
+								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeB'];
 										$c = ($b/$a)*100;
 							?>
-									<td><?php echo $c;?> %</td>
+									<td><?php echo round($c,4);?> %</td>
 							<?php endforeach; endforeach ; ?>
 
 							<?php //persentase grade A ALPHA
 								foreach ($allgrade as $grade) :
 									foreach($gradeAlpha as $grade2) :
-								 		$a = $grade['AllGrade'];
+								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeApha'];
 										$c = ($b/$a)*100;
 							?>
-									<td><?php echo $c;?> %</td>
+									<td><?php echo round($c,4);?> %</td>
 							<?php endforeach; endforeach ; ?>
 
 							<?php //persentase grade PLS A
 								foreach ($allgrade as $grade) :
 									foreach($gradePlsa as $grade2) :
-								 		$a = $grade['AllGrade'];
+								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradePlsa'];
 										$c = ($b/$a)*100;
 							?>
-									<td><?php echo $c;?> %</td>
+									<td><?php echo round($c,4);?> %</td>
 							<?php endforeach; endforeach ; ?>
 
 							<?php //persentase grade A1/PLASMA
 								foreach ($allgrade as $grade) :
 									foreach($gradeApls as $grade2) :
-								 		$a = $grade['AllGrade'];
+								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeApls'];
 										$c = ($b/$a)*100;
 							?>
-									<td><?php echo $c;?> %</td>
+									<td><?php echo round($c,4);?> %</td>
 							<?php endforeach; endforeach ; ?>
 						</tr>
 					</tbody>
@@ -274,6 +276,8 @@
 				</div>
 			</div>
 
+			
+
 
 			<div class="col-6 col-md-12">
 				<div class="card card-statistic-1">
@@ -319,13 +323,24 @@
 							<h4>Durasi < 20 Menit dan Kapasitas < 5 Ton</h4>
 						</div>
 						<div class="card-body">
-                                   <?php 
-                                        foreach($duapuluh as $dua) { 
-                                   ?>
-                                   
-                                   <?= number_format($dua['KurangDuaPuluh'], 0,',','.');?>
-                                   
+						<table>
+							<tr>
+							<?php foreach($duapuluh as $dua) { ?>
+                                   	<td>(<?= number_format($dua['KurangDuaPuluh'], 0,',','.');?>)</td>
                                    <?php } ?>
+
+							<?php foreach($sumbruto as $dua) { ?>
+                                   	<td class="text-success">(<?= number_format($dua['Sum_bruto'], 0,',','.');?>)</td>
+                                   <?php } ?>
+
+							<?php foreach($sumnetto as $dua) { ?>
+                                   	<td class="text-warning">(<?= number_format($dua['Sum_netto'], 0,',','.');?>)</td>
+                                   <?php } ?>
+							</tr>
+						</table>
+                                   
+
+							
 						</div>
                               <div>
                                    <a href="<?= base_url('c_duapuluh') ?>">Lihat Data</a>
@@ -345,13 +360,24 @@
 							<h4>Bongkar < 20 Menit Dan Kapasitas > 5 Ton</h4>
 						</div>
 						<div class="card-body">
-                                   <?php 
-                                        foreach($dualima as $ini) { 
-                                   ?>
-                                   
-                                   <?= number_format($ini['DuaLima'], 0,',','.');?>
-                                   
+
+						<table>
+							<tr>
+							<?php foreach($dualima as $ini) { ?>
+                                   	<td><?= number_format($ini['DuaLima'], 0,',','.');?></td>
                                    <?php } ?>
+
+							<?php foreach($sumbruto2 as $dua) { ?>
+                                   	<td class="text-success">(<?= number_format($dua['Sum_bruto'], 0,',','.');?>)</td>
+                                   <?php } ?>
+
+							<?php foreach($sumnetto2 as $dua) { ?>
+                                   	<td class="text-warning">(<?= number_format($dua['Sum_netto'], 0,',','.');?>)</td>
+                                   <?php } ?>
+							</tr>
+						</table>
+
+                                   
 						</div>
                               <div>
                                    <a href="<?= base_url('c_dualima') ?>" >Lihat Data</a>
