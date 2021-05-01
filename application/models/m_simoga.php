@@ -4,6 +4,97 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class m_simoga extends CI_Model{
 
+     public function count_grading(){
+          return $this->db->query("SELECT COUNT(*) AS hitung FROM sortasi_plasma")->result_array();
+     }
+
+     public function count_gradinginfo(){
+          return $this->db->query("SELECT COUNT(*) AS hitung FROM grade")->result_array();
+     }
+
+     //tabel_Dashboard
+     public function sum_bruto_today(){
+          return $this->db->query("SELECT SUM(bruto) AS JumlahBruto FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function sum_netto_today(){
+          return $this->db->query("SELECT SUM(netto) AS JumlahNetto FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function all_grade(){
+          return $this->db->query("SELECT COUNT(id_rekap) AS AllGrade FROM sortasi_plasma")->result_array();
+     } 
+
+     public function atu_plus(){
+          return $this->db->query("SELECT COUNT(id_rekap) AS atu_plus FROM sortasi_plasma WHERE grade = 'A1+'")->result_array();
+     }
+
+     public function grade_a(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeA FROM sortasi_plasma WHERE grade = 'A'")->result_array();
+     }
+
+     public function grade_a1(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeA1 FROM sortasi_plasma WHERE grade = 'A1'")->result_array();
+     }
+
+     public function grade_a2(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeA2 FROM sortasi_plasma WHERE grade = 'A2'")->result_array();
+     }
+
+     public function grade_aplus(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeAplus FROM sortasi_plasma WHERE grade = 'A+'")->result_array();
+     }
+
+     public function grade_a3(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeA3 FROM sortasi_plasma WHERE grade = 'A3'")->result_array();
+     }
+
+     public function grade_pls(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradePLS FROM sortasi_plasma WHERE grade = 'PLS'")->result_array();
+     }
+
+     public function grade_B(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeB FROM sortasi_plasma WHERE grade = 'B'")->result_array();
+     }
+
+     public function grade_Apha(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeApha FROM sortasi_plasma WHERE grade = 'A ALPHA'")->result_array();
+     }
+
+     public function grade_plsa(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradePlsa FROM sortasi_plasma WHERE grade = 'PLS A'")->result_array();
+     }
+
+     public function grade_apls(){
+          return $this->db->query("SELECT COUNT(id_rekap) as GradeApls FROM sortasi_plasma WHERE grade = 'A1/PLASMA'")->result_array();
+     }
+
+     public function sum_bruto(){
+          return $this->db->query("SELECT SUM(bruto) AS JumlahBruto FROM sortasi_plasma")->result_array();
+     }
+
+     public function sum_netto(){
+          return $this->db->query("SELECT SUM(netto) AS JumlahNetto FROM sortasi_plasma")->result_array();
+     }
+
+     //Laporan Bongkar Hari ini
+     public function count_bagian1(){
+          return $this->db->query("SELECT COUNT(id_rekap) AS KurangDuaPuluh FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal) = DAY(NOW())")->result_array();
+     }
+
+     public function count_bagian2(){
+          return $this->db->query("SELECT COUNT(id_rekap) AS LebihDuaPuluh FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal) = DAY(NOW())")->result_array();
+
+     }
+
+     public function bagian1(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal) = DAY(NOW())")->result_array();
+     }
+
+     public function bagian2(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal) = DAY(NOW())")->result_array();
+     }
+
      public function get_all_data(){ //Nampilin Semua Data
           return $this->db->query("SELECT * FROM sortasi_plasma")->result_array();
      }
@@ -37,7 +128,7 @@ class m_simoga extends CI_Model{
      }
 
      public function countkurang_duapuluh(){
-          return $this->db->query("SELECT COUNT(id_rekap) AS KurangDuaPuluh FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20")->result_array();
+          return $this->db->query("SELECT COUNT(id_rekap) AS KurangDuaPuluh FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
      }
 
      public function lebih_limaton(){
@@ -45,7 +136,7 @@ class m_simoga extends CI_Model{
      }
 
      public function countlebih_limaton(){
-          return $this->db->query("SELECT COUNT(id_rekap) AS LebihLimaTon FROM sortasi_plasma WHERE bruto > 5000")->result_array();
+          return $this->db->query("SELECT COUNT(id_rekap) AS LebihLimaTon FROM sortasi_plasma WHERE bruto > 5000 AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
      }
 
      public function dualima(){
@@ -53,7 +144,7 @@ class m_simoga extends CI_Model{
      }
 
      public  function count_dualima(){
-          return $this->db->query("SELECT COUNT(id_rekap) AS DuaLima FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20")->result_array();
+          return $this->db->query("SELECT COUNT(id_rekap) AS DuaLima FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20 AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
      }
 
      public function get_kebun(){
@@ -124,5 +215,4 @@ class m_simoga extends CI_Model{
           return $this->db->query("SELECT * FROM grade WHERE unit = '$kebun'")->result_array();
      }
 }
-
 ?>
