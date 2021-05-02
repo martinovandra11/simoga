@@ -25,7 +25,7 @@
                                         foreach($hariini as $ini) { 
                                    ?>
                                    
-                                   <?= number_format($ini['JumlahPerHari'], 0,',','.');?>
+                                   <?= number_format($ini['JumlahPerHari'], 0,',','.');?> Trip
                                    
                                    <?php } ?>
 						</div>
@@ -88,17 +88,17 @@
                <div class="col-6 col-sm-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
-					<i class="fas"> A1+</i>
+						<i class="fas"> A1+</i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($hariini as $ini) { 
+                                        foreach($aplus_netto as $ini) { 
                                    ?>
                                    
-                                   <h3><?= number_format($ini['JumlahPerHari'], 0,',','.');?> KG</h3>
+                                   <h3><?= number_format($ini['atu_plus'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 							
@@ -129,10 +129,10 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($bulanini as $ini) { 
+                                        foreach($gradea_netto as $ini) { 
                                    ?>
                                    
-                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
+                                        <h3><?= number_format($ini['GradeA'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -161,10 +161,10 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($bulanini as $ini) { 
+                                        foreach($gradea1_netto as $ini) { 
                                    ?>
                                    
-                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
+                                        <h3><?= number_format($ini['GradeA1'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -193,10 +193,10 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($bulanini as $ini) { 
+                                        foreach($gradea2_netto as $ini) { 
                                    ?>
                                    
-                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
+                                        <h3><?= number_format($ini['GradeA2'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -225,10 +225,10 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($bulanini as $ini) { 
+                                        foreach($gradeaplus_netto as $ini) { 
                                    ?>
                                    
-                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
+                                        <h3><?= number_format($ini['GradeAplus'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -257,10 +257,10 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($bulanini as $ini) { 
+                                        foreach($gradea3_netto as $ini) { 
                                    ?>
                                    
-                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
+                                        <h3><?= number_format($ini['GradeA3'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -289,10 +289,10 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($bulanini as $ini) { 
+                                        foreach($gradepls_netto as $ini) { 
                                    ?>
                                    
-                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
+                                        <h3><?= number_format($ini['GradePLS'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -321,10 +321,10 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($bulanini as $ini) { 
+                                        foreach($gradeB_netto as $ini) { 
                                    ?>
                                    
-                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
+                                        <h3><?= number_format($ini['GradeB'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -354,10 +354,10 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($bulanini as $ini) { 
+                                        foreach($gradeAlpha_netto as $ini) { 
                                    ?>
                                    
-                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
+                                        <h3><?= number_format($ini['GradeApha'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -386,10 +386,10 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($bulanini as $ini) { 
+                                        foreach($gradePlsa_netto as $ini) { 
                                    ?>
                                    
-                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
+                                        <h3><?= number_format($ini['GradePlsa'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -418,10 +418,10 @@
 						</div>
 						<div class="card-body">
                                    <?php 
-                                        foreach($bulanini as $ini) { 
+                                        foreach($gradeApls_netto as $ini) { 
                                    ?>
                                    
-                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
+                                        <h3><?= number_format($ini['GradeApls'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -435,6 +435,8 @@
 							?>
 									<h5><?php echo round($c,4);?> %</h5>
 							<?php endforeach; endforeach ; ?>
+
+							<a>Lihat Data</a>
                               </div>
 					</div>
 				</div>
@@ -443,7 +445,7 @@
 
 		<div class="row justify-content-left">
 			<div class="col-6 col-sm-6 col-md-12">
-				<h3 class="text-dark">Laporan Bongkar Hari Ini</h3>
+				<h3 class="text-dark">Laporan Bongkar Hari Ini (Trip / Bruto / Netto)</h3>
 			</div>
 		</div>
 
@@ -458,13 +460,21 @@
 							<h4>Durasi < 20 Menit dan Kapasitas < 5 Ton</h4>
 						</div>
 						<div class="card-body">
-                                   <?php 
-                                        foreach($hitung1 as $dua) { 
-                                   ?>
-                                   
-                                   <?= number_format($dua['KurangDuaPuluh'], 0,',','.');?>
-                                   
+						<table>
+							<tr>
+							<?php foreach($hitung1 as $dua) { ?>
+                                   	<td><?= number_format($dua['KurangDuaPuluh'], 0,',','.');?>/</td>
                                    <?php } ?>
+
+							<?php foreach($sumbruto_today as $dua) { ?>
+                                   	<td class="text-success"><?= number_format($dua['Sum_bruto'], 0,',','.');?> / </td>
+                                   <?php } ?>
+
+							<?php foreach($sumnetto_today as $dua) { ?>
+                                   	<td class="text-warning"><?= number_format($dua['Sum_netto'], 0,',','.');?></td>
+                                   <?php } ?>
+							</tr>
+						</table>
 						</div>
                               <div>
                                    <a href="<?= base_url('c_bagian1') ?>">Lihat Data</a>
@@ -484,13 +494,21 @@
 							<h4>Bongkar < 20 Menit Dan Kapasitas > 5 Ton</h4>
 						</div>
 						<div class="card-body">
-                                   <?php 
-                                        foreach($hitung2 as $ini) { 
-                                   ?>
-                                   
-                                   <?= number_format($ini['LebihDuaPuluh'], 0,',','.');?>
-                                   
+						<table>
+							<tr>
+							<?php foreach($hitung1 as $dua) { ?>
+                                   	<td><?= number_format($dua['KurangDuaPuluh'], 0,',','.');?>/</td>
                                    <?php } ?>
+
+							<?php foreach($sumbruto2_today as $dua) { ?>
+                                   	<td class="text-success"><?= number_format($dua['Sum_bruto'], 0,',','.');?> / </td>
+                                   <?php } ?>
+
+							<?php foreach($sumnetto2_today as $dua) { ?>
+                                   	<td class="text-warning"><?= number_format($dua['Sum_netto'], 0,',','.');?></td>
+                                   <?php } ?>
+							</tr>
+						</table>
 						</div>
                               <div>
                                    <a href="<?= base_url('c_bagian2') ?>" >Lihat Data</a>
@@ -571,13 +589,12 @@
                                    	<td class="text-warning"><?= number_format($dua['Sum_netto'], 0,',','.');?></td>
                                    <?php } ?>
 							</tr>
+							
 						</table>
-
-                                   
+							
 						</div>
-                              <div>
-                                   <a href="<?= base_url('c_dualima') ?>" >Lihat Data</a>
-                              </div>
+                              
+							<a href="<?= base_url('c_dualima') ?>" >Lihat Data</a>
                               
 					</div>
 				</div>

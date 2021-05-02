@@ -123,6 +123,52 @@ class m_simoga extends CI_Model{
           return $this->db->query("SELECT SUM(netto) AS JumlahNetto FROM sortasi_plasma")->result_array();
      }
 
+     //sum_netto_grade_today
+     public function atu_plus_netto(){
+          return $this->db->query("SELECT SUM(netto) AS atu_plus FROM sortasi_plasma WHERE grade = 'A1+' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_a_netto(){
+          return $this->db->query("SELECT SUM(netto) AS GradeA FROM sortasi_plasma WHERE grade = 'A' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_a1_netto(){
+          return $this->db->query("SELECT SUM(netto) AS GradeA1 FROM sortasi_plasma WHERE grade = 'A1' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_a2_netto(){
+          return $this->db->query("SELECT SUM(netto) AS GradeA2 FROM sortasi_plasma WHERE grade = 'A2' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_aplus_netto(){
+          return $this->db->query("SELECT SUM(netto) AS GradeAplus FROM sortasi_plasma WHERE grade = 'A+' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_a3_netto(){
+          return $this->db->query("SELECT SUM(netto) AS GradeA3 FROM sortasi_plasma WHERE grade = 'A3' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_pls_netto(){
+          return $this->db->query("SELECT SUM(netto) AS GradePLS FROM sortasi_plasma WHERE grade = 'PLS' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_B_netto(){
+          return $this->db->query("SELECT SUM(netto) AS GradeB FROM sortasi_plasma WHERE grade = 'B' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_Apha_netto(){
+          return $this->db->query("SELECT SUM(netto) AS GradeApha FROM sortasi_plasma WHERE grade = 'A ALPHA' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_plsa_netto(){
+          return $this->db->query("SELECT SUM(netto) AS GradePlsa FROM sortasi_plasma WHERE grade = 'PLS A' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function grade_apls_netto(){
+          return $this->db->query("SELECT SUM(netto) AS GradeApls FROM sortasi_plasma WHERE grade = 'A1/PLASMA' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+
      //Laporan Bongkar Hari ini
      public function count_bagian1(){
           return $this->db->query("SELECT COUNT(id_rekap) AS KurangDuaPuluh FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal) = DAY(NOW())")->result_array();
@@ -191,6 +237,23 @@ class m_simoga extends CI_Model{
 
      public function sumnetto2_bulanini(){
           return $this->db->query("SELECT SUM(netto) AS Sum_netto FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
+     }
+
+     //Laporan Bongkar Hari Ini
+     public function sumbruto_hariini(){
+          return $this->db->query("SELECT SUM(bruto) AS Sum_bruto FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal) = DAY(NOW())")->result_array();
+     }
+
+     public function sumnetto_hariini(){
+          return $this->db->query("SELECT SUM(netto) AS Sum_netto FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal) = DAY(NOW())")->result_array();
+     }
+
+     public function sumbruto2_hariini(){
+          return $this->db->query("SELECT SUM(bruto) AS Sum_bruto FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal) = DAY(NOW())")->result_array();
+     }
+
+     public function sumnetto2_hariini(){
+          return $this->db->query("SELECT SUM(netto) AS Sum_netto FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal) = DAY(NOW())")->result_array();
      }
 
      public function lebih_limaton(){

@@ -27,9 +27,14 @@ class c_dashboard2 extends CI_Controller {
           $data['duapuluh'] = $this->m_simoga->countkurang_duapuluh();
           $data['sumbruto'] = $this->m_simoga->sumbruto_bulanini();
           $data['sumnetto'] = $this->m_simoga->sumnetto_bulanini();
-          $data['sumbruto2'] = $this->m_simoga->sumbruto2_bulanini();
+          $data['sumbruto2'] = $this->m_simoga->sumbruto2_hariini();
           $data['sumnetto2'] = $this->m_simoga->sumnetto2_bulanini();
 
+          //Laporan Bongkar Hari Ini
+          $data['sumbruto_today'] = $this->m_simoga->sumbruto_hariini();
+          $data['sumnetto_today'] = $this->m_simoga->sumnetto_hariini();
+          $data['sumbruto2_today'] = $this->m_simoga->sumbruto2_hariini();
+          $data['sumnetto2_today'] = $this->m_simoga->sumnetto2_hariini();
 
           $data['hariini'] = $this->m_simoga->count_today();
           $data['bulanini'] = $this->m_simoga->count_mounth();
@@ -67,6 +72,21 @@ class c_dashboard2 extends CI_Controller {
           $data['gradeAlpha_today'] = $this->m_simoga->grade_Apha_today();
           $data['gradePlsa_today'] = $this->m_simoga->grade_plsa_today();
           $data['gradeApls_today'] = $this->m_simoga->grade_apls_today();
+
+          //grade_netto_today
+          $data['aplus_netto'] = $this->m_simoga->atu_plus_netto();
+          $data['gradea_netto'] = $this->m_simoga->grade_a_netto();
+          $data['gradea1_netto'] = $this->m_simoga->grade_a1_netto();
+          $data['gradea2_netto'] = $this->m_simoga->grade_a2_netto();
+          $data['gradeaplus_netto'] = $this->m_simoga->grade_aplus_netto();
+          $data['gradea3_netto'] = $this->m_simoga->grade_a3_netto();
+          $data['gradepls_netto'] = $this->m_simoga->grade_pls_netto();
+          $data['gradeB_netto'] = $this->m_simoga->grade_B_netto();
+          $data['gradeAlpha_netto'] = $this->m_simoga->grade_Apha_netto();
+          $data['gradePlsa_netto'] = $this->m_simoga->grade_plsa_netto();
+          $data['gradeApls_netto'] = $this->m_simoga->grade_apls_today();
+
+          //filtering_grade_today
 
           $this->load->view('templates/header');
           $this->load->view('templates/sidebar');
