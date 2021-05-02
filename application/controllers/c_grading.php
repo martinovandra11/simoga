@@ -44,7 +44,6 @@ class c_grading extends CI_Controller {
          elseif($kbn != '')
          {
             $data['dataplasma'] = $this->m_simoga->filter_kebun1($kbn);
-            // die(var_dump($kbn));
          }
          else
          {

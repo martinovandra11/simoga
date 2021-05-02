@@ -37,7 +37,7 @@
 
            
             </div>
-            <a class="btn btn-success mb-3" href="<?= base_url('c_bulanini/export') ?>">Download Excel</a>
+            <a class="btn btn-success mb-3" href="<?= base_url('c_rekap/export') ?>">Download Excel</a>
           
             <div class="table-responsive">
 

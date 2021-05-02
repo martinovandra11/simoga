@@ -221,6 +221,10 @@ class m_simoga extends CI_Model{
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun ='$kebun'")->result_array();
      }
 
+     public function filter_kebun_bulanini($kebun){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun ='$kebun' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal) = MONTH(NOW())")->result_array();
+     }
+
      public function filter_all($tgl1, $tgl2, $kbn){
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE (tanggal BETWEEN '$tgl1' AND '$tgl2') AND kode_kebun='$kbn'")->result_array();
      }

@@ -154,9 +154,9 @@ class c_rekap extends CI_Controller {
     public function export()
     {
       header("Content-type: application/vnd-ms-excel");
-      header("Content-Disposition: attachment; filename=Contoh.csv");
+      header("Content-Disposition: attachment; filename=Contoh.xls");
 
-      $data['dataplasma'] = $this->m_simoga->bulan_ini();
+      $data['dataplasma'] = $this->m_simoga->get_all_data();
       $this->load->view('v_export', $data);
 
     }

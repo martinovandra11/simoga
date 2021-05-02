@@ -111,7 +111,7 @@
 										$b = $grade2['atu_plus'];
 										$c = ($b/$a)*100;
 							?>
-									<h5><?php echo round($c,4);?> %</h5>
+									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
                               </div>
 					</div>
@@ -144,7 +144,7 @@
 										$b = $grade2['GradeA'];
 										$c = ($b/$a)*100;
 							?>
-									<h5><?php echo round($c,4);?> %</h5>
+									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
                               </div>
 					</div>
@@ -208,7 +208,7 @@
 										$b = $grade2['GradeA2'];
 										$c = ($b/$a)*100;
 							?>
-									<h5><?php echo round($c,4);?> %</h5>
+									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
                               </div>
 					</div>
@@ -240,7 +240,7 @@
 										$b = $grade2['GradeAplus'];
 										$c = ($b/$a)*100;
 							?>
-									<h5><?php echo round($c,4);?> %</h5>
+									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
                               </div>
 					</div>
@@ -272,7 +272,7 @@
 										$b = $grade2['GradeA3'];
 										$c = ($b/$a)*100;
 							?>
-									<h5><?php echo round($c,4);?> %</h5>
+									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
                               </div>
 					</div>
@@ -304,7 +304,7 @@
 										$b = $grade2['GradePLS'];
 										$c = ($b/$a)*100;
 							?>
-									<h5><?php echo round($c,4);?> %</h5>
+									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
                               </div>
 					</div>
@@ -336,7 +336,7 @@
 										$b = $grade2['GradeB'];
 										$c = ($b/$a)*100;
 							?>
-									<h5><?php echo round($c,4);?> %</h5>
+									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
                               </div>
 					</div>
@@ -369,7 +369,7 @@
 										$b = $grade2['GradeApha'];
 										$c = ($b/$a)*100;
 							?>
-									<h5><?php echo round($c,4);?> %</h5>
+									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
                               </div>
 					</div>
@@ -401,7 +401,7 @@
 										$b = $grade2['GradePlsa'];
 										$c = ($b/$a)*100;
 							?>
-									<h5><?php echo round($c,4);?> %</h5>
+									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
                               </div>
 					</div>
@@ -433,7 +433,7 @@
 										$b = $grade2['GradeApls'];
 										$c = ($b/$a)*100;
 							?>
-									<h5><?php echo round($c,4);?> %</h5>
+									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
                               </div>
 					</div>
