@@ -88,7 +88,7 @@
                <div class="col-6 col-sm-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
-						<a href="<?= base_url(); ?>"><i class="fas"><u>A1+</u></i></a>
+						<a href="<?= base_url('c_gradea1plus'); ?>"><i class="fas"><u>A1+</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -121,7 +121,7 @@
                <div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
-					<a href="<?= base_url(); ?>"><i class="fas"><u>A</u></i></a>
+					<a href="<?= base_url('c_gradea'); ?>"><i class="fas"><u>A</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -153,7 +153,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
-						<a href="<?= base_url(); ?>"><i class="fas"><u>A1</u></i></a>
+						<a href="<?= base_url('c_gradea1'); ?>"><i class="fas"><u>A1</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -185,7 +185,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
-						<a href="<?= base_url(); ?>"><i class="fas"><u>A2</u></i></a>
+						<a href="<?= base_url('c_gradea2'); ?>"><i class="fas"><u>A2</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -217,7 +217,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<a href="<?= base_url(); ?>"><i class="fas"><u>A+</u></i></a>
+						<a href="<?= base_url('c_gradeaplus'); ?>"><i class="fas"><u>A+</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -249,7 +249,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<a href="<?= base_url(); ?>"><i class="fas"><u>A3</u></i></a>
+						<a href="<?= base_url('c_gradea3'); ?>"><i class="fas"><u>A3</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -281,7 +281,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<a href="<?= base_url(); ?>"><i class="fas"><u>PLS</u></i></a>
+						<a href="<?= base_url('c_gradepls'); ?>"><i class="fas"><u>PLS</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -313,7 +313,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<a href="<?= base_url(); ?>"><i class="fas"><u>B</u></i></a>
+						<a href="<?= base_url('c_gradeb'); ?>"><i class="fas"><u>B</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">

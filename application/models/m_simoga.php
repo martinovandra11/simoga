@@ -69,6 +69,35 @@ class m_simoga extends CI_Model{
      public function grade_apls(){
           return $this->db->query("SELECT COUNT(id_rekap) as GradeApls FROM sortasi_plasma WHERE grade = 'A1/PLASMA'")->result_array();
      }
+     //view grade_today
+     public function view_atu_plus(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'A1+' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function view_a(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'A' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function view_a1(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'A1' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function view_a2(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'A2' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function view_aplus(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'A+' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function view_a3(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'A3' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function view_pls(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'PLS' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+     
 
      //grade_today
      public function atu_plus_today(){
