@@ -88,7 +88,7 @@
                <div class="col-6 col-sm-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
-						<i class="fas"> A1+</i>
+						<a href="<?= base_url(); ?>"><i class="fas"><u>A1+</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -121,7 +121,7 @@
                <div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
-						<i class="fas"> A </i>
+					<a href="<?= base_url(); ?>"><i class="fas"><u>A</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -153,7 +153,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
-						<i class="fas"> A1</i>
+						<a href="<?= base_url(); ?>"><i class="fas"><u>A1</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -185,7 +185,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
-						<i class="fas"> A2</i>
+						<a href="<?= base_url(); ?>"><i class="fas"><u>A2</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -217,7 +217,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<i class="fas"> A+</i>
+						<a href="<?= base_url(); ?>"><i class="fas"><u>A+</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -249,7 +249,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<i class="fas"> A3</i>
+						<a href="<?= base_url(); ?>"><i class="fas"><u>A3</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -281,7 +281,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<i class="fas"> PLS</i>
+						<a href="<?= base_url(); ?>"><i class="fas"><u>PLS</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -313,7 +313,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<i class="fas"> B</i>
+						<a href="<?= base_url(); ?>"><i class="fas"><u>B</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -345,7 +345,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-danger">
-						<i class="fas"><br>A Alpha</i>
+						<a href="<?= base_url(); ?>"><i class="fas"><u>A Alpha</u></i></a>
 						
 					</div>
 					<div class="card-wrap">
@@ -378,7 +378,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-danger">
-						<i class="fas"><br>PLS A</i>
+						<a href="<?= base_url(); ?>"><i class="fas"><u>PLS A</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -410,7 +410,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-danger">
-						<i class="fas"><br>A1/PLS </i>
+					<a href="<?= base_url(); ?>"><i class="fas"><u>A1/PLS</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -436,7 +436,6 @@
 									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
 
-							<a>Lihat Data</a>
                               </div>
 					</div>
 				</div>
@@ -463,7 +462,7 @@
 						<table>
 							<tr>
 							<?php foreach($hitung1 as $dua) { ?>
-                                   	<td><?= number_format($dua['KurangDuaPuluh'], 0,',','.');?>/</td>
+                                   	<td><?= number_format($dua['KurangDuaPuluh'], 0,',','.');?> / </td>
                                    <?php } ?>
 
 							<?php foreach($sumbruto_today as $dua) { ?>
@@ -497,7 +496,7 @@
 						<table>
 							<tr>
 							<?php foreach($hitung1 as $dua) { ?>
-                                   	<td><?= number_format($dua['KurangDuaPuluh'], 0,',','.');?>/</td>
+                                   	<td><?= number_format($dua['KurangDuaPuluh'], 0,',','.');?> / </td>
                                    <?php } ?>
 
 							<?php foreach($sumbruto2_today as $dua) { ?>
