@@ -43,7 +43,7 @@ class c_bulanini extends CI_Controller {
         }
         elseif($kbn != '')
         {
-            $data['dataplasma'] = $this->m_simoga->filter_kebun($kbn);
+            $data['dataplasma'] = $this->m_simoga->filter_kebun_bulanini($kbn);
         }
         elseif($tgl1 != '')
         {;
