@@ -49,7 +49,7 @@
 						<div class="card-body">Total Bruto (Kg)</div>
                               <div>
 							<?php foreach ($jumlahbruto_today as $bruto) :?>
-								<h5><?php echo $bruto['JumlahBruto'];?> Kg</h5>
+								<h5><?php echo number_format($bruto['JumlahBruto'], 0, ',','.');?> Kg</h5>
 							<?php endforeach ; ?>
                               </div>
 					</div>
@@ -70,7 +70,7 @@
 						</div>
                               <div>
 							<?php foreach ($jumlahnetto_today as $netto) :?>
-								<h5><?php echo $netto['JumlahNetto'];?> Kg</h5>
+								<h5><?php echo number_format($netto['JumlahNetto'], 0, ',', '.');?> Kg</h5>
 							<?php endforeach ; ?>
                               </div>
 					</div>
@@ -101,7 +101,7 @@
                                    <h3><?= number_format($ini['JumlahPerHari'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
-							<br>	
+							
 						</div>
                               <div>
 							<?php 
@@ -132,7 +132,7 @@
                                         foreach($bulanini as $ini) { 
                                    ?>
                                    
-                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -164,7 +164,7 @@
                                         foreach($bulanini as $ini) { 
                                    ?>
                                    
-                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -196,7 +196,7 @@
                                         foreach($bulanini as $ini) { 
                                    ?>
                                    
-                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -217,7 +217,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<i class="fas fa-award"> A+</i>
+						<i class="fas"> A+</i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -228,7 +228,7 @@
                                         foreach($bulanini as $ini) { 
                                    ?>
                                    
-                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -249,7 +249,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<i class="fas fa-award"> A3</i>
+						<i class="fas"> A3</i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -260,7 +260,7 @@
                                         foreach($bulanini as $ini) { 
                                    ?>
                                    
-                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -281,7 +281,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<i class="fas fa-award"> PLS</i>
+						<i class="fas"> PLS</i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -292,7 +292,7 @@
                                         foreach($bulanini as $ini) { 
                                    ?>
                                    
-                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?> 
+                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -313,7 +313,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<i class="fas fa-award"> B</i>
+						<i class="fas"> B</i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -324,7 +324,7 @@
                                         foreach($bulanini as $ini) { 
                                    ?>
                                    
-                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -345,7 +345,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-danger">
-						<i class="fas fa-award"><br>A Alpha</i>
+						<i class="fas"><br>A Alpha</i>
 						
 					</div>
 					<div class="card-wrap">
@@ -357,7 +357,7 @@
                                         foreach($bulanini as $ini) { 
                                    ?>
                                    
-                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -378,7 +378,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-danger">
-						<i class="fas fa-award"><br>PLS A</i>
+						<i class="fas"><br>PLS A</i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -389,7 +389,7 @@
                                         foreach($bulanini as $ini) { 
                                    ?>
                                    
-                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
@@ -410,7 +410,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-danger">
-						<i class="fas fa-award"><br>A1/PLS </i>
+						<i class="fas"><br>A1/PLS </i>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -421,7 +421,7 @@
                                         foreach($bulanini as $ini) { 
                                    ?>
                                    
-                                        <?= number_format($ini['JumlahPerBulan'], 0,',','.');?>
+                                        <h3><?= number_format($ini['JumlahPerBulan'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 						</div>
