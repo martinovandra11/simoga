@@ -92,14 +92,13 @@
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
-							<h4 class="font-weight-bold text-dark">A1+</h4>
 						</div>
 						<div class="card-body">
                                    <?php 
                                         foreach($hariini as $ini) { 
                                    ?>
                                    
-                                   <?= number_format($ini['JumlahPerHari'], 0,',','.');?> KG
+                                   <h3><?= number_format($ini['JumlahPerHari'], 0,',','.');?> KG</h3>
                                    
                                    <?php } ?>
 							<br>	
@@ -177,7 +176,7 @@
 										$b = $grade2['GradeA1'];
 										$c = ($b/$a)*100;
 							?>
-									<h5><?php echo round($c,4);?> %</h5>
+									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
                               </div>
 					</div>
@@ -505,7 +504,7 @@
 
 		<div class="row justify-content-left">
 			<div class="col-6 col-sm-6 col-md-12">
-					<h3 class="text-dark">Laporan Bongkar Bulan Ini</h3>
+					<h3 class="text-dark">Laporan Bongkar Bulan Ini (Trip / Bruto / Netto)</h3>
 			</div>
 		</div>
 		
@@ -523,15 +522,15 @@
 						<table>
 							<tr>
 							<?php foreach($duapuluh as $dua) { ?>
-                                   	<td><?= number_format($dua['KurangDuaPuluh'], 0,',','.');?></td>
+                                   	<td><?= number_format($dua['KurangDuaPuluh'], 0,',','.');?> / </td>
                                    <?php } ?>
 
 							<?php foreach($sumbruto as $dua) { ?>
-                                   	<td class="text-success">(<?= number_format($dua['Sum_bruto'], 0,',','.');?>)</td>
+                                   	<td class="text-success"><?= number_format($dua['Sum_bruto'], 0,',','.');?> / </td>
                                    <?php } ?>
 
 							<?php foreach($sumnetto as $dua) { ?>
-                                   	<td class="text-warning">(<?= number_format($dua['Sum_netto'], 0,',','.');?>)</td>
+                                   	<td class="text-warning"><?= number_format($dua['Sum_netto'], 0,',','.');?></td>
                                    <?php } ?>
 							</tr>
 						</table>
@@ -561,15 +560,15 @@
 						<table>
 							<tr>
 							<?php foreach($dualima as $ini) { ?>
-                                    <td class=""><?= number_format($ini['DuaLima'], 0,',','.');?></td>
+                                    <td class=""><?= number_format($ini['DuaLima'], 0,',','.');?> / </td>
                                    <?php } ?>
 
 							<?php foreach($sumbruto2 as $dua) { ?>
-                                   	<td class="text-success">(<?= number_format($dua['Sum_bruto'], 0,',','.');?>)</td>
+                                   	<td class="text-success"><?= number_format($dua['Sum_bruto'], 0,',','.');?> / </td>
                                    <?php } ?>
 								   
 							<?php foreach($sumnetto2 as $dua) { ?>
-                                   	<td class="text-warning">(<?= number_format($dua['Sum_netto'], 0,',','.');?>)</td>
+                                   	<td class="text-warning"><?= number_format($dua['Sum_netto'], 0,',','.');?></td>
                                    <?php } ?>
 							</tr>
 						</table>
