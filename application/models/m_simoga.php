@@ -97,6 +97,18 @@ class m_simoga extends CI_Model{
      public function view_pls(){
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'PLS' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
      }
+
+     public function view_a_alpha(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'A ALPHA' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function view_plsa(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'PLS A' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function view_a1pls(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'A1 / PLASMA' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
      
 
      //grade_today

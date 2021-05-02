@@ -345,7 +345,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-danger">
-						<a href="<?= base_url(); ?>"><i class="fas"><u>A Alpha</u></i></a>
+						<a href="<?= base_url('c_gradealpha'); ?>"><i class="fas"><u>A Alpha</u></i></a>
 						
 					</div>
 					<div class="card-wrap">
@@ -378,7 +378,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-danger">
-						<a href="<?= base_url(); ?>"><i class="fas"><u>PLS A</u></i></a>
+						<a href="<?= base_url('c_gradeplsa'); ?>"><i class="fas"><u>PLS A</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
@@ -410,7 +410,7 @@
 			<div class="col-6 col-md-3">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-danger">
-					<a href="<?= base_url(); ?>"><i class="fas"><u>A1/PLS</u></i></a>
+					<a href="<?= base_url('c_gradea1pls'); ?>"><i class="fas"><u>A1/PLS</u></i></a>
 					</div>
 					<div class="card-wrap">
 						<div class="card-header">
