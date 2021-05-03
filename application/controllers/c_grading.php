@@ -83,8 +83,8 @@ class c_grading extends CI_Controller {
                 <td><?php echo $plasma['pemasok'];?></td>
                 <td><?php echo number_format($plasma['jumlah_tbs_diterima'], 0, ',','.');?></td>
                 <td><?php echo number_format($plasma['jumlah_tbs_sample'], 0, ',','.');?></td>
-                <td><?php echo $b;?></td>
-                <td><?php echo $a;?></td>
+                <td><?php echo round($b,2);?></td>
+                <td><?php echo round($a,2);?></td>
                 <td><?php echo $plasma['grade'];?></td>
                 <td><?php echo $plasma['potongan'];?></td>
                 <td><?php echo $plasma['on_create'];?></td>

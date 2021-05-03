@@ -108,8 +108,8 @@
                         <td><?php echo $dua['tbs_tankos'];?></td>
                         <td><?php echo $dua['tbs_kecil'];?></td>
                         <td><?php echo $dua['jumlah_tbs_sample'];?></td>
-                        <td><?php echo $b;?></td>
-                        <td><?php echo $a;?></td>
+                        <td><?php echo round($b,2);?></td>
+                        <td><?php echo round($a,2);?></td>
                         <td><?php echo $dua['grade'];?></td>
                         <td><?php echo $dua['potongan'];?></td>
                         <td><?php echo $c;?></td>

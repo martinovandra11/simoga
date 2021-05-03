@@ -20,9 +20,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" integrity="sha512-yVvxUQV0QESBt1SyZbNJMAwyKvFTLMyXSyBHDO4BG5t7k/Lw34tyqlSDlKIrIENIzCl+RVUNjmCPG+V/GMesRw==" crossorigin="anonymous" />
 
   <script>
-    // setTimeout(
-    //   function () 
-    //   { location.reload(1); }, 5000);
+    setTimeout(
+      function () 
+      { location.reload(1); }, 180000);
   </script>
     
   
