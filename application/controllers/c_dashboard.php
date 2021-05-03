@@ -61,7 +61,7 @@ class c_dashboard extends CI_Controller {
                 <?php
                   $a = ($plasma['dura']/$plasma['jumlah_tbs_sample'])*100;
                   $b = ($plasma['tenera']/$plasma['jumlah_tbs_sample'])*100;
-                  $c;
+                  $c = "";
                   if($plasma['status'] == 2){
                     $c = "Data Lengkap";
                   }else{
