@@ -55,7 +55,7 @@ class c_rekap extends CI_Controller {
       }
       else
       {
-          $data['dataplasma'] = $this->m_simoga->bulan_ini();
+          $data['dataplasma'] = $this->m_simoga->get_all_data();
       }
 
       if(!empty($data['dataplasma'])){

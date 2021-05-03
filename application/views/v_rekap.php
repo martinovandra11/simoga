@@ -191,7 +191,7 @@
     var tgl2 = $("#filtertgl2").val();
     var kbn = $("#kodekebun").val();
     $.ajax({
-      url: "<?= base_url('c_bulanini/rentang') ?>",
+      url: "<?= base_url('c_rekap/rentang') ?>",
       data: "filtertgl1=" + tgl1 + "&filtertgl2=" + tgl2 + "&filterkebun=" + kbn,
       success: function(data) {
         $("#table-1 tbody").html(data);
