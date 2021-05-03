@@ -257,7 +257,7 @@ class m_simoga extends CI_Model{
      }
 
      public function kurang_duapuluh(){
-          return $this->db->query("SELECT * FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20")->result_array();
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
      }
 
      public function countkurang_duapuluh(){
@@ -306,7 +306,7 @@ class m_simoga extends CI_Model{
      }
 
      public function dualima(){
-          return $this->db->query("SELECT * FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20")->result_array();
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
      }
 
      public  function count_dualima(){
