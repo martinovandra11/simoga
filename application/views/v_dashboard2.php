@@ -105,8 +105,8 @@
 						</div>
                               <div>
 							<?php 
-								foreach ($allgrade as $grade) :
-									foreach($aplus_today as $grade2) :
+								foreach ($jumlahnetto_today as $grade) :
+									foreach($aplus_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['atu_plus'];
 										$c = ($b/$a)*100;
@@ -138,8 +138,8 @@
 						</div>
                               <div>
 							<?php //persentase grade A
-								foreach ($allgrade as $grade) :
-									foreach($gradea_today as $grade2) :
+								foreach ($jumlahnetto_today as $grade) :
+									foreach($gradea_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeA'];
 										$c = ($b/$a)*100;
@@ -170,8 +170,8 @@
 						</div>
                               <div>
 							<?php //persentase grade A1
-								foreach ($allgrade as $grade) :
-									foreach($gradea1_today as $grade2) :
+								foreach ($jumlahnetto_today as $grade) :
+									foreach($gradea1_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeA1'];
 										$c = ($b/$a)*100;
@@ -202,8 +202,8 @@
 						</div>
                               <div>
 						<?php //persentase grade A1
-								foreach ($allgrade as $grade) :
-									foreach($gradea2_today as $grade2) :
+								foreach ($jumlahnetto_today as $grade) :
+									foreach($gradea2_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeA2'];
 										$c = ($b/$a)*100;
@@ -234,8 +234,8 @@
 						</div>
                               <div>
 						<?php //persentase grade A+
-								foreach ($allgrade as $grade) :
-									foreach($gradeaplus_today as $grade2) :
+								foreach ($jumlahnetto_today as $grade) :
+									foreach($gradeaplus_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeAplus'];
 										$c = ($b/$a)*100;
@@ -266,8 +266,8 @@
 						</div>
                               <div>
 							<?php //persentase grade A3
-								foreach ($allgrade as $grade) :
-									foreach($gradea3_today as $grade2) :
+								foreach ($jumlahnetto_today as $grade) :
+									foreach($gradea3_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeA3'];
 										$c = ($b/$a)*100;
@@ -298,8 +298,8 @@
 						</div>
                               <div>
 						<?php //persentase grade PLS
-								foreach ($allgrade as $grade) :
-									foreach($gradepls_today as $grade2) :
+								foreach ($jumlahnetto_today as $grade) :
+									foreach($gradepls_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradePLS'];
 										$c = ($b/$a)*100;
@@ -330,8 +330,8 @@
 						</div>
                               <div>
 						<?php //persentase grade B
-								foreach ($allgrade as $grade) :
-									foreach($gradeB_today as $grade2) :
+								foreach ($jumlahnetto_today as $grade) :
+									foreach($gradeB_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeB'];
 										$c = ($b/$a)*100;
@@ -363,8 +363,8 @@
 						</div>
                               <div>
 						<?php //persentase grade A ALPHA
-								foreach ($allgrade as $grade) :
-									foreach($gradeAlpha_today as $grade2) :
+								foreach ($jumlahnetto_today as $grade) :
+									foreach($gradeAlpha_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeApha'];
 										$c = ($b/$a)*100;
@@ -395,8 +395,8 @@
 						</div>
                               <div>
 						<?php //persentase grade PLS A
-								foreach ($allgrade as $grade) :
-									foreach($gradePlsa_today as $grade2) :
+								foreach ($jumlahnetto_today as $grade) :
+									foreach($gradePlsa_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradePlsa'];
 										$c = ($b/$a)*100;
@@ -427,8 +427,8 @@
 						</div>
                               <div>
 						<?php //persentase grade A1/PLASMA
-								foreach ($allgrade as $grade) :
-									foreach($gradeApls_today as $grade2) :
+								foreach ($jumlahnetto_today as $grade) :
+									foreach($gradeApls_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeApls'];
 										$c = ($b/$a)*100;
