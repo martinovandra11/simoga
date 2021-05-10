@@ -85,7 +85,7 @@
 		</div>						
 
 		<div class="row justify-content-center">
-               <div class="col-6 col-sm-6 col-md-3">
+               <div class="col-6 col-sm-6 col-md-4">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
 						<a href="<?= base_url('c_gradea1plus'); ?>"><i class="fas"><u>A1+</u></i></a>
@@ -118,7 +118,7 @@
 				</div>
 			</div>
 
-               <div class="col-6 col-md-3">
+               <div class="col-6 col-md-4">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
 					<a href="<?= base_url('c_gradea'); ?>"><i class="fas"><u>A</u></i></a>
@@ -150,7 +150,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-6 col-md-3">
+			<div class="col-6 col-md-4">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-info">
 						<a href="<?= base_url('c_gradea1'); ?>"><i class="fas"><u>A1</u></i></a>
@@ -182,9 +182,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-6 col-md-3">
+			<div class="col-6 col-md-4">
 				<div class="card card-statistic-1">
-					<div class="card-icon bg-info">
+					<div class="card-icon bg-warning">
 						<a href="<?= base_url('c_gradea2'); ?>"><i class="fas"><u>A2</u></i></a>
 					</div>
 					<div class="card-wrap">
@@ -214,7 +214,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-6 col-md-3">
+			<div class="col-6 col-md-4">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
 						<a href="<?= base_url('c_gradeaplus'); ?>"><i class="fas"><u>A+</u></i></a>
@@ -246,7 +246,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-6 col-md-3">
+			<div class="col-6 col-md-4">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
 						<a href="<?= base_url('c_gradea3'); ?>"><i class="fas"><u>A3</u></i></a>
@@ -278,9 +278,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-6 col-md-3">
+			<div class="col-6 col-md-4">
 				<div class="card card-statistic-1">
-					<div class="card-icon bg-warning">
+					<div class="card-icon bg-secondary">
 						<a href="<?= base_url('c_gradepls'); ?>"><i class="fas"><u>PLS</u></i></a>
 					</div>
 					<div class="card-wrap">
@@ -310,9 +310,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-6 col-md-3">
+			<div class="col-6 col-md-4">
 				<div class="card card-statistic-1">
-					<div class="card-icon bg-warning">
+					<div class="card-icon bg-secondary">
 						<a href="<?= base_url('c_gradeb'); ?>"><i class="fas"><u>B</u></i></a>
 					</div>
 					<div class="card-wrap">
@@ -342,9 +342,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-6 col-md-3">
+			<div class="col-6 col-md-4">
 				<div class="card card-statistic-1">
-					<div class="card-icon bg-danger">
+					<div class="card-icon bg-secondary">
 						<a href="<?= base_url('c_gradealpha'); ?>"><i class="fas"><u>A Alpha</u></i></a>
 						
 					</div>
@@ -375,9 +375,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-6 col-md-3">
+			<div class="col-6 col-md-4">
 				<div class="card card-statistic-1">
-					<div class="card-icon bg-danger">
+					<div class="card-icon bg-primary">
 						<a href="<?= base_url('c_gradeplsa'); ?>"><i class="fas"><u>PLS A</u></i></a>
 					</div>
 					<div class="card-wrap">
@@ -407,9 +407,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-6 col-md-3">
+			<div class="col-6 col-md-4">
 				<div class="card card-statistic-1">
-					<div class="card-icon bg-danger">
+					<div class="card-icon bg-primary">
 					<a href="<?= base_url('c_gradea1pls'); ?>"><i class="fas"><u>A1/PLS</u></i></a>
 					</div>
 					<div class="card-wrap">
@@ -440,6 +440,8 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="col-6 col-md-4"></div>
 		</div>
 
 		<div class="row justify-content-left">
