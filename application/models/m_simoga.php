@@ -110,6 +110,9 @@ class m_simoga extends CI_Model{
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'A1 / PLASMA' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
      }
      
+     public function view_b(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'B' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
 
      //grade_today
      public function atu_plus_today(){

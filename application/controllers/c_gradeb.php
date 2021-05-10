@@ -20,7 +20,7 @@ class c_gradeb extends CI_Controller {
     public function index()
     {
         
-        $data['gradeb'] = $this->m_simoga->view_pls();
+        $data['gradeb'] = $this->m_simoga->view_b();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('v_gradeb', $data);
