@@ -21,6 +21,11 @@ class c_dashboard2 extends CI_Controller {
           $data['countgrading'] = $this->m_simoga->count_grading();
           $data['countgradinginfo'] = $this->m_simoga->count_gradinginfo();
           
+          //data_tonase_kemarin
+          $data['jumlahtrip_yes'] = $this->m_simoga->trip_yes();
+          $data['jumlahbruto_yes'] = $this->m_simoga->sum_bruto_yes();
+          $data['jumlahnetto_yes'] = $this->m_simoga->sum_netto_yes();
+
           //laporan bongkar bulan ini
           $data['dualima'] = $this->m_simoga->count_dualima();
           $data['limaton'] = $this->m_simoga->countlebih_limaton();

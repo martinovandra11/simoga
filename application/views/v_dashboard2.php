@@ -80,6 +80,80 @@
 		
 		<div class="row justify-content-left">
 			<div class="col-6 col-sm-6 col-md-12">
+					<h3 class="text-dark">Data Tonase Kemarin, <?php echo date('d - M - Y', strtotime("-1 day", strtotime(date("d - M - Y")))); ?></h3>
+			</div>
+		</div>
+
+		<div class="row justify-content-center">
+               <div class="col-6 col-sm-6 col-md-4">
+				<div class="card card-statistic-1">
+					<div class="card-icon bg-success">
+						<i class="fas fa-shipping-fast"></i>
+					</div>
+					<div class="card-wrap">
+						<div class="card-header">
+							<h4>Trip Kemarin</h4>
+						</div>
+						<div class="card-body">
+                                   <?php 
+                                        foreach($jumlahtrip_yes as $ini) { 
+                                   ?>
+                                   
+                                   <?= number_format($ini['TripKemarin'], 0,',','.');?> Trip
+                                   
+                                   <?php } ?>
+						</div>
+                              <div>
+                                   <a href="<?= base_url('c_dashboard') ?>" >Lihat Data</a>
+                              </div>
+                              
+					</div>
+				</div>
+			</div>
+
+               <div class="col-6 col-md-4">
+				<div class="card card-statistic-1">
+					<div class="card-icon bg-primary">
+						<i class="fas fa-shipping-fast"></i>
+					</div>
+					<div class="card-wrap">
+						<div class="card-header">
+							
+						</div>
+						<div class="card-body">Total Bruto (Kg)</div>
+                              <div>
+							<?php foreach ($jumlahbruto_yes as $bruto) :?>
+								<h5><?php echo number_format($bruto['JumlahBruto'], 0, ',','.');?> Kg</h5>
+							<?php endforeach ; ?>
+                              </div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-6 col-md-4">
+				<div class="card card-statistic-1">
+					<div class="card-icon bg-primary">
+						<i class="fas fa-shipping-fast"></i>
+					</div>
+					<div class="card-wrap">
+						<div class="card-header">
+							
+						</div>
+						<div class="card-body">						
+							Total Netto (Kg)
+						</div>
+                              <div>
+							<?php foreach ($jumlahnetto_yes as $netto) :?>
+								<h5><?php echo number_format($netto['JumlahNetto'], 0, ',', '.');?> Kg</h5>
+							<?php endforeach ; ?>
+                              </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row justify-content-left">
+			<div class="col-6 col-sm-6 col-md-12">
 					<h3 class="text-dark">Data Grading Hari Ini</h3>
 			</div>
 		</div>						
@@ -109,7 +183,12 @@
 									foreach($aplus_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['atu_plus'];
-										$c = ($b/$a)*100;
+										$c;
+										if($a == 0){
+											$c = 0;
+										}else{
+											$c = ($b/$a)*100;
+										}
 							?>
 									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
@@ -142,7 +221,12 @@
 									foreach($gradea_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeA'];
-										$c = ($b/$a)*100;
+										$c;
+										if($a == 0){
+											$c = 0;
+										}else{
+											$c = ($b/$a)*100;
+										}
 							?>
 									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
@@ -174,7 +258,12 @@
 									foreach($gradea1_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeA1'];
-										$c = ($b/$a)*100;
+										$c;
+										if($a == 0){
+											$c = 0;
+										}else{
+											$c = ($b/$a)*100;
+										}
 							?>
 									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
@@ -206,7 +295,12 @@
 									foreach($gradea2_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeA2'];
-										$c = ($b/$a)*100;
+										$c;
+										if($a == 0){
+											$c = 0;
+										}else{
+											$c = ($b/$a)*100;
+										}
 							?>
 									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
@@ -238,7 +332,12 @@
 									foreach($gradeaplus_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeAplus'];
-										$c = ($b/$a)*100;
+										$c;
+										if($a == 0){
+											$c = 0;
+										}else{
+											$c = ($b/$a)*100;
+										}
 							?>
 									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
@@ -270,7 +369,12 @@
 									foreach($gradea3_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeA3'];
-										$c = ($b/$a)*100;
+										$c;
+										if($a == 0){
+											$c = 0;
+										}else{
+											$c = ($b/$a)*100;
+										}
 							?>
 									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
@@ -302,7 +406,12 @@
 									foreach($gradepls_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradePLS'];
-										$c = ($b/$a)*100;
+										$c;
+										if($a == 0){
+											$c = 0;
+										}else{
+											$c = ($b/$a)*100;
+										}
 							?>
 									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
@@ -334,7 +443,12 @@
 									foreach($gradeB_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeB'];
-										$c = ($b/$a)*100;
+										$c;
+										if($a == 0){
+											$c = 0;
+										}else{
+											$c = ($b/$a)*100;
+										}
 							?>
 									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
@@ -367,7 +481,12 @@
 									foreach($gradeAlpha_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeApha'];
-										$c = ($b/$a)*100;
+										$c;
+										if($a == 0){
+											$c = 0;
+										}else{
+											$c = ($b/$a)*100;
+										}
 							?>
 									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
@@ -399,7 +518,12 @@
 									foreach($gradePlsa_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradePlsa'];
-										$c = ($b/$a)*100;
+										$c;
+										if($a == 0){
+											$c = 0;
+										}else{
+											$c = ($b/$a)*100;
+										}
 							?>
 									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>
@@ -431,7 +555,12 @@
 									foreach($gradeApls_netto as $grade2) :
 								 		$a = $grade['JumlahNetto'];
 										$b = $grade2['GradeApls'];
-										$c = ($b/$a)*100;
+										$c;
+										if($a == 0){
+											$c = 0;
+										}else{
+											$c = ($b/$a)*100;
+										}
 							?>
 									<h5><?php echo round($c,2);?> %</h5>
 							<?php endforeach; endforeach ; ?>

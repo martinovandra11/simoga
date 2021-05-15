@@ -94,6 +94,18 @@ class m_simoga extends CI_Model{
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'A3' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
      }
 
+     public function sum_bruto_yes(){
+          return $this->db->query("SELECT SUM(bruto) AS JumlahBruto FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
+     }
+
+     public function sum_netto_yes(){
+          return $this->db->query("SELECT SUM(netto) AS JumlahNetto FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
+     }
+
+     public function trip_yes(){
+          return $this->db->query("SELECT COUNT(id_rekap) AS TripKemarin FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
+     }
+
      public function view_pls(){
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE grade = 'PLS' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
      }
