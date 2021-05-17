@@ -61,6 +61,7 @@
                     <th class="align-middle text-center" rowspan="2">Potongan</th>
                     <th class="align-middle text-center" rowspan="2">Status</th>
                     <th class="align-middle text-center" rowspan="2">Dibuat</th>
+                    <th class="align-middle text-center" rowspan="2">Aksi</th>
                   </tr>
                   <tr>
                     <th class="text-center">Jam Masuk</th>
@@ -140,6 +141,12 @@
                         <td><?php echo $plasma['potongan']; ?></td>
                         <td><?php echo $c; ?></td>
                         <td><?php echo $plasma['on_create']; ?></td>
+                        <td>
+                        <?php echo anchor('c_rekap/hapus/'.$plasma['id_rekap'], '<div class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash"></i>
+                          </div>'); ?>
+                          
+                        </td>
                       </tr>
 
                   <?php endforeach;

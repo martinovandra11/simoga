@@ -129,6 +129,18 @@ class c_rekap extends CI_Controller {
       }
   }
 
+  public function hapus($id){
+    $where = array('id_rekap' => $id);
+    $this->m_simoga->hapus_data($where, 'sortasi_plasma');
+
+    $data['dataplasma'] = $this->m_simoga->get_all_data();
+    $data['kodekebun'] = $this->m_simoga->get_kebun();
+    $this->load->view('templates/header');
+    $this->load->view('templates/sidebar');
+    $this->load->view('v_rekap', $data);
+    $this->load->view('templates/footer');
+  }
+
     // public function excel()
     // {
     //   $data['dataplasma'] = $this->m_simoga->bulan_ini();

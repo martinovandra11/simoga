@@ -399,5 +399,10 @@ class m_simoga extends CI_Model{
      public function filter_pks($kebun){
           return $this->db->query("SELECT * FROM grade WHERE unit = '$kebun'")->result_array();
      }
+
+     public function hapus_data($where, $table){
+          $this->db->where($where);
+          $this->db->delete($table);
+     }
 }
 ?>
