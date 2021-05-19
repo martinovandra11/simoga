@@ -107,14 +107,28 @@
                       ?>
 
                       <?php
-                      $a = ($plasma['dura'] / $plasma['jumlah_tbs_sample']) * 100;
-                      $b = ($plasma['tenera'] / $plasma['jumlah_tbs_sample']) * 100;
-                      $c;
-                      if ($plasma['status'] == 2) {
-                        $c = "Data Lengkap";
-                      } else {
-                        $c = "Data Timbangan Belum Diisi";
-                      }
+
+                       $dura = $plasma['dura'];
+                       $tenera = $plasma['tenera'];
+                       $jmh_tbs = $plasma['jumlah_tbs_sample'];
+                       $a = "";
+                       $b = "";
+
+                       if($jmh_tbs == 0){
+                         $a = 0;
+                         $b = 0;
+                       }else{
+                         $a = ($dura/$jmh_tbs)*100;
+                         $b = ($tenera/$jmh_tbs)*100;
+                       }
+                       
+                       $c = "";
+                       if($plasma['status'] == 2){
+                         $c = "Data Lengkap";
+                       }else{
+                         $c = "Data Timbangan Belum Diisi";
+                       }
+                       
                       ?>
 
                       <tr>
