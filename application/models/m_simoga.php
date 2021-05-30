@@ -4,6 +4,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class m_simoga extends CI_Model{
 
+     //DATA PER GRADING
+     public function pks(){
+          return $this->db->query("SELECT DISTINCT kode_plasma FROM sortasi_plasma ORDER BY kode_plasma")->result_array();
+     }
+
      public function count_grading(){
           return $this->db->query("SELECT COUNT(*) AS hitung FROM sortasi_plasma")->result_array();
      }

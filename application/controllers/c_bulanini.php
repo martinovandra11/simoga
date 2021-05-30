@@ -136,7 +136,5 @@ class c_bulanini extends CI_Controller {
 
       $data['dataplasma'] = $this->m_simoga->bulan_ini();
       $this->load->view('v_export', $data);
-
-    }
-
+  }
 }

@@ -37,10 +37,7 @@
 
             </div>
             <a class="btn btn-success mb-3" href="<?= base_url('c_rekap/export') ?>">Download Excel</a>
-
             <div class="table-responsive">
-
-
               <table class="table table-hover table-bordered nowrap" id="table-1">
 
 
