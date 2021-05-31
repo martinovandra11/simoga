@@ -91,7 +91,8 @@ class c_dashboard2 extends CI_Controller
           $data['gradePlsa_netto'] = $this->m_simoga->grade_plsa_netto();
           $data['gradeApls_netto'] = $this->m_simoga->grade_apls_today();
 
-          //filtering_grade_today
+          //Data Per PKS
+          $data['pks'] = $this->m_simoga->pks();
 
           $this->load->view('templates/header');
           $this->load->view('templates/sidebar');
