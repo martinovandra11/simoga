@@ -739,7 +739,7 @@
 		<?php foreach ($pks as $ks) : ?>
 		<div class="row justify-content-left">
 			<div class="col-6 col-sm-6 col-md-12">
-					<h5 class="text-dark">Kebun <?php echo $ks['kode_plasma']; ?></h5>
+					<h5 class="text-dark">PKS <?php echo $ks['kode_plasma']; ?></h5>
 			</div>
 		</div>
 			<div class="row justify-content-center">
@@ -752,12 +752,22 @@
 
 				foreach($sql as $key => $ini){ 
 					
-					$query1 = $this->db->query("SELECT SUM(netto) FROM sortasi_plasma WHERE kode_plasma = '$ks[kode_plasma]' AND grade = '$ini[grade]'");
+					$query1 = $this->db->query("SELECT SUM(netto) as diatas FROM sortasi_plasma WHERE kode_plasma = '$ks[kode_plasma]' AND grade = '$ini[grade]'");
 					$sql1 = $query1->result_array();
 
-					$query2 = $this->db->query("SELECT SUM(netto) FROM sortasi_plasma");
+					$query2 = $this->db->query("SELECT SUM(netto) as dibawah FROM sortasi_plasma");
 					$sql2 = $query2->result_array();
-			?>
+
+						foreach ($sql2 as $key => $itu){
+							foreach($sql1 as $key => $itu2){
+								$a = $itu['dibawah'];
+								$b = $itu2['diatas'];
+								$c;
+								if($a == 0){
+									$c = 0;
+								}else{
+									$c = ($b/$a)*100;
+								} ?>
 					
 						<div class="col-6 col-sm-6 col-md-3">
 							<div class="card card-statistic-1">
@@ -770,14 +780,15 @@
 									</div>
 									<div class="card-body">
 										<h5 class="text-dark"><?php echo $ini['grade'] ?></h5>
-									</div>
-									<a href="<?= base_url('c_dualima') ?>" >Lihat Data</a>
-									
+										<h5 class="text-success">Netto <?php echo round($b,2); ?> KG
+										</h5>
+										<h5 class="text-dark">Persentase Netto (<?php echo round($c,2); ?> %)</h5>
+									</div>	
 								</div>
 							</div>
 						</div>
 					
-				<?php } ?>
+				<?php }}} ?>
 				
 			</div>							
 		<?php endforeach; ?>
