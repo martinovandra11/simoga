@@ -112,8 +112,21 @@
                     ?>
 
                     <?php
-                      $a = ($plasma['dura']/$plasma['jumlah_tbs_sample'])*100;
-                      $b = ($plasma['tenera']/$plasma['jumlah_tbs_sample'])*100;
+                      $dura = $plasma['dura'];
+                      $tenera = $plasma['tenera'];
+                      $sample = $plasma['jumlah_tbs_sample'];
+                      $hasil_dura;
+                      $hasil_tenera;
+
+                      if($sample == 0){
+                        $hasil_dura = 0;
+                        $hasil_tenera = 0;
+                      }else{
+                        $hasil_dura = ($dura/$sample)*100;
+                        $hasil_tenera = ($tenera/$sample)*100;
+                      }
+                      // $a = ($plasma['dura']/$plasma['jumlah_tbs_sample'])*100;
+
                       $c;
                       if($plasma['status'] == 2){
                         $c = "Data Lengkap";
@@ -140,8 +153,8 @@
                         <td><?php echo $plasma['tbs_tankos'];?></td>
                         <td><?php echo $plasma['tbs_kecil'];?></td>
                         <td><?php echo $plasma['jumlah_tbs_sample'];?></td>
-                        <td><?php echo round($b,2);?></td>
-                        <td><?php echo round($a,2);?></td>
+                        <td><?php echo round($hasil_tenera,2);?></td>
+                        <td><?php echo round($hasil_dura,2);?></td>
                         <td><?php echo $plasma['grade'];?></td>
                         <td><?php echo $plasma['potongan'];?></td>
                         <td><?php echo $c;?></td>

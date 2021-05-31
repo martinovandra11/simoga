@@ -1,26 +1,26 @@
 <?php
 
-class c_dashboard2 extends CI_Controller {
+class c_dashboard2 extends CI_Controller
+{
 
      public function __construct()
-  {
-      parent::__construct();
+     {
+          parent::__construct();
 
-      if($this->session->userdata('username') != 'admin')
-        {
-            $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
+          if ($this->session->userdata('username') == NULL) {
+               $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                 Silahkan login terlebih dahulu
                 </div>');
-                redirect('c_auth');
-        }
-        $this->load->model('m_simoga');
-      }
+               redirect('c_auth');
+          }
+          $this->load->model('m_simoga');
+     }
 
-    public function index()
+     public function index()
      {
           $data['countgrading'] = $this->m_simoga->count_grading();
           $data['countgradinginfo'] = $this->m_simoga->count_gradinginfo();
-          
+
           //data_tonase_kemarin
           $data['jumlahtrip_yes'] = $this->m_simoga->trip_yes();
           $data['jumlahbruto_yes'] = $this->m_simoga->sum_bruto_yes();
@@ -98,5 +98,4 @@ class c_dashboard2 extends CI_Controller {
           $this->load->view('v_dashboard2', $data);
           $this->load->view('templates/footer');
      }
-
 }
