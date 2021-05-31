@@ -6,7 +6,7 @@ class m_simoga extends CI_Model{
 
      //DATA PER GRADING
      public function pks(){
-          return $this->db->query("SELECT DISTINCT kode_plasma FROM sortasi_plasma ORDER BY kode_plasma")->result_array();
+          return $this->db->query("SELECT DISTINCT kode_kebun FROM sortasi_plasma ORDER BY kode_kebun")->result_array();
      }
 
      public function count_grading(){
@@ -412,4 +412,3 @@ class m_simoga extends CI_Model{
           $this->db->delete($table);
      }
 }
-?>
