@@ -747,14 +747,20 @@
 				<h3 class="text-dark">Data Grade Per PKS</h3>
 			</div>
 		</div>
-		<?php foreach ($pks as $ks) : ?>
+		<?php foreach ($pks as $ks) : 
+			$jumlahnetto = $this->db->query("SELECT SUM(netto) AS jml_netto FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]'");
+			$jmlnetto = $jumlahnetto->result_array(); 
+			
+			foreach($jmlnetto as $jn) : ?>
+			
 			<?php
 			if ($this->session->userdata('level') == 1) {
 				if ($ks['kode_kebun'] == 'SGH' or $ks['kode_kebun'] == 'SPA' or $ks['kode_kebun'] == 'SGO') {
 			?>
+			
 					<div class="row justify-content-left">
 						<div class="col-6 col-sm-6 col-md-12">
-							<h5 class="text-dark">PKS <?php echo $ks['kode_kebun']; ?></h5>
+							<h5 class="text-dark">PKS <?php echo $ks['kode_kebun']; ?>  ( <?php echo $jn['jml_netto'];?> )</h5>
 						</div>
 					</div>
 					<div class="row justify-content-left">
@@ -811,7 +817,7 @@
 				if ($ks['kode_kebun'] == 'TPU' or $ks['kode_kebun'] == 'TME') { ?>
 					<div class="row justify-content-left">
 						<div class="col-6 col-sm-6 col-md-12">
-							<h5 class="text-dark">PKS <?php echo $ks['kode_kebun']; ?></h5>
+							<h5 class="text-dark">PKS <?php echo $ks['kode_kebun']; ?> ( <?php echo $jn['jml_netto'];?> )</h5>
 						</div>
 					</div>
 					<div class="row justify-content-left">
@@ -869,7 +875,7 @@
 				if ($ks['kode_kebun'] == 'SBT' or $ks['kode_kebun'] == 'LDA') { ?>
 					<div class="row justify-content-left">
 						<div class="col-6 col-sm-6 col-md-12">
-							<h5 class="text-dark">PKS <?php echo $ks['kode_kebun']; ?></h5>
+							<h5 class="text-dark">PKS <?php echo $ks['kode_kebun']; ?> ( <?php echo $jn['jml_netto'];?> )</h5>
 						</div>
 					</div>
 					<div class="row justify-content-left">
@@ -927,7 +933,7 @@
 				if ($ks['kode_kebun'] == 'STA' or $ks['kode_kebun'] == 'TER' or $ks['kode_kebun'] == 'SIN') { ?>
 					<div class="row justify-content-left">
 						<div class="col-6 col-sm-6 col-md-12">
-							<h5 class="text-dark">PKS <?php echo $ks['kode_kebun']; ?></h5>
+							<h5 class="text-dark">PKS <?php echo $ks['kode_kebun']; ?> ( <?php echo $jn['jml_netto'];?> )</h5>
 						</div>
 					</div>
 					<div class="row justify-content-left">
@@ -984,7 +990,7 @@
 			} else { ?>
 				<div class="row justify-content-left">
 					<div class="col-6 col-sm-6 col-md-12">
-						<h5 class="text-dark">PKS <?php echo $ks['kode_kebun']; ?></h5>
+						<h5 class="text-dark">PKS <?php echo $ks['kode_kebun']; ?> ( <?php echo $jn['jml_netto'];?> )</h5>
 					</div>
 				</div>
 				<div class="row justify-content-left">
@@ -1038,7 +1044,7 @@
 				</div>
 
 		<?php }
-		endforeach; ?>
+		endforeach; endforeach;?>
 
 
 </div>
