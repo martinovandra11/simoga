@@ -99,4 +99,14 @@ class c_dashboard2 extends CI_Controller
           $this->load->view('v_dashboard2', $data);
           $this->load->view('templates/footer');
      }
+
+
+     public function detail($nama){
+          $data['detail'] = $this->m_simoga->detail_pks($nama);
+
+          $this->load->view('templates/header');
+          $this->load->view('templates/sidebar');
+          $this->load->view('v_detailpks', $data);
+          $this->load->view('templates/footer');
+     }
 }

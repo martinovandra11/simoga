@@ -6,7 +6,11 @@ class m_simoga extends CI_Model{
 
      //DATA PER GRADING
      public function pks(){
-          return $this->db->query("SELECT DISTINCT kode_kebun FROM sortasi_plasma WHERE tanggal = DATE(NOW()) ORDER BY kode_kebun ")->result_array();
+          return $this->db->query("SELECT DISTINCT kode_kebun FROM sortasi_plasma  ORDER BY kode_kebun ")->result_array();
+     }
+
+     public function detail_pks($nama){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun = '$nama'")->result_array();
      }
 
      public function count_grading(){
@@ -15,6 +19,16 @@ class m_simoga extends CI_Model{
 
      public function count_gradinginfo(){
           return $this->db->query("SELECT COUNT(*) AS hitung FROM grade")->result_array();
+     }
+
+     //EDIT
+     public function get_by_id($id){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE id_rekap = $id")->row();
+     }
+
+     public function update_rekap($id, $data){
+          $this->db->where('id_rekap', $id);
+          $this->db->update('sortasi_plasma', $data);
      }
 
      //tabel_Dashboard

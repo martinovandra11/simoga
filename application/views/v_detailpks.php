@@ -10,33 +10,8 @@
         <div class="card">
           <div class="card-body">
             <div class="row">
-              <!-- <form action="<?= base_url('c_bulanini/fitertgl') ?>" method="GET"> -->
-              <!-- <?= form_open('c_bulanini/filtertgl') ?> -->
-
-              <!-- Tanggal Pertama -->
-              <!-- <label class="mb-3 mt-2 col-2">Tanggal Awal</label> -->
-              <p class="ml-3 mr-3 mt-2">Tanggal Awal</p>
-              <input class="mb-3 mr-3 col-2 form-control" type="date" name="filtertgl1" id="filtertgl1" text="input tanggal">
-
-              <!-- Tanggal Kedua -->
-              <!-- <label class="mb-3 mt-2 col-2">Tanggal Akhir</label> -->
-              <p class="ml-3 mr-3 mt-2">Tanggal Akhir</p>
-              <input class="mb-3 mr-3 col-2 form-control" type="date" name="filtertgl2" id="filtertgl2" text="input tanggal">
-              <!-- </form> -->
-
-              <!-- Filter PKS -->
-              <!-- <label class="mb-3 mt-2 ml-3 col-2">Filter Kebun</label> -->
-              <p class="ml-3 mr-3 mt-2">Nama PKS</p>
-              <select class="form-control mb-3 mr-3 col-2" id="kodekebun" name="kodekebun">
-                <option value="#">Pilih Kebun</option>
-                <?php foreach ($kodekebun as $kbn) : ?>
-                  <option value="<?= $kbn['kode_kebun'] ?>"><?= $kbn['kode_kebun'] ?></option>
-                <?php endforeach; ?>
-              </select>
-
-
-            </div>
-            <a class="btn btn-success mb-3" href="<?= base_url('c_rekap/export') ?>">Download Excel</a>
+              
+            
             <div class="table-responsive">
               <table class="table table-hover table-bordered nowrap" id="table-1">
 
@@ -80,7 +55,7 @@
 
                   <?php
 
-                  if (empty($dataplasma)) { ?>
+                  if (empty($detail)) { ?>
                     <tr>
                       <td style="text-align:center" colspan='19'>Tidak ada data</td>
                     </tr>
@@ -88,7 +63,7 @@
                     <?php
 
                   } else {
-                    foreach ($dataplasma as $plasma) : ?>
+                    foreach ($detail as $plasma) : ?>
 
                       <?php
 
@@ -155,9 +130,6 @@
                         <td>
                         <?php echo anchor('c_rekap/hapus/'.$plasma['id_rekap'], '<div class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i>
-                          </div>'); ?>
-                          <?php echo anchor('c_rekap/edit/'.$plasma['id_rekap'], '<div class="btn btn-info btn-sm">
-                            <i class="fa fa-edit"></i>
                           </div>'); ?>
                           
                         </td>

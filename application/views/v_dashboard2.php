@@ -761,6 +761,7 @@
 					<div class="row justify-content-left">
 						<div class="col-6 col-sm-6 col-md-12">
 							<h5 class="text-dark">PKS <?php echo $ks['kode_kebun']; ?>  ( <?php echo $jn['jml_netto'];?> )</h5>
+							
 						</div>
 					</div>
 					<div class="row justify-content-left">
@@ -803,6 +804,7 @@
 													</h5>
 													<h5 class="text-dark">Persentase Netto (<?php echo round($c, 2); ?> %)</h5>
 												</div>
+												<a href=""><h5>Lihat Data</h5></a>
 											</div>
 										</div>
 									</div>
@@ -991,6 +993,7 @@
 				<div class="row justify-content-left">
 					<div class="col-6 col-sm-6 col-md-12">
 						<h5 class="text-dark">PKS <?php echo $ks['kode_kebun']; ?> ( <?php echo $jn['jml_netto'];?> )</h5>
+						<a href="<?php echo base_url('c_dashboard2/detail/'.$ks['kode_kebun'])?>">Lihat Data</a>
 					</div>
 				</div>
 				<div class="row justify-content-left">
@@ -1022,7 +1025,9 @@
 									<div class="card card-statistic-1">
 										<div class="card-icon bg-primary">
 											<i class="fas fa-shipping-fast"></i>
+											
 										</div>
+										
 										<div class="card-wrap">
 											<div class="card-header">
 
@@ -1032,7 +1037,9 @@
 												<h5 class="text-success">Netto <?php echo round($b, 2); ?> KG
 												</h5>
 												<h5 class="text-dark">Persentase Netto (<?php echo round($c, 2); ?> %)</h5>
+												
 											</div>
+											
 										</div>
 									</div>
 								</div>

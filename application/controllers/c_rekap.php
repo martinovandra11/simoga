@@ -179,6 +179,55 @@ class c_rekap extends CI_Controller {
 
     // }
 
+    public function edit($id){
+      $data = array(
+        'id_rekap' => $id,
+        'editdata' => $this->m_simoga->get_by_id($id),
+      );
+
+      // var_dump($data);
+      // die;
+
+      $this->load->view('templates/header');
+      $this->load->view('templates/sidebar');
+      $this->load->view('v_edit', $data);
+      $this->load->view('templates/footer');
+    }
+
+    public function actionedit(){
+      $id = htmlspecialchars($this->input->post('id_rekap', true));
+      $data = [
+        'kode_kebun' => htmlspecialchars($this->input->post('kode_kebun', true)),
+        'kode_plasma' => htmlspecialchars($this->input->post('kode_plasma', true)),
+        'jenis' => htmlspecialchars($this->input->post('jenis', true)),
+        'tanggal' => htmlspecialchars($this->input->post('tanggal', true)),
+        'masuk' => htmlspecialchars($this->input->post('jam_masuk', true)),
+        'keluar' => htmlspecialchars($this->input->post('jam_keluar', true)),
+        'durasi' => htmlspecialchars($this->input->post('durasi', true)),
+        'pemasok' => htmlspecialchars($this->input->post('pemasok', true)),
+        'nopol' => htmlspecialchars($this->input->post('nopol', true)),
+        'supir' => htmlspecialchars($this->input->post('supir', true)),
+        'bruto' => htmlspecialchars($this->input->post('bruto', true)),
+        'netto' => htmlspecialchars($this->input->post('netto', true)),
+        'jumlah_tbs_diterima' => htmlspecialchars($this->input->post('tbs_diterima', true)),
+        'tbs_mentah' => htmlspecialchars($this->input->post('tbs_mentah', true)),
+        'tbs_tankos' => htmlspecialchars($this->input->post('tbs_tankos', true)),
+        'tbs_kecil' => htmlspecialchars($this->input->post('tbs_kecil', true)),
+        'jumlah_tbs_diterima' => htmlspecialchars($this->input->post('tbs_sample', true)),
+        'tenera' => htmlspecialchars($this->input->post('tenera', true)),
+        'dura' => htmlspecialchars($this->input->post('dura', true)),
+        'grade' => htmlspecialchars($this->input->post('grade', true)),
+        'potongan' => htmlspecialchars($this->input->post('potongan', true)),
+        'status' => htmlspecialchars($this->input->post('status', true)),
+
+      ];
+      $this->m_simoga->update_rekap($id, $data);
+      // var_dump($data);
+      // die;
+
+      redirect('c_rekap');
+    }
+
     public function export()
     {
       header("Content-type: application/vnd-ms-excel");
