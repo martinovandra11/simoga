@@ -10,12 +10,14 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <div class="row">
-            </div>
+            <!-- <form action="" method=POST >
+              <input type="date" nama="tanggalawal" class="mb-3 mr-3 col-2 form-control"/>
+              <button type="submit" class="form-control mb-3 mr-3 col-2 bg bg-success text-white">Lihat</button>
+            </form> -->
+            
           
             <div class="table-responsive">
-
-
+            
             <table class="table table-hover table-bordered nowrap" id="table-1">
   
 

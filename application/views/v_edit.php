@@ -73,15 +73,15 @@
                     <div class="form-row">
                       <div class="form-group col-md-4">
                         <label for="inputEmail4">Bruto</label>
-                        <input type="text" name="bruto" id="bruto" class="form-control" value="<?= $editdata->bruto ?>">
+                        <input type="text" name="bruto" id="bruto" class="form-control" value="<?= $editdata->bruto ?>" readonly>
                       </div>
                       <div class="form-group col-md-4">
                         <label for="inputEmail4">Netto</label>
-                        <input type="text" name="netto" id="netto" class="form-control" value="<?= $editdata->netto ?>">
+                        <input type="text" name="netto" id="netto" class="form-control" value="<?= $editdata->netto ?>" readonly>
                       </div>
                       <div class="form-group col-md-4">
                         <label for="inputEmail4">Jumlah TBS Diterima</label>
-                        <input type="text" name="tbs_diterima" id="tbs_diterima" class="form-control" value="<?= $editdata->jumlah_tbs_diterima ?>">
+                        <input type="text" name="tbs_diterima" id="tbs_diterima" class="form-control" value="<?= $editdata->jumlah_tbs_diterima ?>" readonly>
                       </div> 
                     </div>
 
