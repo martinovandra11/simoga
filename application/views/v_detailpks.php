@@ -9,13 +9,35 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <div class="row">
-              
-            
+          <h3>Export Excel</h3>
+          <form action="<?= base_url('c_rekap/export_detail_pks') ?>" method="GET">
+            <table>
+              <tr>
+                <td>Nama PKS </td>
+                <td> : </td>
+                <td><input class="form-control" type="text" name="namapks" id="namapks" value="<?= $nama; ?>" readonly></td>
+              </tr>
+
+              <tr>
+                <td>Tanggal Awal </td>
+                <td> : </td>
+                <td><input class="form-control" type="date" name="filtertgl1" id="filtertgl1" text="input tanggal"></td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td></td>
+                <td><button class="btn btn-success">Download Excel</button></td>
+              </tr>
+            </table>
+          </form>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+          <div class="row">
             <div class="table-responsive">
               <table class="table table-hover table-bordered nowrap" id="table-1">
-
-
                 <thead class="table-success">
                   <tr>
                     <th class="align-middle text-center" rowspan="2">Kode Kebun</th>
@@ -167,31 +189,31 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-  $(document).ready(function() {
-    $("#filtertgl1").change(function() {
-      rekap();
-    });
-    $("#filtertgl2").change(function() {
-      rekap();
-    });
-    $("#kodekebun").change(function() {
-      rekap();
-    });
-  });
+  // $(document).ready(function() {
+  //   $("#filtertgl1").change(function() {
+  //     rekap();
+  //   });
+  //   $("#filtertgl2").change(function() {
+  //     rekap();
+  //   });
+  //   $("#kodekebun").change(function() {
+  //     rekap();
+  //   });
+  // });
 
-  function rekap() {
-    var tgl1 = $("#filtertgl1").val();
-    var tgl2 = $("#filtertgl2").val();
-    var kbn = $("#kodekebun").val();
-    $.ajax({
-      url: "<?= base_url('c_rekap/rentang') ?>",
-      data: "filtertgl1=" + tgl1 + "&filtertgl2=" + tgl2 + "&filterkebun=" + kbn,
-      success: function(data) {
-        $("#table-1 tbody").html(data);
+  // function rekap() {
+  //   var tgl1 = $("#filtertgl1").val();
+  //   var tgl2 = $("#filtertgl2").val();
+  //   var kbn = $("#kodekebun").val();
+  //   $.ajax({
+      // url: "<?= base_url('c_rekap/rentang') ?>",
+  //     data: "filtertgl1=" + tgl1 + "&filtertgl2=" + tgl2 + "&filterkebun=" + kbn,
+  //     success: function(data) {
+  //       $("#table-1 tbody").html(data);
 
-        $('#table-1').css('display', 'block');
-        table.columns.adjust().draw();
-      }
-    });
-  }
+  //       $('#table-1').css('display', 'block');
+  //       table.columns.adjust().draw();
+  //     }
+  //   });
+  // }
 </script>

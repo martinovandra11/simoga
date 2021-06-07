@@ -26,4 +26,14 @@ class c_gradea1plus extends CI_Controller {
         $this->load->view('v_gradea1plus', $data);
         $this->load->view('templates/footer');
     }
+
+    public function excel(){
+      $tgl1 = $_GET['filtertgl1'];
+      // var_dump($tgl1);
+      // die;
+      header("Content-type: application/vnd-ms-excel");
+      header("Content-Disposition: attachment; filename=GradeA+.xls");
+      $data['dataplasma'] = $this->m_simoga->get_a1plus_excel($tgl1);
+      $this->load->view('v_export', $data);
+    }
 }

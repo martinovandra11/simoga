@@ -10,6 +10,25 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
+
+          <form action="<?= base_url('c_gradea1plus/excel') ?>" method="GET">
+            <!-- Tanggal Pertama -->
+            <!-- <label class="mb-3 mt-2 col-2">Tanggal Awal</label> -->
+            <table>
+              <tr>
+                <td>Tanggal Awal </td>
+                <td> : </td>
+                <td><input class="form-control" type="date" name="filtertgl1" id="filtertgl1" text="input tanggal"></td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td></td>
+                <td><input class="btn btn-success" type="submit" name="submit"></td>
+              </tr>
+            </table>
+          </form>
+
             <div class="row">
             </div>
           

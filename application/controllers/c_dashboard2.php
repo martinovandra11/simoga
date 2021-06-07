@@ -103,6 +103,7 @@ class c_dashboard2 extends CI_Controller
 
      public function detail($nama){
           $data['detail'] = $this->m_simoga->detail_pks($nama);
+          $data['nama'] = $nama;
 
           $this->load->view('templates/header');
           $this->load->view('templates/sidebar');

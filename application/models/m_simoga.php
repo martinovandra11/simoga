@@ -4,9 +4,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class m_simoga extends CI_Model{
 
+
+     //EXCEL
+     public function export_detail_pks($kk, $tgl1){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun = '$kk' AND tanggal = '$tgl1'")->result_array();
+     }
+
      //DATA PER GRADING
      public function pks(){
-          return $this->db->query("SELECT DISTINCT kode_kebun FROM sortasi_plasma WHERE tanggal = DATE(NOW()) ORDER BY kode_kebun ")->result_array();
+          return $this->db->query("SELECT DISTINCT kode_kebun FROM sortasi_plasma  ORDER BY kode_kebun ")->result_array();
      }
 
      public function detail_pks($nama){

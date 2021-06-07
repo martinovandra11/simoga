@@ -9,10 +9,8 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <div class="row">
-              <!-- <form action="<?= base_url('c_bulanini/fitertgl') ?>" method="GET"> -->
-              <!-- <?= form_open('c_bulanini/filtertgl') ?> -->
-
+          <form>
+              
               <!-- Tanggal Pertama -->
               <!-- <label class="mb-3 mt-2 col-2">Tanggal Awal</label> -->
               <p class="ml-3 mr-3 mt-2">Tanggal Awal</p>
@@ -33,10 +31,18 @@
                   <option value="<?= $kbn['kode_kebun'] ?>"><?= $kbn['kode_kebun'] ?></option>
                 <?php endforeach; ?>
               </select>
+              
+               <a class="btn btn-success mb-3" href="<?= base_url('c_rekap/export') ?>">Download Excel</a>
+  
+              </form>
+            <div class="row">
+              
+
+              
 
 
             </div>
-            <a class="btn btn-success mb-3" href="<?= base_url('c_rekap/export') ?>">Download Excel</a>
+           
             <div class="table-responsive">
               <table class="table table-hover table-bordered nowrap" id="table-1">
 

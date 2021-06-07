@@ -222,20 +222,29 @@ class c_rekap extends CI_Controller {
 
       ];
       $this->m_simoga->update_rekap($id, $data);
-      // var_dump($data);
-      // die;
-
+      
       redirect('c_rekap');
     }
 
     public function export()
     {
+
       header("Content-type: application/vnd-ms-excel");
       header("Content-Disposition: attachment; filename=Contoh.xls");
-
       $data['dataplasma'] = $this->m_simoga->get_all_data();
       $this->load->view('v_export', $data);
 
     }
 
+    public function export_detail_pks()
+    {
+      $kodekebun = $_GET['namapks'];
+      $tgl1 = $_GET['filtertgl1'];
+      
+      header("Content-type: application/vnd-ms-excel");
+      header("Content-Disposition: attachment; filename=Data PKS $kodekebun $tgl1.xls");
+      $data['dataplasma'] = $this->m_simoga->export_detail_pks($kodekebun, $tgl1);
+      $this->load->view('v_export', $data);
+      
+    }
 }
