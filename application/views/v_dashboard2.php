@@ -743,7 +743,7 @@
 					</div>
 				</div>
 			</div>
-			<?php } ?>
+		<?php } ?>
 
 		<div class="row justify-content-left">
 			<div class="col-6 col-sm-6 col-md-12">
@@ -836,7 +836,7 @@
 								$query1 = $this->db->query("SELECT SUM(netto) as diatas FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]' AND grade = '$ini[grade]' AND tanggal = DATE(NOW())");
 								$sql1 = $query1->result_array();
 
-								$query2 = $this->db->query("SELECT SUM(netto) as dibawah FROM sortasi_plasma AND tanggal = DATE(NOW())");
+								$query2 = $this->db->query("SELECT SUM(netto) as dibawah FROM sortasi_plasma WHERE tanggal = DATE(NOW())");
 								$sql2 = $query2->result_array();
 
 								foreach ($sql2 as $key => $itu) {
@@ -895,7 +895,7 @@
 								$query1 = $this->db->query("SELECT SUM(netto) as diatas FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]' AND grade = '$ini[grade]' AND tanggal = DATE(NOW())");
 								$sql1 = $query1->result_array();
 
-								$query2 = $this->db->query("SELECT SUM(netto) as dibawah FROM sortasi_plasma AND tanggal = DATE(NOW())");
+								$query2 = $this->db->query("SELECT SUM(netto) as dibawah FROM sortasi_plasma WHERE tanggal = DATE(NOW())");
 								$sql2 = $query2->result_array();
 
 								foreach ($sql2 as $key => $itu) {
