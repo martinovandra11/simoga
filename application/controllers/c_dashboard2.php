@@ -110,4 +110,95 @@ class c_dashboard2 extends CI_Controller
           $this->load->view('v_detailpks', $data);
           $this->load->view('templates/footer');
      }
+
+     public function rentang(){
+          $pks = $_GET['namapks'];
+          $tgl = $_GET['filtertgl1'];
+
+          if($tgl != ''){
+               $data['detail'] = $this->m_simoga->detail_pks_tanggal($pks, $tgl);
+          }else{
+               $data['detail'] = $this->m_simoga->detail_pks($pks);
+          }
+
+          if(!empty($data['detail'])){
+               foreach ($data['detail'] as $plasma) : ?>
+     
+               <?php
+     
+               $warna = "";
+               if($plasma['durasi'] < 20 && $plasma['bruto'] > 5000)
+               {
+                    $warna = 'background-color: #FF6363; color: #FFFFFFFF;'; // merah
+               }else if($plasma['durasi'] < 20 && $plasma['bruto'] < 5000)
+               {
+                    $warna = 'background-color: #FFEB9C;'; // kuning
+               }else{
+                    $warna = 'background-color: white;';
+               }
+               ?>
+               <?php
+                    $dura = $plasma['dura'];
+                    $tenera = $plasma['tenera'];
+                    $jmh_tbs = $plasma['jumlah_tbs_sample'];
+                    $a = "";
+                    $b = "";
+                    if($jmh_tbs == 0){
+                       $a = 0;
+                       $b = 0;
+                    }else{
+                       $a = ($dura/$jmh_tbs)*100;
+                       $b = ($tenera/$jmh_tbs)*100;
+                    }
+                     
+                    $c = "";
+                    if($plasma['status'] == 2){
+                       $c = "Data Lengkap";
+                    }else{
+                       $c = "Data Timbangan Belum Diisi";
+                    }
+                   ?>
+     
+               <tr>
+                    <td><?php echo $plasma['kode_kebun'];?></td>
+                    <td><?php echo $plasma['kode_plasma'];?></td>
+                    <td><?php echo $plasma['jenis'];?></td>
+                    <td><?php echo $plasma['tanggal'];?></td>
+                    <td style="<?= $warna ?>"><?php echo $plasma['masuk'];?></td>
+                    <td style="<?= $warna ?>"><?php echo $plasma['keluar'];?></td>
+                    <td style="<?= $warna ?>"><?php echo $plasma['durasi'];?></td>
+                    <td><?php echo $plasma['pemasok'];?></td>
+                    <td><?php echo $plasma['nopol'];?></td>
+                    <td><?php echo $plasma['supir'];?></td>
+                    <td style="<?= $warna ?>"><?php echo number_format($plasma['bruto'], 0, ',','.');?></td>
+                    <td><?php echo number_format($plasma['netto'], 0, ',','.');?></td>
+                    <td><?php echo number_format($plasma['jumlah_tbs_diterima'], 0, ',','.');?></td>
+                    <td><?php echo $plasma['tbs_mentah'];?></td>
+                    <td><?php echo $plasma['tbs_tankos'];?></td>
+                    <td><?php echo $plasma['tbs_kecil'];?></td>
+                    <td><?php echo $plasma['jumlah_tbs_sample'];?></td>
+                    <td><?php echo round($b,2);?></td>
+                    <td><?php echo round($a,2);?></td>
+                    <td><?php echo $plasma['grade'];?></td>
+                    <td><?php echo $plasma['potongan'];?></td>
+                    <td><?php echo $c;?></td>
+                    <td><?php echo $plasma['on_create'];?></td>
+                    <td>
+                    <?php echo anchor('c_rekap/hapus/'.$plasma['id_rekap'], '<div class="btn btn-danger btn-sm">
+                         <i class="fa fa-trash"></i>
+                         </div>'); ?>
+                    </td>
+               </tr>
+     
+               <?php
+               endforeach;
+               }else{
+               ?>
+     
+               <tr>
+                    <td style="text-align:center" colspan='19'>Tidak ada data</td>
+               </tr>
+               <?php
+           }
+     }
 }

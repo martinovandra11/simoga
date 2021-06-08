@@ -751,7 +751,7 @@
 			</div>
 		</div>
 		<?php foreach ($pks as $ks) :
-			$jumlahnetto = $this->db->query("SELECT SUM(netto) AS jml_netto FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]'");
+			$jumlahnetto = $this->db->query("SELECT SUM(netto) AS jml_netto FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]' AND tanggal = DATE(NOW())");
 			$jmlnetto = $jumlahnetto->result_array();
 
 			foreach ($jmlnetto as $jn) : ?>
@@ -778,7 +778,7 @@
 								$query1 = $this->db->query("SELECT SUM(netto) as diatas FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]' AND grade = '$ini[grade]' AND tanggal = DATE(NOW())");
 								$sql1 = $query1->result_array();
 
-								$query2 = $this->db->query("SELECT SUM(netto) as dibawah FROM sortasi_plasma");
+								$query2 = $this->db->query("SELECT SUM(netto) as dibawah FROM sortasi_plasma WHERE tanggal = DATE(NOW())");
 								$sql2 = $query2->result_array();
 
 								foreach ($sql2 as $key => $itu) {
@@ -828,7 +828,7 @@
 						<div class="row justify-content-left">
 
 							<?php
-							$query = $this->db->query("SELECT DISTINCT kode_kebun, grade  FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]'ORDER BY kode_kebun");
+							$query = $this->db->query("SELECT DISTINCT kode_kebun, grade  FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]' ORDER BY kode_kebun");
 							$sql = $query->result_array();
 
 							foreach ($sql as $key => $ini) {
@@ -836,7 +836,7 @@
 								$query1 = $this->db->query("SELECT SUM(netto) as diatas FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]' AND grade = '$ini[grade]' AND tanggal = DATE(NOW())");
 								$sql1 = $query1->result_array();
 
-								$query2 = $this->db->query("SELECT SUM(netto) as dibawah FROM sortasi_plasma");
+								$query2 = $this->db->query("SELECT SUM(netto) as dibawah FROM sortasi_plasma AND tanggal = DATE(NOW())");
 								$sql2 = $query2->result_array();
 
 								foreach ($sql2 as $key => $itu) {
@@ -887,7 +887,7 @@
 						<div class="row justify-content-left">
 
 							<?php
-							$query = $this->db->query("SELECT DISTINCT kode_kebun, grade  FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]'ORDER BY kode_kebun");
+							$query = $this->db->query("SELECT DISTINCT kode_kebun, grade  FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]' ORDER BY kode_kebun");
 							$sql = $query->result_array();
 
 							foreach ($sql as $key => $ini) {
@@ -895,7 +895,7 @@
 								$query1 = $this->db->query("SELECT SUM(netto) as diatas FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]' AND grade = '$ini[grade]' AND tanggal = DATE(NOW())");
 								$sql1 = $query1->result_array();
 
-								$query2 = $this->db->query("SELECT SUM(netto) as dibawah FROM sortasi_plasma");
+								$query2 = $this->db->query("SELECT SUM(netto) as dibawah FROM sortasi_plasma AND tanggal = DATE(NOW())");
 								$sql2 = $query2->result_array();
 
 								foreach ($sql2 as $key => $itu) {
@@ -946,7 +946,7 @@
 						<div class="row justify-content-left">
 
 							<?php
-							$query = $this->db->query("SELECT DISTINCT kode_kebun, grade  FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]'ORDER BY kode_kebun");
+							$query = $this->db->query("SELECT DISTINCT kode_kebun, grade FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]' ORDER BY kode_kebun");
 							$sql = $query->result_array();
 
 							foreach ($sql as $key => $ini) {
@@ -1004,7 +1004,7 @@
 					<div class="row justify-content-left">
 
 						<?php
-						$query = $this->db->query("SELECT DISTINCT kode_kebun, grade  FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]'ORDER BY kode_kebun");
+						$query = $this->db->query("SELECT DISTINCT kode_kebun, grade  FROM sortasi_plasma WHERE kode_kebun = '$ks[kode_kebun]' ORDER BY kode_kebun");
 						$sql = $query->result_array();
 
 						foreach ($sql as $key => $ini) {

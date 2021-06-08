@@ -189,31 +189,28 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-  // $(document).ready(function() {
-  //   $("#filtertgl1").change(function() {
-  //     rekap();
-  //   });
-  //   $("#filtertgl2").change(function() {
-  //     rekap();
-  //   });
-  //   $("#kodekebun").change(function() {
-  //     rekap();
-  //   });
-  // });
+  $(document).ready(function() {
+    $("#filtertgl1").change(function() {
+      rekap();
+    });
+    $("#namapks").change(function() {
+      rekap();
+    });
+  });
 
-  // function rekap() {
-  //   var tgl1 = $("#filtertgl1").val();
-  //   var tgl2 = $("#filtertgl2").val();
+  function rekap() {
+    var pks = $("#namapks").val();
+    var tgl1 = $("#filtertgl1").val();
   //   var kbn = $("#kodekebun").val();
-  //   $.ajax({
-      // url: "<?= base_url('c_rekap/rentang') ?>",
-  //     data: "filtertgl1=" + tgl1 + "&filtertgl2=" + tgl2 + "&filterkebun=" + kbn,
-  //     success: function(data) {
-  //       $("#table-1 tbody").html(data);
+    $.ajax({
+      url: "<?= base_url('c_dashboard2/rentang') ?>",
+      data: "namapks=" + pks + "&filtertgl1=" + tgl1,
+      success: function(data) {
+        $("#table-1 tbody").html(data);
 
-  //       $('#table-1').css('display', 'block');
-  //       table.columns.adjust().draw();
-  //     }
-  //   });
-  // }
+        $('#table-1').css('display', 'block');
+        table.columns.adjust().draw();
+      }
+    });
+  }
 </script>

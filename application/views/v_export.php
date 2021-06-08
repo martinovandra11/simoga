@@ -81,29 +81,29 @@
                     ?>
 
                     <tr>
-                        <td><?php echo $plasma['kode_kebun'];?></td>
-                        <td><?php echo $plasma['kode_plasma'];?></td>
-                        <td><?php echo $plasma['jenis'];?></td>
-                        <td><?php echo $plasma['tanggal'];?></td>
-                        <td style="<?= $warna ?>"><?php echo $plasma['masuk'];?></td>
-                        <td style="<?= $warna ?>"><?php echo $plasma['keluar'];?></td>
-                        <td style="<?= $warna ?>"><?php echo $plasma['durasi'];?></td>
-                        <td><?php echo $plasma['pemasok'];?></td>
-                        <td><?php echo $plasma['nopol'];?></td>
-                        <td><?php echo $plasma['supir'];?></td>
-                        <td style="<?= $warna ?>"><?php echo number_format($plasma['bruto'], 0, ',','.');?></td>
-                        <td><?php echo number_format($plasma['netto'], 0, ',','.');?></td>
-                        <td><?php echo number_format($plasma['jumlah_tbs_diterima'], 0, ',','.');?></td>
-                        <td><?php echo $plasma['tbs_mentah'];?></td>
-                        <td><?php echo $plasma['tbs_tankos'];?></td>
-                        <td><?php echo $plasma['tbs_kecil'];?></td>
-                        <td><?php echo $plasma['jumlah_tbs_sample'];?></td>
-                        <td><?php echo round($b,2);?></td>
-                        <td><?php echo round($a,2);?></td>
-                        <td><?php echo $plasma['grade'];?></td>
-                        <td><?php echo $plasma['potongan'];?></td>
-                        <td><?php echo $c;?></td>
-                        <td><?php echo $plasma['on_create'];?></td>
+                        <td class="text-right"><?php echo $plasma['kode_kebun'];?></td>
+                        <td class="text-right"><?php echo $plasma['kode_plasma'];?></td>
+                        <td class="text-right"><?php echo $plasma['jenis'];?></td>
+                        <td class="text-right"><?php echo $plasma['tanggal'];?></td>
+                        <td class="text-right" style="<?= $warna ?>"><?php echo $plasma['masuk'];?></td>
+                        <td class="text-right" style="<?= $warna ?>"><?php echo $plasma['keluar'];?></td>
+                        <td class="text-right" style="<?= $warna ?>"><?php echo $plasma['durasi'];?></td>
+                        <td class="text-right"><?php echo $plasma['pemasok'];?></td>
+                        <td class="text-right"><?php echo $plasma['nopol'];?></td>
+                        <td class="text-right"><?php echo $plasma['supir'];?></td>
+                        <td class="text-right" style="<?= $warna ?>"><?php echo number_format($plasma['bruto'], 0, ',','.');?></td>
+                        <td class="text-right"><?php echo number_format($plasma['netto'], 0, ',','.');?></td>
+                        <td class="text-right"><?php echo number_format($plasma['jumlah_tbs_diterima'], 0, ',','.');?></td>
+                        <td class="text-right"><?php echo $plasma['tbs_mentah'];?></td>
+                        <td class="text-right"><?php echo $plasma['tbs_tankos'];?></td>
+                        <td class="text-right"><?php echo $plasma['tbs_kecil'];?></td>
+                        <td class="text-right"><?php echo $plasma['jumlah_tbs_sample'];?></td>
+                        <td class="text-right"><?php echo round($b,2);?></td>
+                        <td class="text-right"><?php echo round($a,2);?></td>
+                        <td class="text-right"><?php echo $plasma['grade'];?></td>
+                        <td class="text-right"><?php echo $plasma['potongan'];?></td>
+                        <td class="text-right"><?php echo $c;?></td>
+                        <td class="text-right"><?php echo $plasma['on_create'];?></td>
                     </tr>
 
                   <?php endforeach; } ?>
