@@ -9,7 +9,7 @@ class m_auth extends CI_Model {
 
         $result     = $this->db->where('username',$username)
                                ->where('password',$password)
-                               ->get('tbl_login');
+                               ->get('adminsimoga');
         
         if($result->num_rows() > 0)
         {

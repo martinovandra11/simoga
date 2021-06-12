@@ -6,7 +6,7 @@ class c_dashboard extends CI_Controller {
   {
       parent::__construct();
 
-      if($this->session->userdata('username') != 'admin')
+      if($this->session->userdata('username') == NULL)
         {
             $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
                 Silahkan login terlebih dahulu

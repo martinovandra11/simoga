@@ -351,6 +351,22 @@ class m_simoga extends CI_Model{
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
      }
 
+     public function kurang_duapuluh_sgh() {
+          return $this->db->query("SELECT * FROM `sortasi_plasma` WHERE MONTH(tanggal) = MONTH(NOW()) AND YEAR(tanggal) = YEAR(NOW()) AND bruto < 5000 && durasi < 20 AND kode_kebun in ('SGH','SPA','SGO')")->result_array();
+     }
+
+     public function kurang_duapuluh_tpu() {
+          return $this->db->query("SELECT * FROM `sortasi_plasma` WHERE MONTH(tanggal) = MONTH(NOW()) AND YEAR(tanggal) = YEAR(NOW()) AND bruto < 5000 && durasi < 20 AND kode_kebun in ('TPU','TME')")->result_array();
+     }
+
+     public function kurang_duapuluh_sbt() {
+          return $this->db->query("SELECT * FROM `sortasi_plasma` WHERE MONTH(tanggal) = MONTH(NOW()) AND YEAR(tanggal) = YEAR(NOW()) AND bruto < 5000 && durasi < 20 AND kode_kebun in ('SBT','LDA')")->result_array();
+     }
+
+     public function kurang_duapuluh_sta() {
+          return $this->db->query("SELECT * FROM `sortasi_plasma` WHERE MONTH(tanggal) = MONTH(NOW()) AND YEAR(tanggal) = YEAR(NOW()) AND bruto < 5000 && durasi < 20 AND kode_kebun in ('STA','TER','SIN')")->result_array();
+     }
+
      public function countkurang_duapuluh(){
           return $this->db->query("SELECT COUNT(id_rekap) AS KurangDuaPuluh FROM sortasi_plasma WHERE bruto < 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
      }
@@ -398,6 +414,22 @@ class m_simoga extends CI_Model{
 
      public function dualima(){
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE bruto > 5000 && durasi < 20 && YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
+     }
+
+     public function dualima_sgh(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) && bruto > 5000 && durasi < 20 AND kode_kebun in ('SGH','SPA','SGO')")->result_array();
+     }
+
+     public function dualima_tpu(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) && bruto > 5000 && durasi < 20 AND kode_kebun in ('TPU','TME')")->result_array();
+     }
+
+     public function dualima_sbt(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) && bruto > 5000 && durasi < 20 AND kode_kebun in ('SBT','LDA')")->result_array();
+     }
+
+     public function dualima_sta(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) && bruto > 5000 && durasi < 20 AND kode_kebun in ('STA','TER','SIN')")->result_array();
      }
 
      public  function count_dualima(){
