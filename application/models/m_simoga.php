@@ -10,9 +10,46 @@ class m_simoga extends CI_Model{
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun = '$kk' AND tanggal = '$tgl1'")->result_array();
      }
 
+     public function grafik_bongkar(){
+          return $this->db->query("SELECT COUNT(id_rekap) AS hitung
+          FROM sortasi_plasma 
+          WHERE bruto < 5000 && durasi < 20 && tanggal = DATE(NOW())")->result_array();
+     }
+
+     public function grafik_bongkar2(){
+          return $this->db->query("SELECT COUNT(id_rekap) AS hitung
+          FROM sortasi_plasma 
+          WHERE bruto > 5000 && durasi < 20 && tanggal = DATE(NOW())")->result_array();
+     }
+
+     public function pembelian(){
+          return $this->db->query("SELECT SUM(netto) as totalplasma 
+          FROM sortasi_plasma 
+          WHERE (jenis = 'plasma' 
+          OR jenis = 'plasma / t' 
+          OR jenis = 'plasma A1+' OR jenis = 'plasma A2+' OR jenis = 'plasma A3') AND tanggal = DATE(NOW())")->result_array();
+     }
+
+     public function pihaktiga(){
+          return $this->db->query("SELECT SUM(netto) as totalp3 
+          FROM sortasi_plasma 
+          WHERE (jenis = 'p3' OR jenis = 'kkpa' OR jenis = 'pt') 
+          AND tanggal  = DATE(NOW())")->result_array();
+     }
+
+     public function grafik_pks(){
+          return $this->db->query("SELECT kode_kebun, SUM(netto) AS netto 
+          FROM `sortasi_plasma` WHERE tanggal = DATE(NOW()) GROUP by kode_kebun")->result_array();
+     }
+
+     //grafik
+     public function g_grade(){
+          return $this->db->query("SELECT DISTINCT grade FROM sortasi_plasma WHERE tanggal = DATE(NOW())")->result_array();
+     }
+
      //DATA PER GRADING
      public function pks(){
-          return $this->db->query("SELECT DISTINCT kode_kebun FROM sortasi_plasma ORDER BY kode_kebun ")->result_array();
+          return $this->db->query("SELECT DISTINCT kode_kebun FROM sortasi_plasma WHERE tanggal = DATE(NOW()) ORDER BY kode_kebun ")->result_array();
      }
 
      public function detail_pks_tanggal($nama, $tgl){
@@ -294,6 +331,12 @@ class m_simoga extends CI_Model{
           return $this->db->query("SELECT COUNT(id_rekap) as JumlahPerHari 
           FROM sortasi_plasma WHERE 
           YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function count_yesterday(){
+          return $this->db->query("SELECT COUNT(id_rekap) as Kemarin 
+          FROM sortasi_plasma WHERE 
+          YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
      }
 
      public function count_mounth(){

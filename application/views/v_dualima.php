@@ -92,7 +92,7 @@
                         <td><?php echo $dua['kode_plasma']; ?></td>
                         <td><?php echo $dua['jenis']; ?></td>
                         <td><?php echo $dua['tanggal']; ?></td>
-                        <td style="<?= $warna ?>"><?php echo $dua['masuk']; ?></td>
+                        <td style="<?= $warna ?>"><?= $dua['masuk']; ?></td>
                         <td style="<?= $warna ?>"><?php echo $dua['keluar']; ?></td>
                         <td style="<?= $warna ?>"><?php echo $dua['durasi']; ?></td>
                         <td><?php echo $dua['pemasok']; ?></td>

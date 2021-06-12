@@ -42,6 +42,7 @@ class c_dashboard2 extends CI_Controller
           $data['sumnetto2_today'] = $this->m_simoga->sumnetto2_hariini();
 
           $data['hariini'] = $this->m_simoga->count_today();
+          $data['kemarin'] = $this->m_simoga->count_yesterday();
           $data['bulanini'] = $this->m_simoga->count_mounth();
           $data['rekap'] = $this->m_simoga->count_alldata();
           $data['hitung1'] = $this->m_simoga->count_bagian1();
@@ -94,8 +95,17 @@ class c_dashboard2 extends CI_Controller
           //Data Per PKS
           $data['pks'] = $this->m_simoga->pks();
 
+          //grafik
+          $data['grade_tampil'] = $this->m_simoga->g_grade();
+          $data['grafikbongkar'] = $this->m_simoga->grafik_bongkar();
+          $data['grafikbongkar2'] = $this->m_simoga->grafik_bongkar2();
+          $data['grafikpks'] = $this->m_simoga->grafik_pks();
+
+          //Pembelian 
+          $data['beli'] = $this->m_simoga->pembelian();
+          $data['pihaktiga'] = $this->m_simoga->pihaktiga();
           $this->load->view('templates/header');
-          $this->load->view('templates/sidebar');
+          // $this->load->view('templates/sidebar');
           $this->load->view('v_dashboard2', $data);
           $this->load->view('templates/footer');
      }
