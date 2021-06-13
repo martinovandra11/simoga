@@ -1,6 +1,6 @@
 <?php
 
-class c_dashboard2 extends CI_Controller
+class c_dashboard3 extends CI_Controller
 {
 
      public function __construct()
@@ -106,7 +106,7 @@ class c_dashboard2 extends CI_Controller
           $data['pihaktiga'] = $this->m_simoga->pihaktiga();
           $this->load->view('templates/header');
           $this->load->view('templates/sidebar');
-          $this->load->view('v_dashboard2', $data);
+          $this->load->view('v_dashboard3', $data);
           $this->load->view('templates/footer');
      }
 
