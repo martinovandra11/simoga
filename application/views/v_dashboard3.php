@@ -223,7 +223,7 @@
 				<div class="card card-statistic-1">
 					<div class="card-wrap">
 						<div class="card-header">
-							<h3>Informasi Grade Hari Ini</h3>
+							<h3>Informasi Grade Hari Ini ( Kg )</h3>
 						</div>
 						<div class="card-body">
 
@@ -294,7 +294,7 @@
 										theme: "light2", // "light2", "dark1", "dark2"
 										animationEnabled: true, // change to true		
 										title: {
-											text: "Jumlah Netto Per PKS"
+											text: "Jumlah Netto Per PKS ( Kg )"
 										},
 										data: [{
 											// Change type to "bar", "area", "spline", "pie",etc.
@@ -339,7 +339,7 @@
 									var chart2 = new CanvasJS.Chart("chartBongkar", {
 										animationEnabled: true,
 										title: {
-											text: "Informasi Lama Bongkar"
+											text: "Informasi Lama Bongkar ( Trip )"
 										},
 										data: [{
 											type: "doughnut",
