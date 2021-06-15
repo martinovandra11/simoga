@@ -101,9 +101,29 @@ class m_simoga extends CI_Model
           return $this->db->query("SELECT SUM(bruto) AS JumlahBruto FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
      }
 
+     public function sum_bruto_today_rayon($kode_kebun)
+     {
+          $kode = '';
+          for($i=0;$i<count($kode_kebun);$i++) {
+               if($i == 0 ) $kode .= "'".$kode_kebun[$i]."'";
+               else $kode .= ",'".$kode_kebun[$i]."'";
+          }
+          return $this->db->query("SELECT SUM(bruto) AS JumlahBruto FROM sortasi_plasma WHERE kode_kebun IN ($kode) AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
      public function sum_netto_today()
      {
           return $this->db->query("SELECT SUM(netto) AS JumlahNetto FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function sum_netto_today_rayon($kode_kebun)
+     {
+          $kode = '';
+          for($i=0;$i<count($kode_kebun);$i++) {
+               if($i == 0 ) $kode .= "'".$kode_kebun[$i]."'";
+               else $kode .= ",'".$kode_kebun[$i]."'";
+          }
+          return $this->db->query("SELECT SUM(netto) AS JumlahNetto FROM sortasi_plasma WHERE kode_kebun IN ($kode) AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
      }
 
      public function all_netto()
@@ -202,14 +222,44 @@ class m_simoga extends CI_Model
           return $this->db->query("SELECT SUM(bruto) AS JumlahBruto FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
      }
 
+     public function sum_bruto_yes_rayon($kode_kebun)
+     {
+          $kode = '';
+          for($i=0;$i<count($kode_kebun);$i++) {
+               if($i == 0 ) $kode .= "'".$kode_kebun[$i]."'";
+               else $kode .= ",'".$kode_kebun[$i]."'";
+          }
+          return $this->db->query("SELECT SUM(bruto) AS JumlahBruto FROM sortasi_plasma WHERE kode_kebun IN($kode) AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
+     }
+
      public function sum_netto_yes()
      {
           return $this->db->query("SELECT SUM(netto) AS JumlahNetto FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
      }
 
+     public function sum_netto_yes_rayon($kode_kebun)
+     {
+          $kode = '';
+          for($i=0;$i<count($kode_kebun);$i++) {
+               if($i == 0 ) $kode .= "'".$kode_kebun[$i]."'";
+               else $kode .= ",'".$kode_kebun[$i]."'";
+          }
+          return $this->db->query("SELECT SUM(netto) AS JumlahNetto FROM sortasi_plasma WHERE kode_kebun IN($kode) AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
+     }
+
      public function trip_yes()
      {
           return $this->db->query("SELECT COUNT(id_rekap) AS TripKemarin FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
+     }
+
+     public function trip_yes_rayon($kode_kebun)
+     {
+          $kode = '';
+          for($i=0;$i<count($kode_kebun);$i++) {
+               if($i == 0 ) $kode .= "'".$kode_kebun[$i]."'";
+               else $kode .= ",'".$kode_kebun[$i]."'";
+          }
+          return $this->db->query("SELECT COUNT(id_rekap) AS TripKemarin FROM sortasi_plasma WHERE kode_kebun IN($kode) AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
      }
 
      public function view_pls()
@@ -396,6 +446,26 @@ class m_simoga extends CI_Model
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
      }
 
+     public function get_data_sgh()
+     {
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun IN('SGH', 'SGO', 'SPA') AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function get_data_tpu()
+     {
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun IN('TPU', 'TME') AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function get_data_sbt()
+     {
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun IN('SBT', 'LDA') AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function get_data_sta()
+     {
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun IN('STA', 'TER', 'SIN') AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
      public function bulan_ini()
      { //nampilin semua data pada table sortasi_plasma pada bulan ini
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW())")->result_array();
@@ -408,11 +478,35 @@ class m_simoga extends CI_Model
           YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
      }
 
+     public function count_today_rayon($kode_kebun)
+     {
+          $kode = '';
+          for($i=0;$i<count($kode_kebun);$i++) {
+               if($i == 0 ) $kode .= "'".$kode_kebun[$i]."'";
+               else $kode .= ",'".$kode_kebun[$i]."'";
+          }
+          return $this->db->query("SELECT COUNT(id_rekap) as JumlahPerHari 
+          FROM sortasi_plasma
+          WHERE kode_kebun IN($kode) AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
      public function count_yesterday()
      {
           return $this->db->query("SELECT COUNT(id_rekap) as Kemarin 
           FROM sortasi_plasma WHERE 
           YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
+     }
+
+     public function count_yesterday_rayon($kode_kebun)
+     {
+          $kode = '';
+          for($i=0;$i<count($kode_kebun);$i++) {
+               if($i == 0 ) $kode .= "'".$kode_kebun[$i]."'";
+               else $kode .= ",'".$kode_kebun[$i]."'";
+          }
+          return $this->db->query("SELECT COUNT(id_rekap) as Kemarin 
+          FROM sortasi_plasma 
+          WHERE kode_kebun IN ($kode) AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
      }
 
      public function count_mounth()
@@ -601,6 +695,26 @@ class m_simoga extends CI_Model
           return $this->db->query("SELECT * FROM grade ")->result_array();
      }
 
+     public function grading_info_sgh()
+     {
+          return $this->db->query("SELECT * FROM grade WHERE unit IN('SGH','SPA','SGO')")->result_array();
+     }
+
+     public function grading_info_tpu()
+     {
+          return $this->db->query("SELECT * FROM grade WHERE unit IN('TPU','TME')")->result_array();
+     }
+
+     public function grading_info_sbt()
+     {
+          return $this->db->query("SELECT * FROM grade WHERE unit IN('SBT','LDA')")->result_array();
+     }
+
+     public function grading_info_sta()
+     {
+          return $this->db->query("SELECT * FROM grade WHERE unit IN('STA','TER','SIN')")->result_array();
+     }
+
      public function grading_info_dropdown()
      {
           return $this->db->query("SELECT DISTINCT grade FROM grade WHERE grade !=''")->result_array();
@@ -616,9 +730,29 @@ class m_simoga extends CI_Model
           return $this->db->query("SELECT * FROM grade WHERE grade = '$grd' && unit = '$kebun'")->result_array();
      }
 
+     public function kbn_grd_rayon($grading_rayon, $grd, $kebun)
+     {
+          $grd_rayon = '';
+          for($i=0;$i<count($grading_rayon);$i++) {
+               if($i == 0 ) $grd_rayon .= "'".$grading_rayon[$i]."'";
+               else $grd_rayon .= ",'".$grading_rayon[$i]."'";
+          }
+          return $this->db->query("SELECT * FROM grade WHERE unit IN ($grd_rayon) AND grade = '$grd' && unit = '$kebun'")->result_array();
+     }
+
      public function filter_grade($grd)
      {
           return $this->db->query("SELECT * FROM grade WHERE grade = '$grd'")->result_array();
+     }
+
+     public function filter_grade_rayon($filter_grading_rayon, $grd)
+     {
+          $fgr = '';
+          for($i=0;$i<count($filter_grading_rayon);$i++) {
+               if($i == 0 ) $fgr .= "'".$filter_grading_rayon[$i]."'";
+               else $fgr .= ",'".$filter_grading_rayon[$i]."'";
+          }
+          return $this->db->query("SELECT * FROM grade WHERE unit IN ($fgr) AND grade = '$grd'")->result_array();
      }
 
      public function filter_pks($kebun)

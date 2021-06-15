@@ -372,7 +372,7 @@
 				<div class="card card-statistic-1">
 					<div class="card-wrap">
 						<div class="card-header text-center">
-							<h3 class="text-dark">Plasma SGH</h3>
+							<h3 class="text-dark">Plasma TPU</h3>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -383,8 +383,8 @@
 										<th class="text-center">Produksi</th>
 										<th class="text-center">Persen</th>
 									</tr>
-									<?php if (!empty($totalpkssgh)) { ?>
-										<?php foreach ($totalpkssgh as $tpks) :
+									<?php if (!empty($totalpkstpu)) { ?>
+										<?php foreach ($totalpkstpu as $tpks) :
 											$detail_grade = $this->db->query("SELECT grade.grade,
 											(
 												SELECT SUM(netto) as a
@@ -408,7 +408,7 @@
 												<td>
 													<?php foreach ($detail_grade as $dg) : ?>
 														<?php if ($dg['totalnetto'] == NULL) $dg['totalnetto'] = 0 ?>
-														<div style="padding: 5px; text-align: center;"><?= round($dg['totalnetto'] / $tpks['totalpkssgh'] * 100, 2); ?> %</div>
+														<div style="padding: 5px; text-align: center;"><?= round($dg['totalnetto'] / $tpks['totalpkstpu'] * 100, 2); ?> %</div>
 													<?php endforeach; ?>
 												</td>
 											</tr>
@@ -486,7 +486,7 @@
 				<div class="card card-statistic-1">
 					<div class="card-wrap">
 						<div class="card-header text-center">
-							<h3 class="text-dark">Plasma TPU</h3>
+							<h3 class="text-dark">Plasma SGH</h3>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -497,8 +497,8 @@
 										<th class="text-center">Produksi</th>
 										<th class="text-center">Persen</th>
 									</tr>
-									<?php if (!empty($totalpkstpu)) { ?>
-										<?php foreach ($totalpkstpu as $tpks) :
+									<?php if (!empty($totalpkssgh)) { ?>
+										<?php foreach ($totalpkssgh as $tpks) :
 											$detail_grade = $this->db->query("SELECT grade.grade,
 											(
 												SELECT SUM(netto) as a
@@ -522,7 +522,7 @@
 												<td>
 													<?php foreach ($detail_grade as $dg) : ?>
 														<?php if ($dg['totalnetto'] == NULL) $dg['totalnetto'] = 0 ?>
-														<div style="padding: 5px; text-align: center;"><?= round($dg['totalnetto'] / $tpks['totalpkstpu'] * 100, 2); ?> %</div>
+														<div style="padding: 5px; text-align: center;"><?= round($dg['totalnetto'] / $tpks['totalpkssgh'] * 100, 2); ?> %</div>
 													<?php endforeach; ?>
 												</td>
 											</tr>
@@ -538,6 +538,10 @@
 					</div>
 				</div>
 			</div>
+
+			
+
+			
 
 			<div class="col-6 col-md-6">
 				<div class="card card-statistic-1">
