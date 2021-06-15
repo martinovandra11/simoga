@@ -41,34 +41,33 @@
                     <li class="menu-header">Dashboard</li>
                     <li class="<?php if ($this->uri->uri_string() == 'c_dashboard2') {
                                     echo 'nav-item active';
-                                } ?>"><a class="nav-link" href="<?= base_url('c_dashboard2') ?>"><i class="far fa-clock"></i> <span>Dashboard</span></a></li>
+                                } ?>"><a class="nav-link" href="<?= base_url('c_dashboard2') ?>"><i class="far fa-clock"></i><span>Dashboard</span></a></li>
 
-                    <li class="<?php if ($this->uri->uri_string() == 'c_dashboard3') {echo 'nav-item active';} ?>">
-                        <a class="nav-link" href="<?= base_url('c_dashboard3') ?>">
-                            <i class="far fa-clock"></i> 
-                            <span>Dashboard Pembelian Plasma Dan Pihak III</span>
-                        </a>
-                    </li>
+                    <?php if ($this->session->userdata('level') == 0) { ?>
+                    <li class="<?php if ($this->uri->uri_string() == 'c_dashboard3') {
+                                    echo 'nav-item active';
+                                } ?>"><a class="nav-link" href="<?= base_url('c_dashboard3') ?>"><i class="far fa-clock"></i><span>Dashboard Pembelian Plasma Dan Pihak III</span></a></li>
+                    <?php } ?>
 
                     <li class="menu-header">Total Inputan Trip</li>
                     <li class="<?php if ($this->uri->uri_string() == 'c_dashboard') {
                                     echo 'nav-item active';
                                 } ?>"><a class="nav-link" href="<?= base_url('c_dashboard') ?>"><i class="far fa-file"></i> <span>Trip Hari Ini</span></a></li>
-                    <?php if($this->session->userdata('level') == 0) { ?>
-                    <li class="<?php if ($this->uri->uri_string() == 'c_bulanini') {
-                                    echo 'nav-item active';
-                                } ?>"><a class="nav-link" href="<?= base_url('c_bulanini') ?>"><i class="far fa-file"></i> <span>Trip Bulan Ini</span></a></li>
+                    <?php if ($this->session->userdata('level') == 0) { ?>
+                        <li class="<?php if ($this->uri->uri_string() == 'c_bulanini') {
+                                        echo 'nav-item active';
+                                    } ?>"><a class="nav-link" href="<?= base_url('c_bulanini') ?>"><i class="far fa-file"></i> <span>Trip Bulan Ini</span></a></li>
                     <?php } ?>
                     <li class="<?php if ($this->uri->uri_string() == 'c_gradinginfo') {
                                     echo 'nav-item active';
                                 } ?>"><a class="nav-link" href="<?= base_url('c_gradinginfo') ?>"><i class="far fa-file"></i> <span>Informasi Grading</span></a></li>
-                    <?php if($this->session->userdata('level') == 0) { ?>
-                    <li class="<?php if ($this->uri->uri_string() == 'c_grading') {
-                                    echo 'nav-item active';
-                                } ?>"><a class="nav-link" href="<?= base_url('c_grading') ?>"><i class="far fa-file"></i> <span>Halaman Grading</span></a></li>
-                    <li class="<?php if ($this->uri->uri_string() == 'c_rekap') {
-                                    echo 'nav-item active';
-                                } ?>"><a class="nav-link" href="<?= base_url('c_rekap') ?>"><i class="far fa-file"></i> <span>Rekap Trip</span></a></li>
+                    <?php if ($this->session->userdata('level') == 0) { ?>
+                        <li class="<?php if ($this->uri->uri_string() == 'c_grading') {
+                                        echo 'nav-item active';
+                                    } ?>"><a class="nav-link" href="<?= base_url('c_grading') ?>"><i class="far fa-file"></i> <span>Halaman Grading</span></a></li>
+                        <li class="<?php if ($this->uri->uri_string() == 'c_rekap') {
+                                        echo 'nav-item active';
+                                    } ?>"><a class="nav-link" href="<?= base_url('c_rekap') ?>"><i class="far fa-file"></i> <span>Rekap Trip</span></a></li>
                     <?php } ?>
 
                     <li class="menu-header">Laporan Bongkar Bulan Ini</li>
