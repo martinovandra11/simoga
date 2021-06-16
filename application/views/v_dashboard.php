@@ -15,7 +15,7 @@
               <select class="form-control mb-3 ml-3 mr-3 col-2"  id="kebun" name="kebun">
                 <option value="#">Pilih PKS</option>
                 <?php foreach($kodekebun as $kbn) : ?>
-                  <option value="<?= $kbn['kode_kebun']?>"><?= $kbn['kode_kebun'] ?></option>
+                  <option value="<?= $kbn?>"><?= $kbn ?></option>
                 <?php endforeach; ?> 
               </select>
 

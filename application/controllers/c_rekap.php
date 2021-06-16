@@ -6,7 +6,7 @@ class c_rekap extends CI_Controller {
   {
       parent::__construct();
 
-      if($this->session->userdata('username') != 'admin')
+      if($this->session->userdata('username') == NULL)
         {
             $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
                 Silahkan login terlebih dahulu
@@ -240,6 +240,8 @@ class c_rekap extends CI_Controller {
     {
       $kodekebun = $_GET['namapks'];
       $tgl1 = $_GET['filtertgl1'];
+      if($tgl1 == '') $tgl1 = date("Y-m-d");
+      // else $tgl1 = $_GET['filtertgl1'];
       
       header("Content-type: application/vnd-ms-excel");
       header("Content-Disposition: attachment; filename=Data PKS $kodekebun $tgl1.xls");
