@@ -55,6 +55,33 @@ class m_simoga extends CI_Model
           return $this->db->query("SELECT DISTINCT grade FROM sortasi_plasma WHERE tanggal = DATE(NOW())")->result_array();
      }
 
+     public function count_pembelian2($tgl1, $tgl2, $kodekebun){
+          return $this->db->query("SELECT kode_kebun, SUM(netto) AS totalnetto FROM `sortasi_plasma` 
+          WHERE tanggal BETWEEN '$tgl1' AND '$tgl2' 
+          AND kode_kebun = '$kodekebun' GROUP BY kode_kebun")->result_array();
+     }
+
+     public function count_pembelian2_pihak3($tgl1, $tgl2, $kodekebun){
+          return $this->db->query("SELECT kode_kebun, SUM(netto) AS totalnetto FROM `sortasi_plasma` 
+          WHERE tanggal BETWEEN '$tgl1' AND '$tgl2' 
+          AND kode_kebun = '$kodekebun' 
+          AND (jenis = 'p3' OR jenis = 'kkpa' OR jenis = 'pt') GROUP BY kode_kebun")->result_array();
+     }
+
+     public function tabel_pemebelian($tgl1, $tgl2, $kodekebun){
+          return $this->db->query("SELECT tanggal, grade, SUM(netto) AS totalnettopks 
+          FROM sortasi_plasma 
+          WHERE tanggal BETWEEN '$tgl1' AND '$tgl2' 
+          AND kode_kebun = '$kodekebun' GROUP BY tanggal")->result_array();
+     }
+
+     public function tabel_pemebelian2($tgl1, $tgl2, $kodekebun){
+          return $this->db->query("SELECT grade.grade,
+          (SELECT SUM(netto) as a FROM sortasi_plasma 
+          WHERE sortasi_plasma.grade = grade.grade AND sortasi_plasma.kode_kebun = '$kodekebun' 
+          AND sortasi_plasma.tanggal 
+          BETWEEN '$tgl1' AND '$tgl2') as totalnetto FROM grade WHERE grade.unit = '$kodekebun'")->result_array();
+     }
      //DATA PER GRADING
      public function pks()
      {
