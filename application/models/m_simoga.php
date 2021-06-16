@@ -69,7 +69,7 @@ class m_simoga extends CI_Model
      }
 
      public function tabel_pemebelian($tgl1, $tgl2, $kodekebun){
-          return $this->db->query("SELECT tanggal, grade, SUM(netto) AS totalnettopks 
+          return $this->db->query("SELECT kode_kebun, tanggal, grade, SUM(netto) AS totalnettopks 
           FROM sortasi_plasma 
           WHERE tanggal BETWEEN '$tgl1' AND '$tgl2' 
           AND kode_kebun = '$kodekebun' GROUP BY tanggal")->result_array();
@@ -81,6 +81,10 @@ class m_simoga extends CI_Model
           WHERE sortasi_plasma.grade = grade.grade AND sortasi_plasma.kode_kebun = '$kodekebun' 
           AND sortasi_plasma.tanggal 
           BETWEEN '$tgl1' AND '$tgl2') as totalnetto FROM grade WHERE grade.unit = '$kodekebun'")->result_array();
+     }
+
+     public function grafikA1($tgl1, $tgl2, $kebun){
+          return $this->db->query("");
      }
      //DATA PER GRADING
      public function pks()
