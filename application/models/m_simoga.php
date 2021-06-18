@@ -87,7 +87,7 @@ class m_simoga extends CI_Model
           return $this->db->query("SELECT kode_kebun, tanggal, grade, SUM(netto) AS totalnettopks 
           FROM sortasi_plasma 
           WHERE tanggal BETWEEN '$tgl1' AND '$tgl2' 
-          AND kode_kebun = '$kodekebun' AND grade = 'A2' GROUP BY tanggal")->result_array();
+          AND kode_kebun = '$kodekebun' GROUP BY tanggal")->result_array();
      }
      //DATA PER GRADING
      public function pks()
