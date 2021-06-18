@@ -250,18 +250,19 @@
 				<div class="card card-statistic-1">
 					<div class="card-wrap">
 						<div class="card-header">
-							<h4>Ini Mana</h4>
+							
 						</div>
 						<div class="card-body border-1">
 						<?php 
 						$gradeA1 = array();
 						$x = array();
+						$tgl = array();
 						?>
 						<?php foreach($grafik_tabelbeli as $db) :  ?>
 							<?php 
 								$sql_grade = $this->db->query("SELECT grade.grade,
 								(SELECT SUM(netto) AS total FROM sortasi_plasma 
-								WHERE sortasi_plasma.grade = grade.grade 
+								WHERE sortasi_plasma.grade = 'A2'
 								AND sortasi_plasma.kode_kebun = '$db[kode_kebun]'
 								AND sortasi_plasma.tanggal = '$db[tanggal]' ) as totalnetto 
 								FROM grade WHERE grade.unit = '$db[kode_kebun]'");
@@ -278,13 +279,14 @@
 									}else{
 										$c = ($b/$a)*100;
 									}
-									array_push($gradeA1, array('x'=> date($db['tanggal']), 'y'=> $c));
-								?>
-								
+									
+									array_push($x, $c);
+									array_push($tgl, strtotime($db['tanggal']));
+									break;
+								?>	
 							<?php }  ?>
 								
-						<?php endforeach; ?>
-						<?php ?>
+						<?php endforeach;  ?>
 
 
 						<script>
@@ -294,7 +296,7 @@
 									text: "Grafik Grade Pembelian"
 								},
 								axisX: {
-									// valueFormatString: "new Date"
+									valueFormatString: "DD MMM,YY"
 								},
 								axisY:[{
 									title: "Persen",
@@ -303,7 +305,7 @@
 									labelFontColor: "#C24642",
 									titleFontColor: "#C24642",
 									includeZero: true,
-									suffix: " %"
+									suffix: "%"
 								}],
 								legend: {
 									cursor: "pointer",
@@ -314,12 +316,21 @@
 								},
 								data: [{
 									type: "line",
-									name: "Data",
+									name: "A2",
 									color: "#369EAD",
+									
+									yValueFormatString: "##,#0%",
+									suffix: "%",
 									showInLegend: true,
 									axisYIndex: 1,
-									dataPoints:
-										<?php echo json_encode($gradeA1, JSON_NUMERIC_CHECK); ?>
+									dataPoints:[
+										<?php 
+										foreach($tgl as $key=>$value){
+											echo '{ x: new Date('.date('Y,n-1,d',$tgl[$key]).'), y: '. round($x[$key],2).'},';
+										}
+										?>
+									]
+										
 									 
 								}]
 							});
@@ -350,6 +361,6 @@
 </div>
 
 <script>
-	window.onload = grafik1()
-	window.onload = grafik2()
+	window.onload = grafik1();
+	window.onload = grafik2();
 </script>

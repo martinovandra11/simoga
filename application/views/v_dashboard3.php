@@ -522,7 +522,18 @@
 												<td>
 													<?php foreach ($detail_grade as $dg) : ?>
 														<?php if ($dg['totalnetto'] == NULL) $dg['totalnetto'] = 0 ?>
-														<div style="padding: 5px; text-align: center;"><?= round($dg['totalnetto'] / $tpks['totalpkssgh'] * 100, 2); ?> %</div>
+														<?php 
+															$a = $dg['totalnetto'];
+															$b = $tpks['totalpkssgh'];
+															$c;
+
+															if($b == 0){
+																$c = 0;
+															}else{
+																$c = ($a / $b) * 100;
+															}
+														?>
+														<div style="padding: 5px; text-align: center;"><?= round($c, 2); ?> %</div>
 													<?php endforeach; ?>
 												</td>
 											</tr>
@@ -604,7 +615,7 @@
 		</div>
 </div>
 <script>
-	window.onload = tampil()
-	window.onload = tampil2()
-	window.onload = pks()
+	window.onload = tampil();
+	window.onload = tampil2();
+	window.onload = pks();
 </script>
