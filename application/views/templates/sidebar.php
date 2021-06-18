@@ -47,6 +47,9 @@
                     <li class="<?php if ($this->uri->uri_string() == 'c_dashboard3') {
                                     echo 'nav-item active';
                                 } ?>"><a class="nav-link" href="<?= base_url('c_dashboard3') ?>"><i class="far fa-clock"></i><span>Dashboard Pembelian Plasma Dan Pihak III</span></a></li>
+                    <li class="<?php if ($this->uri->uri_string() == 'c_dashboard4') {
+                                    echo 'nav-item active';
+                                } ?>"><a class="nav-link" href="<?= base_url('c_dashboard4') ?>"><i class="far fa-clock"></i><span>Laporan Grading Plasma dan Pihak III</span></a></li>
                     <?php } ?>
 
                     <li class="menu-header">Total Inputan Trip</li>

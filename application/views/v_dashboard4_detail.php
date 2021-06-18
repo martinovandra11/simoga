@@ -216,8 +216,8 @@
 							var chart = new CanvasJS.Chart("chartContainer", {
 								animationEnabled: true,
 								title:{
-									
-									horizontalAlign: "left"
+									text : "Tabel Total Pembelian",
+									horizontalAlign: "center"
 								},
 								data: [{
 									type: "doughnut",
@@ -253,102 +253,74 @@
 							<h4>Ini Mana</h4>
 						</div>
 						<div class="card-body border-1">
-						<?php foreach($tabelbeli as $db) :  ?>
+						<?php 
+						$gradeA1 = array();
+						$x = array();
+						?>
+						<?php foreach($grafik_tabelbeli as $db) :  ?>
 							<?php 
-								$sql = $this->db->query("SELECT grade.grade,
+								$sql_grade = $this->db->query("SELECT grade.grade,
 								(SELECT SUM(netto) AS total FROM sortasi_plasma 
-								WHERE sortasi_plasma.grade = 'A1' 
+								WHERE sortasi_plasma.grade = grade.grade 
 								AND sortasi_plasma.kode_kebun = '$db[kode_kebun]'
-								AND sortasi_plasma.tanggal = '$db[tanggal]' ) as totalnetto FROM grade WHERE grade.unit = '$db[kode_kebun]'");
+								AND sortasi_plasma.tanggal = '$db[tanggal]' ) as totalnetto 
+								FROM grade WHERE grade.unit = '$db[kode_kebun]'");
 
-								$tabelbeli2 = $sql->result_array();?>
+								$tabel_grade = $sql_grade->result_array();
+								
+								foreach($tabel_grade as $key => $val){ 
+									$a = $db['totalnettopks'];
+									$b = $val['totalnetto'];
+									$c;
 
-						<?php endforeach;?>
+									if($a == 0){
+										$c = 0;
+									}else{
+										$c = ($b/$a)*100;
+									}
+									array_push($gradeA1, array('x'=> date($db['tanggal']), 'y'=> $c));
+								?>
+								
+							<?php }  ?>
+								
+						<?php endforeach; ?>
+						<?php ?>
+
+
 						<script>
 							function grafik2() {
 								var chart = new CanvasJS.Chart("grafikKedua", {
 								title:{
 									text: "Grafik Grade Pembelian"
 								},
+								axisX: {
+									// valueFormatString: "new Date"
+								},
 								axisY:[{
-									title: "Order",
+									title: "Persen",
 									lineColor: "#C24642",
 									tickColor: "#C24642",
 									labelFontColor: "#C24642",
 									titleFontColor: "#C24642",
 									includeZero: true,
-									suffix: "k"
+									suffix: " %"
 								}],
-								
-								toolTip: {
-									shared: true
-								},
 								legend: {
 									cursor: "pointer",
 									itemclick: toggleDataSeries
 								},
+								toolTip: {
+									shared: true
+								},
 								data: [{
 									type: "line",
-									name: "Footfall",
+									name: "Data",
 									color: "#369EAD",
 									showInLegend: true,
-									// axisYIndex: 1,
-									dataPoints: [
-										{ x: 'b', y: 85.4 }, 
-										{ x: new Date(2017, 00, 14), y: 92.7 },
-										{ x: new Date(2017, 00, 21), y: 64.9 },
-										{ x: new Date(2017, 00, 28), y: 58.0 },
-										{ x: new Date(2017, 01, 4), y: 63.4 },
-										{ x: new Date(2017, 01, 11), y: 69.9 },
-										{ x: new Date(2017, 01, 18), y: 88.9 },
-										{ x: new Date(2017, 01, 25), y: 66.3 },
-										{ x: new Date(2017, 02, 4), y: 82.7 },
-										{ x: new Date(2017, 02, 11), y: 60.2 },
-										{ x: new Date(2017, 02, 18), y: 87.3 },
-										{ x: new Date(2017, 02, 25), y: 98.5 }
-									]
-								},
-								{
-									type: "line",
-									name: "Order",
-									color: "#C24642",
-									// axisYIndex: 0,
-									showInLegend: true,
-									dataPoints: [
-										{ x: new Date(2017, 00, 7), y: 32.3 }, 
-										{ x: new Date(2017, 00, 14), y: 33.9 },
-										{ x: new Date(2017, 00, 21), y: 26.0 },
-										{ x: new Date(2017, 00, 28), y: 15.8 },
-										{ x: new Date(2017, 01, 4), y: 18.6 },
-										{ x: new Date(2017, 01, 11), y: 34.6 },
-										{ x: new Date(2017, 01, 18), y: 37.7 },
-										{ x: new Date(2017, 01, 25), y: 24.7 },
-										{ x: new Date(2017, 02, 4), y: 35.9 },
-										{ x: new Date(2017, 02, 11), y: 12.8 },
-										{ x: new Date(2017, 02, 18), y: 38.1 },
-										{ x: new Date(2017, 02, 25), y: 42.4 }
-									]
-								},
-								{
-									type: "line",
-									name: "Revenue",
-									color: "#7F6084",
-									axisYType: "secondary",
-									showInLegend: true,
-									dataPoints: [
-										{ x: new Date(2017, 00, 7), y: 42.5 }, 
-										{ x: new Date(2017, 00, 14), y: 44.3 },
-										{ x: new Date(2017, 00, 21), y: 28.7 },
-										{ x: new Date(2017, 00, 28), y: 22.5 },
-										{ x: new Date(2017, 01, 4), y: 25.6 },
-										{ x: new Date(2017, 01, 11), y: 45.7 },
-										{ x: new Date(2017, 01, 18), y: 54.6 },
-										{ x: new Date(2017, 01, 25), y: 32.0 },
-										{ x: new Date(2017, 02, 4), y: 43.9 },
-										{ x: new Date(2017, 02, 11), y: 26.4 },
-										{ x: new Date(2017, 02, 18), y: 40.3 },
-										{ x: new Date(2017, 02, 25), y: 54.2 }
-									]
+									axisYIndex: 1,
+									dataPoints:
+										<?php echo json_encode($gradeA1, JSON_NUMERIC_CHECK); ?>
+									 
 								}]
 							});
 							chart.render();
@@ -359,9 +331,9 @@
 								} else {
 									e.dataSeries.visible = true;
 								}
-								e.chart.render();
+								chart.render();
 							}
-
+							
 							}
 							</script>
 

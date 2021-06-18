@@ -40,7 +40,7 @@ class c_dashboard4 extends CI_Controller
           $data['kodekebun'] = $this->m_simoga->get_kebun();
           
           //grafik grade
-          $data['A1'] = $this->m_simoga->grafikA1($tgl1, $tgl2, $kebun);
+          $data['grafik_tabelbeli'] = $this->m_simoga->grafik_tabel_pembelian($tgl1, $tgl2, $kebun);
           $this->load->view('templates/header');
           $this->load->view('templates/sidebar');
           $this->load->view('v_dashboard4_detail',$data);
