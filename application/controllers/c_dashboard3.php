@@ -99,6 +99,7 @@ class c_dashboard3 extends CI_Controller
           $data['grafikbongkar'] = $this->m_simoga->grafik_bongkar();
           $data['grafikbongkar2'] = $this->m_simoga->grafik_bongkar2();
           $data['grafikpks'] = $this->m_simoga->grafik_pks();
+          $data['grafikpks2'] = $this->m_simoga->grafik_pks2();
 
           //table grading per unit
           $data['totalpkssgh'] = $this->m_simoga->totalpkssgh();

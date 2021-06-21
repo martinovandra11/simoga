@@ -98,14 +98,16 @@
 								<tr>
 									<?php foreach($databeli as $db) :  ?>
 										<?php 
-											$a = $db['totalnetto'] / 1000;
+											(int)$c = $db['totalnetto'];
+											$a = $c / 1000;
 										?>
 										<td><?= $db['kode_kebun']?></td>
 										<td><?= round($a, 2)?> Ton</td>
 									<?php endforeach;?>
 									<?php foreach($databeli2 as $db) :  ?>
 										<?php 
-											$a = $db['totalnetto'] / 1000;
+											(int)$c = $db['totalnetto'];
+											$a = $c / 1000;
 										?>
 										<td><?= round($a, 2)?> Ton</td>
 									<?php endforeach;?>

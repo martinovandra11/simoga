@@ -49,6 +49,11 @@ class m_simoga extends CI_Model
           FROM `sortasi_plasma` WHERE tanggal = DATE(NOW()) GROUP by kode_kebun")->result_array();
      }
 
+     public function grafik_pks2()
+     {
+          return $this->db->query("SELECT DISTINCT (grade) AS grade FROM `sortasi_plasma` WHERE tanggal = DATE(NOW())")->result_array();
+     }
+
      //grafik
      public function g_grade()
      {

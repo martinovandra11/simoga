@@ -284,27 +284,33 @@
 						<div class="card-body">
 							<?php
 							foreach ($grafikpks as $g) {
-								// $itu = $g['hitung'];
+								
 								$pks[] = ['label' => $g['kode_kebun'], 'y' => $g['netto']];
 							}
 							?>
+								
 							<script>
 								function pks() {
 									var chart = new CanvasJS.Chart("chartPKS", {
 										theme: "light2", // "light2", "dark1", "dark2"
-										animationEnabled: true, // change to true		
+										animationEnabled: true, // change to true	
+										exportEnabled: true,	
 										title: {
 											text: "Jumlah Netto Per PKS ( Kg )"
 										},
+										
 										data: [{
 											// Change type to "bar", "area", "spline", "pie",etc.
 											type: "column",
-											dataPoints: <?= json_encode($pks, JSON_NUMERIC_CHECK); ?>
+											indexLabel: "{label} - {y}",
+											toolTipContent: "{label}: <strong>{y}</strong>",
+											dataPoints: <?= json_encode($pks, JSON_NUMERIC_CHECK); ?>	
 										}]
 									});
 									chart.render();
 								}
 							</script>
+							
 							<div id="chartPKS" style="height: 370px; width: 100%;"></div>
 						</div>
 					</div>
@@ -595,7 +601,18 @@
 												<td>
 													<?php foreach ($detail_grade as $dg) : ?>
 														<?php if ($dg['totalnetto'] == NULL) $dg['totalnetto'] = 0 ?>
-														<div style="padding: 5px; text-align: center;"><?= round($dg['totalnetto'] / $tpks['totalpkssta'] * 100, 2); ?> %</div>
+														<?php
+															$a = $tpks['totalpkssta'];
+															$b = $dg['totalnetto'];
+															$c;
+
+															if($a = 0){
+																$c = 0;
+															}else{
+																$c = ($b/$a)*100;
+															}
+														?>
+														<div style="padding: 5px; text-align: center;"><?= round($c, 2); ?> %</div>
 													<?php endforeach; ?>
 												</td>
 											</tr>
