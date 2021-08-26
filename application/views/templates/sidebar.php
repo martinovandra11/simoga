@@ -18,7 +18,7 @@
                                 <div class="d-sm-none d-lg-inline-block"><?= $this->session->userdata('username') ?></div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="c_auth/logout" class="dropdown-item has-icon text-danger">
+                            <a href="<?php echo base_url('c_auth/logout') ?>" class="dropdown-item has-icon text-danger">
                                 <i class="fas fa-sign-out-alt"></i>Logout
                             <?php } else { ?>
                     <li><?= anchor('c_auth/login'); ?></li>
@@ -41,12 +41,12 @@
                     <li class="menu-header">Dashboard</li>
                     <li class="<?php if ($this->uri->uri_string() == 'c_dashboard2') {
                                     echo 'nav-item active';
-                                } ?>"><a class="nav-link" href="<?= base_url('c_dashboard2') ?>"><i class="far fa-clock"></i><span>Dashboard</span></a></li>
+                                } ?>"><a class="nav-link" href="<?= base_url('c_dashboard2') ?>"><i class="far fa-clock"></i><span>Utama(Hari ini)</span></a></li>
 
                     <?php if ($this->session->userdata('level') == 0) { ?>
                     <li class="<?php if ($this->uri->uri_string() == 'c_dashboard3') {
                                     echo 'nav-item active';
-                                } ?>"><a class="nav-link" href="<?= base_url('c_dashboard3') ?>"><i class="far fa-clock"></i><span>Dashboard Pembelian Plasma Dan Pihak III</span></a></li>
+                                } ?>"><a class="nav-link" href="<?= base_url('c_dashboard3') ?>"><i class="far fa-clock"></i><span>Pembelian Plasma Dan Pihak III</span></a></li>
                     <li class="<?php if ($this->uri->uri_string() == 'c_dashboard4') {
                                     echo 'nav-item active';
                                 } ?>"><a class="nav-link" href="<?= base_url('c_dashboard4') ?>"><i class="far fa-clock"></i><span>Laporan Grading Plasma dan Pihak III</span></a></li>

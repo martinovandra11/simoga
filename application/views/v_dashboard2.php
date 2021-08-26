@@ -98,13 +98,12 @@
 							<?php
 							foreach ($jumlahtrip_yes as $ini) {
 							?>
-
 								<?= number_format($ini['TripKemarin'], 0, ',', '.'); ?> Trip
 
 							<?php } ?>
 						</div>
 						<div>
-							<a href="<?= base_url('c_dashboard') ?>">Lihat Data</a>
+							<a href="<?= base_url('c_dashboard/data_kemarin') ?>">Lihat Data</a>
 						</div>
 
 					</div>

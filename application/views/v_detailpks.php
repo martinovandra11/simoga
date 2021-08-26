@@ -2,7 +2,7 @@
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h1>Rekap Trip</h1>
+      <h1>Grade</h1>
     </div>
 
     <div class="row">

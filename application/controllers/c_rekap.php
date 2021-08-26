@@ -247,6 +247,5 @@ class c_rekap extends CI_Controller {
       header("Content-Disposition: attachment; filename=Data PKS $kodekebun $tgl1.xls");
       $data['dataplasma'] = $this->m_simoga->export_detail_pks($kodekebun, $tgl1);
       $this->load->view('v_export', $data);
-      
     }
 }

@@ -122,7 +122,7 @@
 					<div class="card card-statistic-1">
 						<div class="card-wrap">
 							<div class="card-header">
-								<h4>Tabel Grade Pembelian</h4>
+								<h3>Tabel Grade Pembelian</h3>
 							</div>
 							<div class="card-body border-1">
 								<Table class="table table-bordered table-striped table-hover">
@@ -200,7 +200,7 @@
 				<div class="card card-statistic-1">
 					<div class="card-wrap">
 						<div class="card-header">
-							<h4>grafik</h4>
+							
 						</div>
 						<div class="card-body border-1">
 

@@ -480,8 +480,10 @@ class m_simoga extends CI_Model
           return $this->db->query("SELECT COUNT(*) AS totalData FROM sortasi_plasma")->result_array();
      }
 
+
+     //nampilin semua data pada table sortasi_plasma pada hari ini
      public function get_data()
-     { //nampilin semua data pada table sortasi_plasma pada hari ini
+     { 
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
      }
 
@@ -503,6 +505,31 @@ class m_simoga extends CI_Model
      public function get_data_sta()
      {
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun IN('STA', 'TER', 'SIN') AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     //nampilin semua data pada table sortasi_plasma pada hari ini
+     public function get_data_yes(){
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
+     }
+
+     public function get_data_sghyes()
+     {
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun IN('SGH', 'SGO', 'SPA') AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
+     }
+
+     public function get_data_tpuyes()
+     {
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun IN('TPU', 'TME') AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
+     }
+
+     public function get_data_sbtyes()
+     {
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun IN('SBT', 'LDA') AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
+     }
+
+     public function get_data_stayes()
+     {
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun IN('STA', 'TER', 'SIN') AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW() - INTERVAL 1 DAY)")->result_array();
      }
 
      public function bulan_ini()
@@ -677,6 +704,11 @@ class m_simoga extends CI_Model
      public function get_kebun_today($kebun)
      {
           return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun ='$kebun' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW())")->result_array();
+     }
+
+     public function get_kebun_yesterday($kebun)
+     {
+          return $this->db->query("SELECT * FROM sortasi_plasma WHERE kode_kebun ='$kebun' AND YEAR(tanggal) = YEAR(NOW()) AND MONTH(tanggal)= MONTH(NOW()) AND DAY(tanggal)=DAY(NOW()- INTERVAL 1 DAY)")->result_array();
      }
 
      public function filter_kebun($kebun)

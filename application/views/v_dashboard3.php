@@ -279,7 +279,9 @@
 				<div class="card card-statistic-1">
 					<div class="card-wrap">
 						<div class="card-header">
-
+							<center>
+								<h3>Jumlah Netto Per PKS</h3>
+							</center>	
 						</div>
 						<div class="card-body">
 							<?php
@@ -296,7 +298,7 @@
 										animationEnabled: true, // change to true	
 										exportEnabled: true,	
 										title: {
-											text: "Jumlah Netto Per PKS ( Kg )"
+											
 										},
 										
 										data: [{
@@ -322,7 +324,9 @@
 				<div class="card card-statistic-1">
 					<div class="card-wrap">
 						<div class="card-header">
-
+							<center>
+								<h3>Informasi Lama Bongkar ( Trip )</h3>
+							</center>
 						</div>
 						<div class="card-body">
 
@@ -345,7 +349,7 @@
 									var chart2 = new CanvasJS.Chart("chartBongkar", {
 										animationEnabled: true,
 										title: {
-											text: "Informasi Lama Bongkar ( Trip )"
+											text: ""
 										},
 										data: [{
 											type: "doughnut",

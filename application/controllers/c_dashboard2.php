@@ -52,6 +52,7 @@ class c_dashboard2 extends CI_Controller
                $data['jumlahtrip_yes'] = $this->m_simoga->trip_yes();
                $data['jumlahbruto_yes'] = $this->m_simoga->sum_bruto_yes();
                $data['jumlahnetto_yes'] = $this->m_simoga->sum_netto_yes();
+               
           } else if ($this->session->userdata('level') == 1) {
                $kode_kebun = array('SGH', 'SGO', 'SPA');
                $data['hariini'] = $this->m_simoga->count_today_rayon($kode_kebun);
